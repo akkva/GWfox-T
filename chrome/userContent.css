@@ -1,0 +1,733 @@
+/* #######################################
+
+  ╔═══╗ ╔╗╔╗╔╗ ╔══╗ ╔══╗ ╔══╗╔══╗   ╔════╗
+  ║╔══╝ ║║║║║║ ║╔═╝ ║╔╗║ ╚═╗║║╔═╝   ╚═╗╔═╝
+  ║║╔═╗ ║║║║║║ ║╚═╗ ║║║║   ║╚╝║ ╔═══╗ ║║
+  ║║╚╗║ ║║║║║║ ║╔═╝ ║║║║   ║╔╗║ ╚═══╝ ║║
+  ║╚═╝║ ║╚╝╚╝║ ║║   ║╚╝║ ╔═╝║║╚═╗     ║║
+  ╚═══╝ ╚═╝╚═╝ ╚╝   ╚══╝ ╚══╝╚══╝     ╚╝
+
+  https://github.com/akkva/GWfox-T
+  
+  ######################################### */
+
+@media (-moz-mac-tahoe-theme) {
+:root {
+  --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
+  --border-color-interactive: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
+  --newtab-background-color-secondary: transparent !important;
+  --in-content-focus-outline-color: light-dark(#7db0f7, #2c749f) !important;
+  --focus-outline-color: light-dark(#7db0f7, #2c749f) !important;
+  --button-background-color-primary: light-dark(#007aff, #1280fd) !important;
+  --button-background-color-primary-hover: light-dark(#0075dd, #006bdc) !important;
+  --button-background-color-primary-active: light-dark(#005ebb, #0055bc) !important;
+  --in-content-primary-button-background: light-dark(#007aff, #1280fd) !important;
+  --in-content-primary-button-background-hover: light-dark(#0075dd, #006bdc) !important;
+  --in-content-primary-button-background-active: light-dark(#005ebb, #0055bc) !important;
+  --in-content-primary-button-text-color: #fff !important;
+  --checkbox-checked-bgcolor: light-dark(#007aff, #1280fd) !important;
+  --checkbox-checked-hover-bgcolor: light-dark(#0075dd, #006bdc) !important;
+  --checkbox-checked-active-bgcolor: light-dark(#005ebb, #0055bc) !important;
+  --brand-color-accent: light-dark(#007aff, #1280fd) !important;
+  --brand-color-accent-hover: light-dark(#0075dd, #006bdc) !important;
+  --brand-color-accent-active: light-dark(#005ebb, #0055bc) !important;
+  --newtab-primary-action-background: light-dark(#007aff, #1280fd) !important;
+  --color-accent-primary: light-dark(#007aff, #1280fd) !important;
+  --color-accent-primary-active: light-dark(#005ebb, #0055bc) !important;
+  --button-text-color-primary: #fff !important;
+  --border-color: rgba(105, 105, 105, .2) !important;
+  --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
+  --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
+  --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
+  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
+  --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
+  --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
+  --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
+  --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
+  @media not -moz-pref("gwt.atbc") {
+  --in-content-page-background: light-dark(#fff, #202121) !important;
+  --newtab-background-color: light-dark(#fff, #202121) !important;
+}
+}
+
+@media (prefers-color-scheme: dark) {
+:root {
+  --newtab-primary-element-text-color: #fff !important;
+@media not -moz-pref("gwt.atbc") {
+  --in-content-box-background: #282828 !important;
+  --in-content-table-background: #252525 !important;
+  --color-gray-80: #282828 !important;
+  --color-gray-90: #202121 !important;
+}
+}
+
+:root[dialogroot] {
+@media not -moz-pref("gwt.atbc") {
+  --background-color-canvas: #202121 !important;
+}
+}
+
+.home-section .section .sponsored-checkbox:checked:hover {
+  background-color: #436ee3 !important;
+}
+
+@-moz-document url-prefix(about:) {
+@media not -moz-pref("gwt.atbc") {
+body { background-color: #202121 !important; } }
+
+* {
+  --toolbar-button-foreground-active: #1280fd !important;
+  --primary-color: #1280fd !important;
+  --selected-background: rgba(18, 128, 253, .2) !important;
+  --popup-background: #313131 !important;
+  --popup-button-background-hover: #383838 !important;
+  --popup-button-background-active: #2b2b2b !important;
+  --toolbar-button-background-hover: #383838 !important;
+  --toolbar-button-background-active: #2b2b2b !important;
+@media not -moz-pref("gwt.atbc") {
+  --fxview-background-color: #202121 !important;
+  --in-content-page-background: #202121 !important;
+  --background-color-canvas: #202121 !important;
+  --input-text-background-color: #282828 !important;
+}
+}
+
+.toggle-button {
+  --toggle-background-color-pressed: #1280fd !important;
+  --toggle-background-color-pressed-hover: #1280fd !important;
+  --toggle-background-color-pressed-active: #417bde !important;
+  --toggle-dot-background-color-on-pressed: #fff !important;
+}
+
+#migrationWizardDialog {
+@media not -moz-pref("gwt.atbc") {
+  background: #202121 !important;
+}
+}
+}
+}
+
+@-moz-document url-prefix(about:), regexp("chrome://(?!browser\.xhtml).*") {
+input[type="search"] {
+  background-color: light-dark(rgba(85, 85, 85, .1), rgba(190, 190, 190, .1)) !important;
+  border-color: transparent !important;
+  outline-style: solid !important;
+  outline-color: transparent !important;
+  outline-width: 18px !important;
+  border-radius: 50px !important;
+
+&:is(:focus-visible, [focused]) {
+  outline-color: var(--focus-outline-color) !important;
+  outline-width: 3.5px !important;
+  outline-offset: -1px !important;
+  transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
+}
+}
+
+#searchInput[focused] { 
+  outline-color: var(--focus-outline-color) !important;
+  outline-width: 3.5px !important;
+  outline-offset: -1px !important;
+  transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
+}
+
+search-addons > search-textbox[focused] {
+  outline-color: var(--focus-outline-color) !important;
+  outline-width: 3.5px !important;
+  outline-offset: -1px !important;
+  transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
+}
+
+search-textbox {
+  background: light-dark(#eeeeef, #282828) !important;
+  border-color: transparent !important;
+  outline-style: solid !important;
+  outline-color: transparent !important;
+  outline-width: 18px !important;
+}
+
+input[type="checkbox"]:not(.reveal-password-checkbox) {
+  appearance: none !important;
+  background-color: transparent !important;
+  border-radius: 2px !important;
+  border: 2px solid rgba(165, 165, 165, .8) !important;
+  &:checked {
+  appearance: checkbox !important;
+}
+}
+
+input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
+  appearance: none !important;
+  background-color: transparent !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(165, 165, 165, .8) !important;
+  &:checked {
+  background-color: light-dark(#007aff, #1280fd) !important;
+  background-image: url("chrome://devtools/skin/images/linear-easing-swatch.svg") !important;
+  background-size: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-context-properties: fill;
+  fill: #fff;
+  border: none !important;
+  &:hover { background-color: light-dark(#0075dd, #006bdc) !important; }
+  &:hover:active { background-color: light-dark(#005ebb, #0055bc) !important; }
+}
+}
+
+.checkbox-check {
+  appearance: none !important;
+  background-color: transparent !important;
+  border-radius: 2px !important;
+  border: 2px solid rgba(165, 165, 165, .8) !important;
+  &[checked] {
+  appearance: checkbox !important;
+}
+}
+
+.radio-check {
+  appearance: none !important;
+  background-color: transparent !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(165, 165, 165, .8) !important;
+  &[selected] {
+  background-color: light-dark(#007aff, #1280fd) !important;
+  background-image: url("chrome://devtools/skin/images/linear-easing-swatch.svg") !important;
+  background-size: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-context-properties: fill;
+  fill: #fff;
+  border: none !important;
+  &:hover { background-color: light-dark(#0075dd, #006bdc) !important; }
+  &:hover:active { background-color: light-dark(#005ebb, #0055bc) !important; }
+}
+}
+}
+
+@-moz-document url-prefix(about:) {
+:root {
+  --link-color: light-dark(#007aff, #1280fd) !important;
+  --link-color-hover: light-dark(#0075dd, #006bdc) !important;
+  --link-color-active: light-dark(#005ebb, #0055bc) !important;
+  --link-color-visited: light-dark(#007aff, #1280fd) !important;
+}
+}
+
+@-moz-document url-prefix("about:firefoxview") {
+* {--fxview-border: transparent !important;}
+
+.card-container {
+  background: light-dark(#eeeeef, #282828) !important;
+  box-shadow: none !important;
+}
+}
+
+@-moz-document url-prefix("about:addons") {
+::after { content: none !important; }
+}
+
+@-moz-document url-prefix("about:preferences") {
+.navigation::after {
+  content: none !important;
+}
+}
+
+@-moz-document url("about:privatebrowsing") {
+:root {
+  --in-content-page-background: transparent !important;
+}
+
+body {
+  --newtab-search-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: repeating-linear-gradient(-45deg, #2d2d2d 0 250px, #202020 0 500px) !important;
+}
+
+.container {
+  margin-top: -40px !important;
+}
+
+.search-handoff-button {
+  background-color: rgba(25, 25, 25, .55) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  backdrop-filter: blur(15px) !important;
+  outline: none !important;
+  border: none !important;
+  fill: rgba(255, 255, 255, .7) !important;
+}
+
+.search-handoff-button.disabled {
+  opacity: 1 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  fill: rgba(255, 255, 255, .6) !important;
+}
+
+.fake-textbox {
+  color: #fff !important;
+}
+
+.search-handoff-button.disabled .fake-textbox {
+  color: #999 !important;
+}
+
+.logo {
+  background: url("chrome://browser/skin/privateBrowsing.svg") no-repeat center center !important;
+  background-size: 76px !important;
+  height: 76px !important;
+  width: 76px !important;
+  -moz-context-properties: fill;
+  fill: #b9b9b9;
+}
+
+.wordmark {
+  fill: #b9b9b9 !important;
+}
+
+.info, .promo-visible {
+  display: none;
+}
+}
+
+@-moz-document url("about:newtab"), url("about:home") {
+body { 
+  --newtab-search-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
+  background-image: var(--newtab-wallpaper, ""), repeating-linear-gradient(-45deg, var(--newtab-wallpaper-color, "") 0 250px, #fff 0 500px) !important;
+@media (prefers-color-scheme: dark) {
+  background-image: var(--newtab-wallpaper, ""), repeating-linear-gradient(-45deg, var(--newtab-wallpaper-color, "") 0 250px, #202121 0 500px) !important;
+}
+}
+
+*[style*="18c7861f-0c9d-48d4-a98c-fb8999e331bd.avif"] {
+  background-image: url("resource://builtin-themes/alpenglow/background-noodles-left.svg") !important;
+@media (prefers-color-scheme: dark) {
+  background-image: url("resource://builtin-themes/alpenglow/background-noodles-left-dark.svg") !important;
+}
+}
+
+@keyframes panel-grow {
+  0% {
+    transform: scale(.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.context-menu {
+  border-radius: 12px !important;
+  padding: 6px !important;
+  box-shadow: var(--bs1) !important;
+}
+
+.context-menu > ul {
+  padding: 0 !important;
+}
+
+.context-menu > ul > li > a,
+.context-menu > ul > li > button {
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+}
+
+.context-menu > ul > li.separator {
+  border-bottom: 1px solid light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1)) !important;
+}
+
+.topsite-form .form-wrapper input[type=text] {
+  border: none !important;
+  background: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  outline-style: solid !important;
+  outline-color: transparent !important;
+  outline-width: 18px !important;
+}
+
+.topsite-form .form-wrapper input[type=text]:focus {
+  outline-color: var(--focus-outline-color) !important;
+  outline-width: 3.5px !important;
+  outline-offset: -1px !important;
+  transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
+}
+
+.divider, .edit-topsites-wrapper .actions {
+  border-top: 1px solid light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1)) !important;
+}
+
+.selector, .actions button {
+  border: 1px solid light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1)) !important;
+}
+
+.outer-wrapper.only-search {
+  display: flex !important;
+  padding-block: 0 !important;
+}
+
+.search-inner-wrapper {
+  background-color: light-dark(rgba(255, 255, 255, .8), rgba(15, 15, 15, .7)) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  transition: background .5s !important;
+  z-index: 1;
+}
+
+.search-inner-wrapper:active {
+  background-color: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .8)) !important;
+  transition: background .5s !important;
+}
+
+.search-handoff-button {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  background-color: transparent !important;
+}
+
+.search-wrapper input {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+.contentSearchSuggestionTable {
+  border-radius: 6px !important;
+}
+
+.contentSearchSuggestionTable .contentSearchHeader,
+.contentSearchSuggestionTable .contentSearchSettingsButton {
+  border-color: transparent !important;
+}
+
+.contentSearchSuggestionTable .contentSearchOneOffsTable {
+  border-top: none !important;
+  background-color: transparent !important;
+}
+
+.contentSearchSuggestionTable .contentSearchSuggestionRow.selected {
+  background: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+}
+
+.contentSearchSuggestionTable .contentSearchSuggestionRow.selected:active {
+  background: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+}
+
+.contentSearchSuggestionTable .contentSearchOneOffItem {
+  border: none !important;
+  border-radius: 6px !important;
+  margin: 5px !important;
+  width: 32px !important;
+}
+
+.search-button {
+  border-radius: 0 12px 12px 0 !important;
+  background-color: transparent !important;
+  transition: background .5s !important;
+}
+
+.search-button:hover {
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .2)) !important;
+  transition: background .5s !important;
+}
+
+
+.search-button:focus {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .1)) !important;
+  transition: background .5s !important;
+}
+
+.icon-wrapper {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.customize-menu {
+  border-radius: 20px !important;
+}
+
+.tile, .context-menu-button.icon {
+  background-color: rgba(255, 255, 255, .8) !important;
+}
+
+.context-menu-button.icon:active {
+  background-color: rgba(255, 255, 255, .6) !important;
+}
+
+.context-menu-button {
+  fill: #000 !important;
+}
+
+.lightWallpaper .top-site-outer .title {
+  color: #000 !important;
+}
+
+.darkWallpaper .top-site-outer .title {
+  color: #fff !important;
+}
+
+@media not (prefers-color-scheme: dark) {
+.darkWallpaper .context-menu {
+  color-scheme: light !important;
+}
+
+:has(body[style*="18c7861f-0c9d-48d4-a98c-fb8999e331bd.avif"]) {
+.personalize-button:not(:hover, :active),
+.context-menu-button,
+.top-site-outer:not(:hover, :active, .active),
+.logo-and-wordmark .wordmark, .icon.icon-pin-small {
+  color-scheme: light !important;
+}
+
+.top-site-outer .title {
+  color: #000 !important;
+}
+}
+}
+
+.tile {
+  border-radius: 20px !important;
+  width: 72px !important;
+  height: 72px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  border: none !important;
+  transition: background .5s !important;
+}
+
+.tile:active {
+  background-color: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .8)) !important;
+  transition: background .5s !important;
+}
+
+.top-site-outer, .top-site-button,
+.top-site-icon:not(.search-topsite) {
+  background-color: transparent !important;
+}
+
+.context-menu-button {
+  inset-inline-end: -9px !important;
+}
+
+.top-site-outer .top-site-inner > a {
+  padding: unset !important;
+}
+
+.edit-topsites-wrapper .top-site-outer {
+  display: none !important;
+}
+
+.context-menu-button.icon {
+  border-radius: 50px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+}
+
+[data-l10n-id="newtab-custom-recent-toggle"],
+.contentSearchSuggestionTable .contentSearchHeader,
+.wallpaper-attribution, .logo-and-wordmark,
+.icon.icon-pin-small, .card-outer,
+.section-title-container,
+.customize-menu .close-button-wrapper {
+  display: none !important;
+}
+
+.top-site-outer:hover .icon.icon-pin-small {
+  display: inline-block !important;
+}
+
+.wallpaper-input:checked {
+  outline-color: transparent !important;
+}
+
+.wallpaper-list .wallpaper-input:checked {
+  outline-color: #1280fd !important;
+}
+
+.wallpaper-input:checked, .wallpaper-input.selected {
+  box-shadow: none !important;
+}
+
+.modal-overlay, .modalOverlayOuter {
+  background: none !important;
+}
+
+.modal {
+  border-radius: 20px !important;
+  border: none !important;
+  animation-name: panel-grow;
+  animation-duration: 250ms;
+  background-color: var(--bg4) !important;
+}
+
+.modal, .tile, .context-menu-button.icon, .search-inner-wrapper {
+  backdrop-filter: blur(15px) !important;
+}
+
+.modal, .contentSearchSuggestionTable {
+  box-shadow: var(--bs1) !important;
+}
+
+.customize-menu {
+  background-color: var(--bg4) !important;
+  backdrop-filter: blur(15px) !important;
+  box-shadow: var(--bs1) !important;
+  margin: 16px 0 0 0 !important;
+  height: calc(100% - 16px) !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.customize-menu-animate-wrapper {
+  box-shadow: none !important;
+:has(.category.wallpaper-list) {
+.category-header, .category-list, ~ * {
+  display: none !important;
+}
+}
+}
+
+.context-menu, .contentSearchSuggestionTable, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .personalize-button {
+  backdrop-filter: blur(15px) !important;
+  background-color: var(--bg4) !important;
+}
+
+.wallpaper-list.category {
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  inset-inline-start: 0 !important;
+  padding: 10px !important;
+  transition: none !important;
+  animation: .25s ease-in panel-grow;
+}
+
+.weatherNotAvailable, .weatherCard, .weatherInfoLink, .personalize-button {
+  border-radius: 50px !important;
+}
+
+.weatherCard {
+  box-shadow: none !important;
+  padding: 15px !important;
+}
+
+.weatherSponsorText {
+  display: none;
+}
+
+.weatherButtonContextMenuWrapper {
+  background: none !important;
+  box-shadow: none !important;
+  margin-left: 10px;
+  margin-top: 10px;
+&:not(:has(.context-menu)) {
+  visibility: collapse;
+.weatherCard:hover & {
+  visibility: visible;
+}
+}
+> .weatherButtonContextMenu {
+  min-height: 24px !important;
+  min-width: 24px !important;
+  max-height: 24px !important;
+  max-width: 24px !important;
+  border-radius: 50px !important;
+}
+&::after {
+  content: none !important;
+}
+}
+
+.location-input-wrapper input {
+  border: none !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+.modal, .contentSearchSuggestionTable, .customize-menu, .context-menu {
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
+}
+}
+
+.search-inner-wrapper, .tile, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button {
+  background-color: var(--bg1) !important;
+  box-shadow: none !important;
+&:hover {background-color: var(--bg2) !important;}
+&:active {background-color: var(--bg3) !important;}
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper") {
+  background-color: var(--bg4) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+&:hover {
+  background-color: var(--bg5) !important;
+}
+&:active {
+  background-color: var(--bg6) !important;
+}
+}
+}
+
+@media (prefers-color-scheme: dark) {
+.lightWallpaper .context-menu {
+  color-scheme: dark !important;
+}
+
+.lightWallpaper .tile {
+  background-color: rgba(15, 15, 15, .7) !important;
+}
+
+.lightWallpaper .tile:hover {
+  background-color: rgba(15, 15, 15, .75) !important;
+}
+
+.lightWallpaper .tile:active {
+  background-color: rgba(15, 15, 15, .6) !important;
+}
+
+.lightWallpaper .context-menu-button.icon {
+  background-color: rgba(15, 15, 15, .7) !important;
+}
+
+.lightWallpaper .context-menu-button.icon:hover {
+  background-color: rgba(15, 15, 15, .75) !important;
+}
+
+.lightWallpaper .context-menu-button.icon:active {
+  background-color: rgba(15, 15, 15, .6) !important;
+}
+
+.context-menu-button {
+  fill: #fff !important;
+}
+}
+
+@media (prefers-color-scheme: light) {
+.darkWallpaper .tile {
+  background-color: rgba(255, 255, 255, .7) !important;
+}
+
+.darkWallpaper .tile:hover {
+  background-color: rgba(255, 255, 255, .75) !important;
+}
+
+.darkWallpaper .tile:active {
+  background-color: rgba(255, 255, 255, .6) !important;
+}
+
+.darkWallpaper .context-menu-button.icon {
+  background-color: rgba(255, 255, 255, .7) !important;
+}
+
+.darkWallpaper .context-menu-button.icon:hover {
+  background-color: rgba(255, 255, 255, .75) !important;
+}
+
+.darkWallpaper .context-menu-button.icon:active {
+  background-color: rgba(255, 255, 255, .6) !important;
+}
+}
+}
+}
