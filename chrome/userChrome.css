@@ -291,6 +291,12 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 
+@media (min-width: 610px) and (max-width: 866px) {
+.toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #sidebar-button) {
+  visibility: collapse;
+}
+}
+
 @media not -moz-pref("sidebar.verticalTabs") {
 #TabsToolbar {
   order: 1;
@@ -356,10 +362,6 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 @media (min-width: 610px) and (max-width: 866px) {
-.toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #sidebar-button) {
-  visibility: collapse;
-}
-
 #back-button {
   padding-left: 4px !important;
   padding-right: 4px !important;
@@ -385,6 +387,16 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   padding-left: 3px !important;
   padding-right: 3px !important;
 }
+}
+}
+}
+
+@media -moz-pref("sidebar.verticalTabs") {
+#nav-bar {
+  padding-inline-end: 126px !important;
+
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
+  padding-inline-end: 162px !important;
 }
 }
 }
