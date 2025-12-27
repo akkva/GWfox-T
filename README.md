@@ -25,3 +25,5 @@
 ## Further customization
 
 - Add `gwt.atbc` to enable [Adaptive Tab Bar Colour](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-colour)
+<img width="1109" height="761" alt="01" src="https://github.com/user-attachments/assets/8918dcfb-7368-4400-b026-8451ba268577" />
+<img width="1109" height="761" alt="02" src="https://github.com/user-attachments/assets/428465b1-9c8d-4ff2-80f2-5ff36a9310ed" />
