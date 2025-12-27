@@ -332,6 +332,10 @@ body {
 .context-menu > ul > li > button {
   border-radius: 8px !important;
   padding: 6px 12px !important;
+&:is(:focus, :hover) {
+  background: -moz-menuhover !important;
+  color: #fff !important;
+}
 }
 
 .context-menu > ul > li.separator {
