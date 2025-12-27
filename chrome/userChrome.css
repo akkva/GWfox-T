@@ -2969,14 +2969,17 @@ tab-group > .tabbrowser-tab,
   outline-offset: -1px !important;
 }
 @media -moz-pref("gwt.atbc") {
-  background: light-dark(rgba(255, 255, 255, .5), rgba(255, 255, 255, .04)) !important;
+  background: var(--bg5) !important;
 }
 @media (min-width: 610px) and (max-width: 866px) {
   visibility: collapse;
 }
 @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-  background: var(--toolbox-bgcolor) !important;
-  background-image: var(--bg5) !important;
+  background: var(--bg5) !important;
+  backdrop-filter: blur(15px) !important;
+@media (not -moz-pref("gwt.atbc")) and (prefers-color-scheme: light) {
+  outline: solid 1px rgba(255, 255, 255, .4) !important;
+}
 @media (min-width: 610px) and (max-width: 866px) {
   visibility: visible;
 }
