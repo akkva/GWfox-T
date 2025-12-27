@@ -2404,6 +2404,7 @@ sidebar-tab-row {
   content: url("chrome://global/skin/icons/close.svg") !important;
 }
 
+#context-previewlink::before,
 #context-openlinkincurrent::before,
 #placesContext_open::before {
   content: url(chrome://global/skin/icons/defaultFavicon.svg) !important;
@@ -2685,6 +2686,15 @@ sidebar-tab-row {
 #context_unpinSelectedTabs::before {
   content: url("chrome://newtab/content/data/content/assets/glyph-unpin-16.svg") !important;
   scale: .8;
+}
+
+#context_moveTabToSplitView::before {
+  content: url("chrome://global/skin/reader/content-width-20.svg") !important;
+  scale: .6;
+}
+
+#context_separateSplitView::before {
+  content: url("chrome://browser/skin/tab.svg") !important;
 }
 
 #context_duplicateTab::before,
@@ -3072,6 +3082,10 @@ tab-group > .tabbrowser-tab,
 &:active {
   background: var(--button-active-bgcolor) !important;
 }
+}
+
+#tabs-newtab-button, #vertical-tabs-newtab-button {
+  border-radius: 50px !important;
 }
 
 tab-split-view-wrapper {
