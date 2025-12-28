@@ -1334,8 +1334,17 @@ tab-group > tab-split-view-wrapper & {
   --panel-padding: 0 !important;
 }
 
-.tab-group-editor-panel input {
+.tab-group-editor-panel {
+input {
   border-radius: 50px !important;
+}
+
+.tab-group-editor-swatch {
+  border-radius: 50px !important;
+input:checked + & {
+  border-color: light-dark(rgba(0, 0, 0, .4), rgba(255, 255, 255, .2)) !important;
+}
+}
 }
 
 .tab-group-overflow-count-container {
