@@ -16,24 +16,25 @@
   --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --border-color-interactive: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --newtab-background-color-secondary: transparent !important;
-  --in-content-focus-outline-color: light-dark(#7db0f7, #2c749f) !important;
-  --focus-outline-color: light-dark(#7db0f7, #2c749f) !important;
-  --button-background-color-primary: light-dark(#007aff, #1280fd) !important;
-  --button-background-color-primary-hover: light-dark(#0075dd, #006bdc) !important;
-  --button-background-color-primary-active: light-dark(#005ebb, #0055bc) !important;
-  --in-content-primary-button-background: light-dark(#007aff, #1280fd) !important;
-  --in-content-primary-button-background-hover: light-dark(#0075dd, #006bdc) !important;
-  --in-content-primary-button-background-active: light-dark(#005ebb, #0055bc) !important;
+  --in-content-focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
+  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
+  --button-background-color-primary: var(--color-accent-primary) !important;
+  --button-background-color-primary-hover: var(--color-accent-primary-hover) !important;
+  --button-background-color-primary-active: var(--color-accent-primary-active) !important;
+  --in-content-primary-button-background: var(--color-accent-primary) !important;
+  --in-content-primary-button-background-hover: var(--color-accent-primary-hover) !important;
+  --in-content-primary-button-background-active: var(--color-accent-primary-active) !important;
   --in-content-primary-button-text-color: #fff !important;
-  --checkbox-checked-bgcolor: light-dark(#007aff, #1280fd) !important;
-  --checkbox-checked-hover-bgcolor: light-dark(#0075dd, #006bdc) !important;
-  --checkbox-checked-active-bgcolor: light-dark(#005ebb, #0055bc) !important;
-  --brand-color-accent: light-dark(#007aff, #1280fd) !important;
-  --brand-color-accent-hover: light-dark(#0075dd, #006bdc) !important;
-  --brand-color-accent-active: light-dark(#005ebb, #0055bc) !important;
-  --newtab-primary-action-background: light-dark(#007aff, #1280fd) !important;
-  --color-accent-primary: light-dark(#007aff, #1280fd) !important;
-  --color-accent-primary-active: light-dark(#005ebb, #0055bc) !important;
+  --checkbox-checked-bgcolor: var(--color-accent-primary) !important;
+  --checkbox-checked-hover-bgcolor: var(--color-accent-primary-hover) !important;
+  --checkbox-checked-active-bgcolor: var(--color-accent-primary-active) !important;
+  --brand-color-accent: var(--color-accent-primary) !important;
+  --brand-color-accent-hover: var(--color-accent-primary-hover) !important;
+  --brand-color-accent-active: var(--color-accent-primary-active) !important;
+  --newtab-primary-action-background: var(--color-accent-primary) !important;
+  --color-accent-primary: AccentColor !important;
+  --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
+  --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
   --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
@@ -76,8 +77,8 @@
 body { background-color: #202121 !important; } }
 
 * {
-  --toolbar-button-foreground-active: #1280fd !important;
-  --primary-color: #1280fd !important;
+  --toolbar-button-foreground-active: AccentColor !important;
+  --primary-color: AccentColor !important;
   --selected-background: rgba(18, 128, 253, .2) !important;
   --popup-background: #313131 !important;
   --popup-button-background-hover: #383838 !important;
@@ -93,8 +94,8 @@ body { background-color: #202121 !important; } }
 }
 
 .toggle-button {
-  --toggle-background-color-pressed: #1280fd !important;
-  --toggle-background-color-pressed-hover: #1280fd !important;
+  --toggle-background-color-pressed: AccentColor !important;
+  --toggle-background-color-pressed-hover: AccentColor !important;
   --toggle-background-color-pressed-active: #417bde !important;
   --toggle-dot-background-color-on-pressed: #fff !important;
 }
@@ -162,7 +163,7 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   border-radius: 50% !important;
   border: 2px solid rgba(165, 165, 165, .8) !important;
   &:checked {
-  background-color: light-dark(#007aff, #1280fd) !important;
+  background-color: AccentColor !important;
   background-image: url("chrome://devtools/skin/images/linear-easing-swatch.svg") !important;
   background-size: 8px;
   background-repeat: no-repeat;
@@ -170,8 +171,8 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   -moz-context-properties: fill;
   fill: #fff;
   border: none !important;
-  &:hover { background-color: light-dark(#0075dd, #006bdc) !important; }
-  &:hover:active { background-color: light-dark(#005ebb, #0055bc) !important; }
+  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
 }
 }
 
@@ -191,7 +192,7 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   border-radius: 50% !important;
   border: 2px solid rgba(165, 165, 165, .8) !important;
   &[selected] {
-  background-color: light-dark(#007aff, #1280fd) !important;
+  background-color: AccentColor !important;
   background-image: url("chrome://devtools/skin/images/linear-easing-swatch.svg") !important;
   background-size: 8px;
   background-repeat: no-repeat;
@@ -199,18 +200,18 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   -moz-context-properties: fill;
   fill: #fff;
   border: none !important;
-  &:hover { background-color: light-dark(#0075dd, #006bdc) !important; }
-  &:hover:active { background-color: light-dark(#005ebb, #0055bc) !important; }
+  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
 }
 }
 }
 
 @-moz-document url-prefix(about:) {
 :root {
-  --link-color: light-dark(#007aff, #1280fd) !important;
-  --link-color-hover: light-dark(#0075dd, #006bdc) !important;
-  --link-color-active: light-dark(#005ebb, #0055bc) !important;
-  --link-color-visited: light-dark(#007aff, #1280fd) !important;
+  --link-color: AccentColor !important;
+  --link-color-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
+  --link-color-active: color-mix(in srgb, AccentColor 90%, #000) !important;
+  --link-color-visited: AccentColor !important;
 }
 }
 
@@ -547,7 +548,7 @@ body {
 }
 
 .wallpaper-list .wallpaper-input:checked {
-  outline-color: #1280fd !important;
+  outline-color: AccentColor !important;
 }
 
 .wallpaper-input:checked, .wallpaper-input.selected {
