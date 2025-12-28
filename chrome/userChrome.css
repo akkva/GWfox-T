@@ -1723,6 +1723,14 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
 }
 }
 
+#downloadsListBox.allDownloadsListBox richlistitem[selected] {
+  background-color: var(--bg1) !important;
+}
+
+#downloadsListBox.allDownloadsListBox richlistitem[selected] .downloadProgress::-moz-progress-bar {
+  --download-progress-flare-color: var(--toolbarbutton-icon-fill-attention) !important;
+}
+
 #protections-popup-show-report-stack:hover:not([disabled=true]) {
   color: #fff !important;
 > .protections-popup-footer-button {
