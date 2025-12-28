@@ -7,7 +7,6 @@
 </picture>
 
 ## How to install
-
 - [Download the theme as a zip file](https://github.com/akkva/GWfox-T/archive/refs/heads/main.zip)
 - Open your profile directory
   - go to `about:support`
@@ -21,16 +20,11 @@
     - `sidebar.animation.enabled`
   - Set `widget.macos.native-context-menus` to false
 - Restart Firefox!
-
 ## Further customization
-
 - Add `gwt.atbc` to enable [Adaptive Tab Bar Colour](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-colour)
-
 ## Customizing Accent Color
-
 - Option 1: Follow System Theme Color
   - Sync with the system accent color by selecting a color in System Settings > Appearance.
-
 - Option 2: Manually Specify Accent Color
   - Add Configuration Flag: Open `about:config` and add a new preference named `gwt.ac`
   - Edit CSS Stylesheets: In your `userChrome.css` and `userContent.css` file, modify the value of the `--bg0` variable to your desired color.
