@@ -14,11 +14,13 @@
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 @media (-moz-mac-tahoe-theme) {
 :root {
-  --bg1: -moz-menuhover;
+  --bg0: #9536a4;
+  --bg1: light-dark(-moz-menuhover, color-mix(in srgb, -moz-menuhover 90%, #000));
   --bg2: light-dark(#fff, #454545);
   --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
   --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
   --bg5: light-dark(rgba(255, 255, 255, .5), rgba(255, 255, 255, .04));
+  --bg6: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff));
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --bs3: 0 4px 20px rgba(75, 75, 75, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
@@ -35,6 +37,7 @@
   --devtools-splitter-color: transparent !important;
   --button-text-color-primary: #fff !important;
   --button-primary-color: #fff !important;
+  --tab-loading-fill: AccentColor !important;
   --color-accent-primary: AccentColor !important;
   --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
   --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
@@ -73,6 +76,17 @@
   --border-radius-small: 12px !important;
   --button-border-radius: 50px !important;
   --in-content-background-color: light-dark(#fff, #202121) !important;
+@media -moz-pref("gwt.ac") {
+  --bg1: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --bg6: light-dark(color-mix(in srgb, var(--bg0) 20%, #fff), color-mix(in srgb, var(--bg0) 40%, #fff)) !important;
+  --toolbarbutton-icon-fill-attention: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --tab-loading-fill: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --color-accent-primary: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --color-accent-primary-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
+  --color-accent-primary-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
+  --focus-outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
+  :not(:-moz-window-inactive) {::selection {background:color-mix(in srgb, var(--bg0), transparent 75%) !important;}}
+}
 @media not -moz-pref("gwt.atbc") {
   --toolbar-bgcolor: light-dark(#fff, #202121) !important;
   --toolbox-bgcolor: light-dark(#fff, #202121) !important;
@@ -411,7 +425,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 .urlbarView-row:is([selected], :hover) & {
-  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
+  color: var(--bg6) !important;
 }
 }
 
@@ -431,7 +445,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 > .urlbarView-row-inner:hover > .urlbarView-no-wrap > .urlbarView-action {
-  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
+  color: var(--bg6) !important;
 }
 }
 
@@ -439,14 +453,14 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   color: light-dark(#3e3f40, #c4c4c5) !important;
   font-weight: unset !important;
 &:hover {
-  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
+  color: var(--bg6) !important;
 }
 &[data-action^="tabgroup-"] {
   color: light-dark(#3e3f40, #c4c4c5) !important;
   background-color: var(--button-bgcolor) !important;
 &:hover {
   opacity: 1 !important;
-  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
+  color: var(--bg6) !important;
   background-color: var(--bg1) !important;
 }
 }
@@ -1693,8 +1707,15 @@ menupopup .bookmark-item {
   margin: 2px 0 !important;
 }
 
+menu,
+menuitem {
+&:where([_moz-menuactive]:not([disabled="true"])) {
+  background-color: var(--bg1) !important;
+  color: #fff !important;
+}
+}
+
 #downloadsListBox > richlistitem, #downloadsHistory,
-menupopup menu, menupopup menuitem, menupopup menu[_moz-menuactive], menupopup menuitem[_moz-menuactive],
 toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduce-button2, #appMenu-fullscreen-button2) {
 &:hover:not([disabled=true]) {
   background-color: var(--bg1) !important;
