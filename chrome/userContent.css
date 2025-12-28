@@ -13,6 +13,15 @@
 
 @media (-moz-mac-tahoe-theme) {
 :root {
+  --bg0: #9536a4;
+  --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
+  --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
+  --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
+  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
+  --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
+  --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
+  --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
+  --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --newtab-background-color-secondary: transparent !important;
   --border-color-interactive: var(--in-content-box-border-color) !important;
   --in-content-focus-outline-color: var(--focus-outline-color) !important;
@@ -36,17 +45,17 @@
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
   --color-cyan-30: AccentColor !important;
-  --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
-  --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
-  --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
-  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
-  --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
-  --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
-  --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
-  --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
-  @media not -moz-pref("gwt.atbc") {
+@media -moz-pref("gwt.ac") {
+  --color-cyan-30: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important; !important;
+  --color-accent-primary: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --color-accent-primary-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
+  --color-accent-primary-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
+  --focus-outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
+  :not(:-moz-window-inactive) {::selection {background:color-mix(in srgb, var(--bg0), transparent 75%) !important;}}
+}
+@media not -moz-pref("gwt.atbc") {
   --in-content-page-background: light-dark(#fff, #202121) !important;
   --newtab-background-color: light-dark(#fff, #202121) !important;
 }
@@ -54,6 +63,7 @@
 
 @media (prefers-color-scheme: dark) {
 :root {
+  --text-color-accent-primary-selected: #fff !important;
   --newtab-primary-element-text-color: #fff !important;
 @media not -moz-pref("gwt.atbc") {
   --in-content-box-background: #282828 !important;
@@ -86,6 +96,10 @@ body { background-color: #202121 !important; } }
   --popup-button-background-active: #2b2b2b !important;
   --toolbar-button-background-hover: #383838 !important;
   --toolbar-button-background-active: #2b2b2b !important;
+@media -moz-pref("gwt.ac") {
+  --toolbar-button-foreground-active: color-mix(in srgb, var(--bg0) 90%, #000) !important;
+  --primary-color: color-mix(in srgb, var(--bg0) 90%, #000) !important;
+}
 @media not -moz-pref("gwt.atbc") {
   --fxview-background-color: #202121 !important;
   --in-content-page-background: #202121 !important;
@@ -174,6 +188,11 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   border: none !important;
   &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
   &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+}
 }
 }
 
@@ -203,6 +222,11 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   border: none !important;
   &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
   &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+}
 }
 }
 }
@@ -213,6 +237,12 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   --link-color-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
   --link-color-active: color-mix(in srgb, AccentColor 90%, #000) !important;
   --link-color-visited: AccentColor !important;
+@media -moz-pref("gwt.ac") {
+  --link-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --link-color-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
+  --link-color-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
+  --link-color-visited: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+}
 }
 }
 
@@ -335,8 +365,11 @@ body {
   border-radius: 8px !important;
   padding: 6px 12px !important;
 &:is(:focus, :hover) {
-  background: -moz-menuhover !important;
+  background: light-dark(-moz-menuhover, color-mix(in srgb, -moz-menuhover 90%, #000)) !important;
   color: #fff !important;
+@media -moz-pref("gwt.ac") {
+  background: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+}
 }
 }
 
@@ -550,6 +583,9 @@ body {
 
 .wallpaper-list .wallpaper-input:checked {
   outline-color: AccentColor !important;
+@media -moz-pref("gwt.ac") {
+  outline-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+}
 }
 
 .wallpaper-input:checked, .wallpaper-input.selected {
