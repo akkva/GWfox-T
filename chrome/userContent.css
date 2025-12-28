@@ -13,11 +13,9 @@
 
 @media (-moz-mac-tahoe-theme) {
 :root {
-  --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
-  --border-color-interactive: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --newtab-background-color-secondary: transparent !important;
-  --in-content-focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
-  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
+  --border-color-interactive: var(--in-content-box-border-color) !important;
+  --in-content-focus-outline-color: var(--focus-outline-color) !important;
   --button-background-color-primary: var(--color-accent-primary) !important;
   --button-background-color-primary-hover: var(--color-accent-primary-hover) !important;
   --button-background-color-primary-active: var(--color-accent-primary-active) !important;
@@ -37,6 +35,7 @@
   --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
+  --color-cyan-30: AccentColor !important;
   --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
   --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
   --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
@@ -45,6 +44,8 @@
   --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
+  --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
+  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   @media not -moz-pref("gwt.atbc") {
   --in-content-page-background: light-dark(#fff, #202121) !important;
   --newtab-background-color: light-dark(#fff, #202121) !important;
@@ -94,9 +95,9 @@ body { background-color: #202121 !important; } }
 }
 
 .toggle-button {
-  --toggle-background-color-pressed: AccentColor !important;
-  --toggle-background-color-pressed-hover: AccentColor !important;
-  --toggle-background-color-pressed-active: #417bde !important;
+  --toggle-background-color-pressed: var(--color-accent-primary) !important;
+  --toggle-background-color-pressed-hover: var(--color-accent-primary-hover) !important;
+  --toggle-background-color-pressed-active: var(--color-accent-primary-active) !important;
   --toggle-dot-background-color-on-pressed: #fff !important;
 }
 
