@@ -2256,12 +2256,12 @@ sidebar-tab-row {
 }
 
 #tracking-protection-icon {
-  list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+  list-style-image: url("chrome://browser/skin/tracking-protection.svg");
 }
 
 .tab-icon-image[src="chrome://branding/content/icon32.png"],
 .tab-icon-image[src="chrome://browser/skin/privatebrowsing/favicon.svg"] {
-  content: url(chrome://devtools/skin/images/browsers/firefox.svg);
+  content: url("chrome://devtools/skin/images/browsers/firefox.svg");
   opacity: .8;
 }
 
@@ -2407,12 +2407,12 @@ sidebar-tab-row {
 #context-previewlink::before,
 #context-openlinkincurrent::before,
 #placesContext_open::before {
-  content: url(chrome://global/skin/icons/defaultFavicon.svg) !important;
+  content: url("chrome://global/skin/icons/defaultFavicon.svg") !important;
   scale: .7;
 }
 
 #context-setDesktopBackground::before {
-  content: url(chrome://browser/skin/canvas.svg) !important;
+  content: url("chrome://browser/skin/canvas.svg") !important;
 }
 
 #context-openlink::before,
@@ -2432,11 +2432,11 @@ sidebar-tab-row {
 #context_reopenInContainer::before,
 #context-openlinkinusercontext-menu::before,
 #placesContext_open\:newcontainertab::before {
-  content: url(chrome://browser/skin/fingerprint.svg) !important;
+  content: url("chrome://browser/skin/fingerprint.svg") !important;
 }
 
 #context-searchselect::before {
-  content: url(chrome://global/skin/icons/search-glass.svg) !important;
+  content: url("chrome://global/skin/icons/search-glass.svg") !important;
 }
 
 #toolbar-context-bookmarkSelectedTab::before,
@@ -2468,8 +2468,8 @@ sidebar-tab-row {
 }
 
 #spell-check-enabled::before {
-  content: url(chrome://devtools/skin/images/case-match.svg) !important;
-  scale: .95;
+  content: url("chrome://devtools/skin/images/tool-styleeditor.svg") !important;
+  scale: .68;
 }
 
 #contentAreaContextMenu > #fill-login::before {
@@ -2482,7 +2482,7 @@ sidebar-tab-row {
 
 #context-imagetext::before {
   content: url("chrome://devtools/skin/images/case-match.svg") !important;
-  scale: .85;
+  scale: .9;
 }
 
 #context-selectall::before,
