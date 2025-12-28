@@ -24,39 +24,32 @@
   --bs3: 0 4px 20px rgba(75, 75, 75, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
   --bs4: 0 0 20px rgba(75, 75, 75, .1), inset 0 0 1px 0 rgba(255, 255, 255, .2);
   --bs5: 0 0 2px rgba(15, 15, 15, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
-  --outline-color: light-dark(#7db0f7, #2c749f);
+  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   --button-bgcolor: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
   --button-hover-bgcolor: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
   --button-active-bgcolor: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
   --button-background-color: var(--button-bgcolor) !important;
   --button-background-color-hover: var(--button-hover-bgcolor) !important;
   --button-background-color-active: var(--button-active-bgcolor) !important;
-  --in-content-primary-button-background: light-dark(#007aff, #1280fd) !important;
-  --in-content-primary-button-background-hover: light-dark(#0075dd, #006bdc) !important;
-  --in-content-primary-button-background-active: light-dark(#005ebb, #0055bc) !important;
   --in-content-primary-button-text-color: #fff !important;
   --devtools-splitter-color: transparent !important;
   --button-text-color-primary: #fff !important;
   --button-primary-color: #fff !important;
-  --color-accent-primary: light-dark(#007aff, #1280fd) !important;
-  --color-accent-primary-hover: light-dark(#0075dd, #006bdc) !important;
-  --color-accent-primary-active: light-dark(#005ebb, #0055bc) !important;
-  --button-primary-bgcolor: light-dark(#007aff, #1280fd) !important;
-  --button-primary-hover-bgcolor: light-dark(#0075dd, #006bdc) !important;
-  --button-primary-active-bgcolor: light-dark(#005ebb, #0055bc) !important;
+  --color-accent-primary: AccentColor !important;
+  --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
+  --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
   --in-content-button-background: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
   --in-content-button-background-hover: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
   --in-content-button-background-active: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
-  --link-color: light-dark(#007aff, #1280fd) !important;
-  --link-color-hover: light-dark(#0075dd, #006bdc) !important;
-  --link-color-active: light-dark(#005ebb, #0055bc) !important;
+  --link-color: var(--color-accent-primary) !important;
+  --link-color-hover: var(--color-accent-primary-hover) !important;
+  --link-color-active: var(--color-accent-primary-active) !important;
   --toolbar-field-focus-background-color: light-dark(rgba(155, 155, 155, .25), rgba(195, 195, 195, .25)) !important;
   --urlbarView-result-button-hover-color: rgba(255, 255, 255, .8) !important;
   --urlbarView-result-button-hover-background-color: rgba(195, 195, 195, .2) !important;
-  --toolbarbutton-icon-fill-attention: light-dark(#007aff, #1280fd) !important;
+  --toolbarbutton-icon-fill-attention: AccentColor !important;
   --arrowpanel-background: light-dark(#fff, #383838) !important;
   --arrowpanel-border-radius: 12px !important;
-  --focus-outline-color: transparent !important;
   --in-content-box-background: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
   --background-color-box: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
   --in-content-box-border-color: transparent !important;
@@ -418,7 +411,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 .urlbarView-row:is([selected], :hover) & {
-  color: light-dark(#c8ffff, #95dcff) !important;
+  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
 }
 }
 
@@ -438,7 +431,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 > .urlbarView-row-inner:hover > .urlbarView-no-wrap > .urlbarView-action {
-  color: light-dark(#c8ffff, #95dcff) !important;
+  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
 }
 }
 
@@ -446,14 +439,14 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   color: light-dark(#3e3f40, #c4c4c5) !important;
   font-weight: unset !important;
 &:hover {
-  color: light-dark(#c8ffff, #95dcff) !important;
+  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
 }
 &[data-action^="tabgroup-"] {
   color: light-dark(#3e3f40, #c4c4c5) !important;
   background-color: var(--button-bgcolor) !important;
 &:hover {
   opacity: 1 !important;
-  color: light-dark(#c8ffff, #95dcff) !important;
+  color: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff)) !important;
   background-color: var(--bg1) !important;
 }
 }
@@ -544,7 +537,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 #urlbar[focused] > .urlbar-background {
-  outline-color: var(--outline-color) !important;
+  outline-color: var(--focus-outline-color) !important;
   outline-width: 3.5px !important;
   outline-offset: -1px !important;
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
@@ -2116,7 +2109,7 @@ findbar::after {
 
 .findbar-textbox[focused],
 .findbar-textbox:focus {
-  outline-color: var(--outline-color) !important;
+  outline-color: var(--focus-outline-color) !important;
   outline-width: 3.5px !important;
   transition: all .3s cubic-bezier(1, 0, 0, 1) !important;
   box-shadow: none !important;
@@ -2133,7 +2126,7 @@ xul|search-textbox {
 }
 
 xul|search-textbox[focused] {
-  outline: 3.5px solid var(--outline-color) !important;
+  outline: 3.5px solid var(--focus-outline-color) !important;
   outline-offset: -1px;
   transition: outline 100ms ease-out;
 }
@@ -2166,7 +2159,7 @@ input[type="search"],
 xul|search-textbox[focused],
 input[type="search"]:focus-within,
 [type="text"]:focus-visible {
-  outline-color: var(--outline-color) !important;
+  outline-color: var(--focus-outline-color) !important;
   outline-width: 3.5px !important;
   outline-offset: -1px !important;
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
@@ -2863,7 +2856,7 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
   transition: .25s !important;
   -moz-window-dragging: no-drag;
 &:hover {
-  background-color: var(--outline-color) !important;
+  background-color: var(--focus-outline-color) !important;
   width: calc(100% - 25px) !important;
   opacity: 1;
   transition: .25s !important;
@@ -2886,7 +2879,7 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
   transition: .25s !important;
   -moz-window-dragging: no-drag;
 &:hover {
-  background-color: var(--outline-color) !important;
+  background-color: var(--focus-outline-color) !important;
   width: calc(100% - 25px) !important;
   opacity: 1;
   transition: .25s !important;
