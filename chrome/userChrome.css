@@ -14,7 +14,7 @@
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 @media (-moz-mac-tahoe-theme) {
 :root {
-  --bg0: #9536a4;
+  --bg0: #8867fc;
   --bg1: light-dark(-moz-menuhover, color-mix(in srgb, -moz-menuhover 90%, #000));
   --bg2: light-dark(#fff, #454545);
   --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
@@ -1913,7 +1913,22 @@ input[type="checkbox"] {
   border-radius: 2px !important;
   border: 2px solid rgba(165, 165, 165, .8) !important;
   &:checked {
-  appearance: checkbox !important;
+  background-color: AccentColor !important;
+  background-image: url("chrome://devtools/skin/images/check.svg") !important;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-context-properties: fill, stroke;
+  fill: #fff;
+  stroke: #fff;
+  border: none !important;
+  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+}
 }
 }
 
@@ -1923,7 +1938,22 @@ input[type="checkbox"] {
   border-radius: 2px !important;
   border: 2px solid rgba(165, 165, 165, .8) !important;
   &[checked] {
-  appearance: checkbox !important;
+  background-color: AccentColor !important;
+  background-image: url("chrome://devtools/skin/images/check.svg") !important;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-context-properties: fill, stroke;
+  fill: #fff;
+  stroke: #fff;
+  border: none !important;
+  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+}
 }
 }
 }
