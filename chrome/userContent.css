@@ -13,7 +13,7 @@
 
 @media (-moz-mac-tahoe-theme) {
 :root {
-  --bg0: #9536a4;
+  --bg0: #8867fc;
   --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
   --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
   --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
@@ -42,16 +42,16 @@
   --color-accent-primary: AccentColor !important;
   --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
   --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
+  --color-accent-primary-selected: AccentColor !important;
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
-  --color-cyan-30: AccentColor !important;
   --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
 @media -moz-pref("gwt.ac") {
-  --color-cyan-30: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important; !important;
   --color-accent-primary: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
   --color-accent-primary-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
   --color-accent-primary-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
+  --color-accent-primary-selected: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
   --focus-outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
   :not(:-moz-window-inactive) {::selection {background:color-mix(in srgb, var(--bg0), transparent 75%) !important;}}
 }
@@ -168,7 +168,22 @@ input[type="checkbox"]:not(.reveal-password-checkbox) {
   border-radius: 2px !important;
   border: 2px solid rgba(165, 165, 165, .8) !important;
   &:checked {
-  appearance: checkbox !important;
+  background-color: AccentColor !important;
+  background-image: url("chrome://devtools/skin/images/check.svg") !important;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-context-properties: fill, stroke;
+  fill: #fff;
+  stroke: #fff;
+  border: none !important;
+  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+}
 }
 }
 
@@ -202,7 +217,22 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   border-radius: 2px !important;
   border: 2px solid rgba(165, 165, 165, .8) !important;
   &[checked] {
-  appearance: checkbox !important;
+  background-color: AccentColor !important;
+  background-image: url("chrome://devtools/skin/images/check.svg") !important;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-context-properties: fill, stroke;
+  fill: #fff;
+  stroke: #fff;
+  border: none !important;
+  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+}
 }
 }
 
