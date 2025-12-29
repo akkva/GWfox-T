@@ -1493,6 +1493,12 @@ tab-group & {
 #tabbrowser-tabs[orient="horizontal"] & {
   margin-inline-start: 0 !important;
   margin-inline-end: 0 !important;
+.tabbrowser-tab {
+  border-image: none !important;
+tab-group & {
+  border-inline-start: none !important;
+}
+}
 }
 }
 
