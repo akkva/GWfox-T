@@ -1113,6 +1113,9 @@ tab:not([selected]):hover & {
 &[orient="horizontal"] {
   max-height: 38px !important;
   border-inline-start: none !important;
+tab-split-view-wrapper {
+  max-width: unset !important;
+}
 .tabbrowser-tab[selected]:not([pinned]) {
   min-width: 192px !important;
 tab-split-view-wrapper & {
@@ -1460,7 +1463,9 @@ tab-group & {
 }
 &:not([hasactivetab]) {
 .tabbrowser-tab {
+&:not(:hover) {
   border-image: linear-gradient( to bottom, transparent 30%, rgba(155, 155, 155, .3) 30%, rgba(155, 155, 155, .3) 70%, transparent 70%) 1 !important;
+}
 tab-group & {
   border-image: none !important;
 }
@@ -1468,6 +1473,9 @@ tab-group & {
   border-block-end: none !important;
 }
 &:last-child {
+&:hover {
+  border-inline-start: none !important;
+}
 tab-group & {
   border-inline-start: none !important;
 }
@@ -1485,27 +1493,6 @@ tab-group & {
 #tabbrowser-tabs[orient="horizontal"] & {
   margin-inline-start: 0 !important;
   margin-inline-end: 0 !important;
-.tabbrowser-tab {
-  border-image: none !important;
-&:last-child {
-  border-inline-start: none !important;
-}
-}
-tab-group & {
-.tab-background {
-.tabbrowser-tab:hover & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 21%, transparent) !important;
-}
-.tabbrowser-tab[selected]:hover & {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 24%, transparent) !important;
-}
-}
-&:not([hasactivetab]) {
-.tab-background {
-  background: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 14%, transparent) !important;
-}
-}
-}
 }
 }
 
