@@ -477,7 +477,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 
-#urlbar:not([open], [focused]) .urlbar-input-container[pageproxystate="invalid"] .searchmode-switcher {
+#urlbar:not([open], [focused], [usertyping]) .urlbar-input-container[pageproxystate="invalid"] .searchmode-switcher {
   margin-inline-start: calc(50% - 125px) !important;
 }
 
@@ -1708,7 +1708,6 @@ menuitem {
 }
 }
 
-#downloadsListBox > richlistitem, #downloadsHistory,
 toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduce-button2, #appMenu-fullscreen-button2) {
 &:hover:not([disabled=true]) {
   background-color: var(--bg1) !important;
@@ -1716,8 +1715,23 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
 }
 }
 
-#downloadsListBox.allDownloadsListBox richlistitem[selected] {
+#downloadsListBox > richlistitem, #downloadsHistory {
+&:hover:not([disabled=true]) {
+  background-color: color-mix(in srgb, var(--bg1) 85%, transparent) !important;
+  color: #fff !important;
+}
+}
+
+.downloadProgress::-moz-progress-bar {
   background-color: var(--bg1) !important;
+}
+
+.downloadProgress[paused]::-moz-progress-bar {
+  background-color: var(--download-progress-paused-color) !important;
+}
+
+#downloadsListBox.allDownloadsListBox richlistitem[selected] {
+  background-color: color-mix(in srgb, var(--bg1) 85%, transparent) !important;
 }
 
 #downloadsListBox.allDownloadsListBox richlistitem[selected] .downloadProgress::-moz-progress-bar {
