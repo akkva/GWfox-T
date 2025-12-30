@@ -1349,6 +1349,10 @@ input {
   border-radius: 50px !important;
 }
 
+toolbarseparator:not(.tab-group-edit-mode-only) {
+  display: none;
+}
+
 .tab-group-editor-swatch {
   border-radius: 50px !important;
 input:checked + & {
@@ -2366,11 +2370,20 @@ sidebar-tab-row {
   scale: .75;
 }
 
-#appMenu-zoom-controls::before {
+#appMenu-zoom-controls {
+  border-top: 1px solid var(--bg3) !important;
+  margin-inline: 16px !important;
+&::before {
   content: "";
   width: 16px;
   height: 16px;
-  background-image: url("chrome://browser/skin/fullscreen.svg");
+}
+& > .toolbarbutton-text {
+  margin-inline-start: -8px !important;
+}
+& > #appMenu-fullscreen-button2 {
+  margin-inline-end: -8px !important;
+}
 }
 
 #appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
@@ -2535,11 +2548,6 @@ sidebar-tab-row {
   content: url("chrome://devtools/skin/images/tool-inspector.svg") !important;
 }
 
-#spell-check-enabled::before {
-  content: url("chrome://devtools/skin/images/tool-styleeditor.svg") !important;
-  scale: .68;
-}
-
 #contentAreaContextMenu > #fill-login::before {
   content: url("chrome://browser/skin/login.svg") !important;
 }
@@ -2548,7 +2556,8 @@ sidebar-tab-row {
   content: url("chrome://browser/skin/preferences/relay-logo.svg") !important;
 }
 
-#context-imagetext::before {
+#context-imagetext::before,
+#spell-check-enabled::before {
   content: url("chrome://devtools/skin/images/case-match.svg") !important;
   scale: .9;
 }
@@ -2717,7 +2726,8 @@ sidebar-tab-row {
 
 #context-viewpartialsource-selection::before,
 #context-viewsource::before {
-  content: url("chrome://browser/skin/characterEncoding.svg") !important;
+  content: url("chrome://devtools/skin/images/tool-styleeditor.svg") !important;
+  scale: .68;
 }
 
 #context-viewimage::before,
