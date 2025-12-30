@@ -1353,6 +1353,12 @@ toolbarseparator:not(.tab-group-edit-mode-only) {
   display: none;
 }
 
+.tab-group-editor-name {
+> label {
+  margin-inline-start: 8px !important;
+}
+}
+
 .tab-group-editor-swatch {
   border-radius: 50px !important;
 input:checked + & {
