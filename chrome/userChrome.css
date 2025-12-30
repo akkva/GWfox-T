@@ -2895,6 +2895,10 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
   margin-top: -5px !important;
 }
 
+#sidebar-box {
+  margin-block-end: 2px !important;
+}
+
 .extensions, .customize-extensions-heading {
   display: none !important;
 }
@@ -3128,6 +3132,14 @@ tab-group > .tabbrowser-tab,
 }
 
 :has(#tabbrowser-tabs:not([expanded])) {
+@media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+#sidebar-main {
+  visibility: collapse;
+}
+#sidebar-box {
+  margin-inline-start: 8px !important;
+}
+}
 #sidebar-button {
 > .toolbarbutton-badge-stack {
   padding: 10px !important;
@@ -3194,6 +3206,10 @@ tab-group[collapsed] > .tab-group-label-container & {
 @media (min-width: 610px) and (max-width: 866px) {
   margin-top: 19px !important;
 }
+}
+
+#sidebar-box, .sidebar-splitter {
+  visibility: collapse;
 }
 
 #navigator-toolbox {
