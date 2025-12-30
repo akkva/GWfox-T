@@ -15,7 +15,7 @@
 @media (-moz-mac-tahoe-theme) {
 :root {
   --bg0: #8867fc;
-  --bg1: light-dark(-moz-menuhover, color-mix(in srgb, -moz-menuhover 90%, #000));
+  --bg1: color-mix(in srgb, -moz-menuhover 80%, transparent);
   --bg2: light-dark(#fff, #454545);
   --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
   --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
@@ -77,7 +77,7 @@
   --button-border-radius: 50px !important;
   --in-content-background-color: light-dark(#fff, #202121) !important;
 @media -moz-pref("gwt.ac") {
-  --bg1: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  --bg1: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
   --bg6: light-dark(color-mix(in srgb, var(--bg0) 20%, #fff), color-mix(in srgb, var(--bg0) 40%, #fff)) !important;
   --toolbarbutton-icon-fill-attention: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
   --tab-loading-fill: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
@@ -1717,13 +1717,13 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
 
 #downloadsListBox > richlistitem, #downloadsHistory {
 &:hover:not([disabled=true]) {
-  background-color: color-mix(in srgb, var(--bg1) 85%, transparent) !important;
+  background-color: var(--bg1) !important;
   color: #fff !important;
 }
 }
 
 .downloadProgress::-moz-progress-bar {
-  background-color: var(--bg1) !important;
+  background-color: color-mix(in srgb, var(--bg1) 80%, #fff) !important;
 }
 
 .downloadProgress[paused]::-moz-progress-bar {
@@ -1731,7 +1731,7 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
 }
 
 #downloadsListBox.allDownloadsListBox richlistitem[selected] {
-  background-color: color-mix(in srgb, var(--bg1) 85%, transparent) !important;
+  background-color: var(--bg1) !important;
 }
 
 #downloadsListBox.allDownloadsListBox richlistitem[selected] .downloadProgress::-moz-progress-bar {
