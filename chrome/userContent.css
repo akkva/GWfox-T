@@ -395,10 +395,10 @@ body {
   border-radius: 8px !important;
   padding: 6px 12px !important;
 &:is(:focus, :hover) {
-  background: light-dark(-moz-menuhover, color-mix(in srgb, -moz-menuhover 90%, #000)) !important;
+  background: color-mix(in srgb, -moz-menuhover 80%, transparent) !important;
   color: #fff !important;
 @media -moz-pref("gwt.ac") {
-  background: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  background: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
 }
 }
 }
