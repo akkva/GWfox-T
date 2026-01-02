@@ -1,8 +1,8 @@
 ## <p align="center"> <b> GWfox-T 🦊 </b> </p>
 <p align="center">This theme compatible with Firefox 145+ on macOS Tahoe</p>
 <picture>
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/8918dcfb-7368-4400-b026-8451ba268577">
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/428465b1-9c8d-4ff2-80f2-5ff36a9310ed">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/03c36e26-e110-4bbe-9c41-b1c3aa290365">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/a313f070-8310-42cf-bfe9-d5b7ace33170">
 <img alt="01">
 </picture>
 
@@ -29,5 +29,3 @@
 - Option 2: Manually Specify Accent Color
   - Add Configuration Flag: Open `about:config` and add a new preference named `gwt.ac`
   - Edit CSS Stylesheets: In your `userChrome.css` and `userContent.css` file, modify the value of the `--bg0` variable to your desired color.
-<img width="1015" height="725" alt="01" src="https://github.com/user-attachments/assets/03c36e26-e110-4bbe-9c41-b1c3aa290365" />
-<img width="1015" height="725" alt="02" src="https://github.com/user-attachments/assets/a313f070-8310-42cf-bfe9-d5b7ace33170" />
