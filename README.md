@@ -22,6 +22,7 @@
 - Restart Firefox!
 ## Further customization
 - Add `gwt.atbc` to enable [Adaptive Tab Bar Colour](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-colour)
+- Add `gwt.oneliner` to enable Compact layout
 ## Customizing Accent Color
 - Option 1: Follow System Theme Color
   - Sync with the system accent color by selecting a color in System Settings > Appearance.
