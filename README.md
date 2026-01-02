@@ -29,3 +29,5 @@
 - Option 2: Manually Specify Accent Color
   - Add Configuration Flag: Open `about:config` and add a new preference named `gwt.ac`
   - Edit CSS Stylesheets: In your `userChrome.css` and `userContent.css` file, modify the value of the `--bg0` variable to your desired color.
+<img width="1115" height="764" alt="01" src="https://github.com/user-attachments/assets/a6440399-e29a-4013-95fc-d4e38e59a466" />
+<img width="1115" height="764" alt="02" src="https://github.com/user-attachments/assets/329633dd-75a2-4a57-b95e-5da160edbb09" />
