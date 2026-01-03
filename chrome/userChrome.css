@@ -927,13 +927,23 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 #reset-pbm-toolbar-button, #taskbar-tabs-button,
 #firefox-view-button, #fxa-toolbar-menu-button,
 #userContext-icons, #userContext-label,
-#scrollbutton-up ~ spacer, .sharing-icon,
-#vertical-spacer {
+.sharing-icon, #vertical-spacer {
   display: none !important;
 }
 
 #scrollbutton-up, #scrollbutton-down {
   scale: .8;
+}
+
+#scrollbutton-up ~ spacer {
+&[part^="overflow"] {
+  width: 5px !important;
+  margin-block: 3.5px;
+  margin-inline: -4px !important;
+}
+@media not -moz-pref("gwt.oneliner") {
+  display: none;
+}
 }
 
 .toolbarbutton-1:not(:hover):-moz-window-inactive,
