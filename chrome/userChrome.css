@@ -1988,6 +1988,12 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
   background-color: color-mix(in srgb, var(--bg1) 80%, #fff) !important;
 }
 
+#downloadsListBox:not(#downloadsListBox.allDownloadsListBox):hover {
+.downloadProgress::-moz-progress-bar {
+  background-color: color-mix(in srgb, var(--bg1) 40%, #fff) !important;
+}
+}
+
 .downloadProgress[paused]::-moz-progress-bar {
   background-color: var(--download-progress-paused-color) !important;
 }
@@ -1998,6 +2004,7 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
 
 #downloadsListBox.allDownloadsListBox richlistitem[selected] .downloadProgress::-moz-progress-bar {
   --download-progress-flare-color: var(--toolbarbutton-icon-fill-attention) !important;
+  background-color: color-mix(in srgb, var(--bg1) 40%, #fff) !important;
 }
 
 #protections-popup-show-report-stack:hover:not([disabled=true]) {
