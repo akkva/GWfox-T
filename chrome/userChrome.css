@@ -334,13 +334,6 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   opacity: .5 !important;
 }
 
-.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
-  min-height: 6px !important;
-  max-width: 2px !important;
-  margin: 11px 0 0 0 !important;
-  border-radius: 2px !important;
-}
-
 :has(#TabsToolbar:hover) {
 #PersonalToolbar {
   transform: rotateX(90deg);
@@ -455,6 +448,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 #urlbar {
   --urlbar-box-bgcolor: var(--button-hover-bgcolor) !important;
+  transform: none !important;
 }
 
 #urlbar-search-mode-indicator {
@@ -1434,7 +1428,11 @@ tab-split-view-wrapper {
 }
 
 .tab-stack {
-  margin-inline: 5px !important;
+  margin-inline: 2px !important;
+}
+
+.tab-audio-button {
+  margin-inline-end: -2px !important;
 }
 
 .tabbrowser-tab {
@@ -1466,6 +1464,21 @@ tab-split-view-wrapper & {
   margin-block: 0 !important;
 }
 }
+}
+}
+
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+  max-height: 5px !important;
+  min-height: 5px !important;
+  max-width: 5px !important;
+  min-width: 5px !important;
+  border-radius: 5px !important;
+  margin: 12px 0 0 2px !important;
+@media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
+  margin: 15px 0 0 2px !important;
+}
+@media -moz-pref("sidebar.verticalTabs") {
+  margin: 13px 2px 0 0 !important;
 }
 }
 
@@ -1741,6 +1754,9 @@ tab-group & {
 @media -moz-pref("sidebar.verticalTabs") or -moz-pref("gwt.oneliner") {
 .tab-content {
   pointer-events: none;
+@media not -moz-pref("sidebar.verticalTabs") {
+  margin-inline-start: 2px;
+}
 }
 
 .tabbrowser-tab:not([pinned]):hover .tab-icon-image {
@@ -3197,10 +3213,6 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
   transition: .25s !important;
 }
 }
-}
-
-.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
-  margin: 12px 0 12px 0 !important;
 }
 
 .tab-group-label {
