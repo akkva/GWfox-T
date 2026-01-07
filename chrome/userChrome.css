@@ -3283,6 +3283,11 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
 tab-group[collapsed] > .tab-group-label-container & {
   background-image: url("chrome://global/skin/icons/folder.svg");
   background-position: left 9px bottom 7.5px;
+[hasactivetab] & {
+  background-image: url("chrome://global/skin/icons/folder.svg"), url("chrome://global/skin/icons/more.svg");
+  background-size: auto, 10px 16px;
+  background-position: left 9px bottom 7.5px, left 12.5px bottom 7.5px;
+}
 }
 
 &::first-letter {
