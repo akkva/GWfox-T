@@ -163,6 +163,11 @@
 &[splitview] {
 .split-view-panel {
   margin: 2px 8px 8px 8px !important;
+:has([sidebar-shown]) & {
+&[column="0"] {
+  margin-left: 0 !important;
+}
+}
 }
 .browserStack {
   border-radius: 12px !important;
@@ -3440,6 +3445,18 @@ tab-group > .tabbrowser-tab,
 #sidebar-box {
   margin-inline-start: 8px !important;
 }
+.split-view-panel {
+:has([sidebar-shown]) & {
+&[column="0"] {
+  margin-left: 8px !important;
+}
+}
+:has(#sidebar-box:not([hidden])) & {
+&[column="0"] {
+  margin-left: 0 !important;
+}
+}
+}
 }
 #sidebar-button {
 > .toolbarbutton-badge-stack {
@@ -3511,6 +3528,10 @@ tab-group[collapsed] > .tab-group-label-container & {
 
 #sidebar-box, .sidebar-splitter {
   visibility: collapse;
+}
+
+.split-view-panel {
+  margin: 8px !important;
 }
 
 #navigator-toolbox {
