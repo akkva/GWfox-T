@@ -190,6 +190,13 @@ split-view-footer {
   z-index: unset !important;
 }
 
+.browserContainer {
+  box-shadow: none !important;
+&:not(.deck-selected.split-view-panel &) {
+  outline: none !important;
+}
+}
+
 .browser-toolbar {
   border: none !important;
 }
@@ -1295,6 +1302,9 @@ tab-group[collapsed] > .tabbrowser-tab[visuallyselected] > .tab-stack > & {
 }
 
 #tabbrowser-tabs {
+tab-group > .tabbrowser-tab {
+  transition: .25s !important;
+}
 &[orient="horizontal"] {
   border-inline-start: none !important;
 .tabbrowser-tab {
@@ -1472,6 +1482,17 @@ tab-split-view-wrapper & {
   padding-block: 5px !important;
 &:not([pinned]) .tab-background {
   margin-block: 0 !important;
+}
+}
+
+tab-group > .tabbrowser-tab {
+  max-height: 42px;
+[collapsed] & {
+&:not([selected], [busy]) {
+  display: block !important;
+  padding-block: 0 !important;
+  max-height: 0;
+}
 }
 }
 }
@@ -1988,7 +2009,7 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
   background-color: color-mix(in srgb, var(--bg1) 80%, #fff) !important;
 }
 
-#downloadsListBox:not(#downloadsListBox.allDownloadsListBox):hover {
+#downloadsListBox:not(#downloadsListBox.allDownloadsListBox) richlistitem:hover {
 .downloadProgress::-moz-progress-bar {
   background-color: color-mix(in srgb, var(--bg1) 40%, #fff) !important;
 }
@@ -3245,6 +3266,7 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
   padding-block: 0 !important;
   margin-left: 1px !important;
   margin-right: 10px !important;
+  margin-bottom: 1px !important;
   padding-left: 33px !important;
   border-radius: 50px !important;
   width: 100% !important;
