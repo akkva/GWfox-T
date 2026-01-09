@@ -2408,10 +2408,17 @@ findbar {
   background: none !important;
   flex-direction: row-reverse;
   white-space: nowrap;
+  pointer-events: none;
   animation-name: slide-in;
   animation-duration: 350ms;
 &:is([hidden]) {
   animation-name: slide-out;
+}
+@media (min-width: 610px) and (max-width: 866px) {
+.findbar-highlight, .findbar-match-diacritics,
+.findbar-entire-word, .findbar-case-sensitive {
+  display: none;
+}
 }
 }
 
@@ -2426,6 +2433,7 @@ findbar::after {
   right: 18px;
   margin-top: 7px !important;
   background: none !important;
+  pointer-events: auto;
   z-index: 1;
 }
 
@@ -2447,6 +2455,7 @@ findbar::after {
 .findbar-container {
   height: 42px !important;
   margin-right: 25px;
+  pointer-events: auto;
   overflow-inline: visible !important;
   flex-direction: row-reverse;
   border-radius: 50px !important;
@@ -2456,16 +2465,20 @@ findbar::after {
   margin-right: 30px;
 }
 
-.findbar-textbox, .findbar-textbox:-moz-window-inactive {
-  background: none !important;
-  width: 100px !important;
-  border: none !important;
-}
-
 .findbar-textbox {
+  width: 10em !important;
+  background: rgba(165, 165, 165, .1) !important;
   outline-style: solid !important;
   outline-color: transparent !important;
   outline-width: 5px !important;
+  padding-inline-start: 22px !important;
+  background-image: url(chrome://global/skin/icons/search-glass.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 12px !important;
+  background-position: left 5px bottom 5px !important;
+  -moz-context-properties: fill, fill-opacity;
+  fill: currentColor;
+  fill-opacity: .65;
 }
 
 .findbar-textbox[focused],
