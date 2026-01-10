@@ -3213,14 +3213,14 @@ span > img:is([src="chrome://browser/content/genai/assets/brands/claude.svg"], [
   margin-block-end: 2px !important;
 }
 
-.extensions, .customize-extensions-heading {
-  display: none !important;
+.tools-and-extensions[orientation="horizontal"] {
+  padding-inline: 19px !important;
 }
 
-.more-tools-button,
-.tools-and-extensions > moz-button[extension],
 .actions-list > moz-button[view=viewCustomizeSidebar] {
-  display: var(--mtb) !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0;
 }
 
 .buttons-wrapper {
@@ -3347,8 +3347,6 @@ tab-group > .tabbrowser-tab,
 }
 
 :has(#tabbrowser-tabs[expanded]) {
-  --mtb: none;
-
 #sidebar-main {
   min-width: 240px !important;
 }
@@ -3451,6 +3449,9 @@ tab-group > .tabbrowser-tab,
 }
 
 :has(#tabbrowser-tabs:not([expanded])) {
+#sidebar-main {
+  min-width: 50px !important;
+}
 @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
 #sidebar-main {
   visibility: collapse;
