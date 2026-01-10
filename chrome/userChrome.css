@@ -303,8 +303,15 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 @media (min-width: 610px) and (max-width: 866px) {
-.toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #sidebar-button) {
+#nav-bar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #sidebar-button),
+#TabsToolbar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #sidebar-button) {
   visibility: collapse;
+}
+
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) {
+#alltabs-button {
+  visibility: collapse;
+}
 }
 }
 
@@ -1171,7 +1178,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 > .toolbarbutton-icon {
   width: 29px !important;
   height: 29px !important;
-  padding: 7px !important;
+  padding: 6px !important;
 }
 }
 
