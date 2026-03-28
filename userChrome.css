@@ -2433,7 +2433,7 @@ richlistbox {
 }
 
 findbar {
-  position: fixed !important;
+  position: absolute !important;
   top: 4px;
   right: -16px;
   width: 100% !important;
@@ -2496,6 +2496,7 @@ checkbox {
 .findbar-entire-word, .findbar-closebutton,
 .findbar-match-diacritics {
   position: fixed;
+  display: flex !important;
   right: 18px;
 }
 
@@ -2516,7 +2517,10 @@ checkbox {
 }
 
 .findbar-closebutton {
-  margin-top: 13px !important;
+  position: absolute;
+  top: 19px;
+  right: 41px;
+  margin: 0 !important;
   background: none !important;
   pointer-events: auto;
   z-index: 1;
