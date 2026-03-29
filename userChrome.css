@@ -408,7 +408,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 @media -moz-pref("gwt.oneliner") {
 @media not -moz-pref("sidebar.verticalTabs") {
-#identity-icon-label, .titlebar-spacer, #nav-bar:not([customizing]) toolbarspring {
+#trust-label, #identity-icon-label, .titlebar-spacer, #nav-bar:not([customizing]) toolbarspring {
   display: none !important;
 }
 
@@ -794,12 +794,14 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   opacity: 0;
 }
 
+#identity-box[pageproxystate="valid"].chromeUI,
 #identity-permission-box, #notification-popup-box, #trust-icon-container {
   margin-inline-start: calc(-16px - 2 * var(--urlbar-icon-padding));
   opacity: 0;
 }
 
 #urlbar:not([breakout][breakout-extend]) {
+#identity-box[pageproxystate="valid"].chromeUI,
 .urlbar-page-action, #identity-permission-box, #notification-popup-box, #trust-icon-container {
   transition: .2s;
 }
@@ -830,6 +832,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 #urlbar[open] #notification-popup-box,
 #urlbar:hover #identity-permission-box,
 #urlbar:hover #notification-popup-box,
+#urlbar[open] #identity-box[pageproxystate="valid"].chromeUI,
+#urlbar:hover #identity-box[pageproxystate="valid"].chromeUI,
+:has(.identity-box-button[open]) #identity-box[pageproxystate="valid"].chromeUI,
 #identity-permission-box[open],
 #notification-popup-box[open] {
   opacity: 1;
@@ -2755,6 +2760,10 @@ sidebar-tab-row {
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
   list-style-image: url("chrome://devtools/skin/images/browsers/firefox.svg") !important;
+  opacity: .75;
+&:hover, :has(.identity-box-button[open]) & {
+  opacity: 1; 
+}
 }
 
 .textbox-search-sign {
