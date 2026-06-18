@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * *
  * ░█▀▀▀░█░░░█░█▀▀▀░█▀▀█░█░░█░░░░▀▀█▀▀ *
- * ░█░▝█░█▄█▄█░█▀▀▀░█░ █░▄▀▀▄░▄▄▄░░█░░ *
+ * ░█░▀█░█▄█▄█░█▀▀▀░█░ █░▄▀▀▄░▄▄▄░░█░░ *
  * ░▀▀▀▀░▀░░░▀░▀░░░░▀▀▀▀░▀░░▀░░░░░░▀░░ *
  *      github.com/akkva/GWfox-T       *
  * * * * * * * * * * * * * * * * * * * */
@@ -66,8 +66,12 @@
   --tab-icon-overlay-fill: light-dark(rgba(0, 0, 0, .8), rgba(225, 225, 225, .8)) !important;
   --toolbarbutton-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important;
   --toolbarbutton-active-background: color-mix(in srgb, currentColor 10%, transparent) !important;
+  --toolbarbutton-background-color-hover: var(--button-hover-bgcolor) !important;
+  --toolbarbutton-background-color-active: var(--button-active-bgcolor) !important;
   --toolbarbutton-icon-fill: light-dark(rgb(39, 39, 39), rgb(237, 237, 237)) !important;
+  --toolbarbutton-disabled-opacity: .4;
   --toolbar-bgcolor: var(--toolbox-bgcolor) !important;
+  --toolbar-background-color: var(--toolbox-background-color) !important;
   --arrowpanel-menuitem-border-radius: 12px !important;
   --border-radius-xsmall: 12px !important;
   --border-radius-small: 12px !important;
@@ -87,7 +91,8 @@
 @media not -moz-pref("gwt.atbc") {
   --toolbar-bgcolor: light-dark(#fff, #202121) !important;
   --toolbox-bgcolor: light-dark(#fff, #202121) !important;
-  --toolbox-bgcolor-inactive: light-dark(#f7f7f7, #292929) !important;
+  --toolbar-background-color: light-dark(#fff, #202121) !important;
+  --toolbox-background-color: light-dark(#fff, #202121) !important;
 }
 @media (prefers-color-scheme: dark) {
   --bs3: 0 4px 20px rgba(20, 21, 21, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
@@ -95,18 +100,23 @@
   --bs5: 0 0 2px rgba(20, 21, 21, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
 }
 &:-moz-window-inactive {
+@media not -moz-pref("gwt.atbc") {
   --toolbox-bgcolor-inactive: light-dark(#fff, #202121) !important;
-  --bg5: light-dark(#f2f2f2, #292929);
+  --toolbox-background-color-inactive: light-dark(#fff, #202121) !important;
+}
+  --bg5: light-dark(rgba(70, 70, 70, .06), rgba(170, 170, 170, .06));
   --bg7: color-mix(in srgb, #777, transparent 75%);
   --bs3: none;
   --bs4: none;
 }
 }
 
-:root:not([inDOMFullscreen], [chromehidden~="toolbar"], [chromehidden~="location"]) {
-.browserContainer browser[type="content"] {
-  translate: 0;
-  backface-visibility: hidden;
+:root[macOSNativeFullscreen] {
+.fullscreen-floating-toolbox, #urlbar, body {
+  translate: unset !important;
+}
+#navigator-toolbox {
+  box-shadow: none !important;
 }
 }
 
@@ -133,6 +143,9 @@
 #tabbrowser-tabbox {
   box-shadow: none !important;
   outline: none !important;
+:root:not([inDOMFullscreen], [chromehidden~="toolbar"], [chromehidden~="location"]) & {
+  backdrop-filter: blur(0);
+}
 }
 
 #tabbrowser-tabpanels {
@@ -751,13 +764,17 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   box-shadow: var(--bs1) !important;
   animation-name: panel-in !important;
   animation-duration: 180ms !important;
+@media (min-width: 610px) and (max-width: 866px) {
+  margin-inline-start: -50% !important;
+  min-width: 50vh !important;
+}
 }
 .urlbarView-row {
   border-radius: 50px !important;
 }
 .urlbarView-row-inner {
   flex-wrap: nowrap !important;
-}  
+}
 .urlbarView-no-wrap {
   max-width: 50% !important;
   flex-basis: 0 !important;
@@ -767,6 +784,9 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 .urlbarView-row[has-url] .urlbarView-title-separator {
   display: block !important;
+}
+.urlbarView-press-tab-label {
+  color: light-dark(#000, #fff) !important;
 }
 }
 &:has(#identity-box[pageproxystate="valid"].extensionPage) {
@@ -895,7 +915,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   min-height: 28px !important;
 }
 &:-moz-window-inactive {
-* { opacity: .78; }
+*:not(.urlbar-background) { opacity: .78; }
 }
 }
 
@@ -1539,6 +1559,11 @@ tab-group[collapsed] {
 
 #pinned-tabs-container[orient="vertical"] {
   margin-inline-start: 1px !important;
+@media -moz-pref("sidebar.visibility", "expand-on-hover") {
+.tabbrowser-tab {
+  padding-block: 3px 3px !important;
+}
+}
 }
 
 .tabbrowser-tab .tab-close-button,
@@ -1764,6 +1789,9 @@ tab-split-view-wrapper {
   margin-inline-end: 8px !important;
   padding: 0 !important;
   background-color: transparent !important;
+:root[sidebar-expand-on-hover] #tabbrowser-tabs[orient="vertical"] & {
+  gap: 0 !important;
+}
 #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
   margin-inline-start: 0 !important;
 .tab-content {
@@ -1791,6 +1819,12 @@ tab-group & {
 &:not([hasactivetab]) {
 .tabbrowser-tab {
   border: none !important;
+&:first-child {
+  margin-inline-end: .5px !important;
+}
+&:last-child {
+  margin-inline-start: .5px !important;
+}
 }
 }
 &[hasactivetab] {
@@ -1905,9 +1939,12 @@ menupopup, panel[type="arrow"] {
   --arrowpanel-color: light-dark(#000, #fff) !important;
   --arrowpanel-menuitem-border-radius: 12px !important;
   --panel-menuitem-border-radius: 12px !important;
-  --panel-background: none !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
   --panel-color: light-dark(#000, #fff) !important;
+  --panel-text-color: light-dark(#000, #fff) !important;
   --panel-shadow-margin: .1px !important;
+  --panel-box-shadow-margin: .1px !important;
   appearance: menupopup !important;
 }
 
@@ -1915,6 +1952,8 @@ panel[type="arrow"] {
   --arrowpanel-background: transparent !important;
   --arrowpanel-border-radius: 0 !important;
 }
+
+* { --panel-list-border-color: var(--bg3) !important; }
 
 menupopup[needsgutter] {
 > menu,
@@ -1928,9 +1967,10 @@ menupopup[needsgutter] {
 
 .toolbar-menupopup {
   --panel-shadow-margin: 0 !important;
+  --panel-box-shadow-margin: 0 !important;
   --panel-border-color: transparent !important;
-  --panel-shadow: 0 0 var(--panel-shadow-margin) hsla(0, 0%, 0%, 0.2) !important;
-  --panel-background: none !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
 }
 
 @keyframes panel-grow {
@@ -2443,7 +2483,9 @@ panel#feature-callout,
 
 #ctrlTab-panel {
   --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
   --panel-shadow: none !important;
+  --panel-box-shadow: none !important;
   background-color: transparent !important;
 }
 
@@ -2838,7 +2880,7 @@ sidebar-tab-row {
 }
 
 #main-button img[src^="chrome://browser/content/genai/assets/brands/"] {
-  content: url("chrome://global/skin/icons/highlights.svg");
+  content: url("chrome://global/skin/icons/highlights.svg") !important;
 }
 
 #appMenu-zoom-controls::before,
@@ -3598,7 +3640,7 @@ tab-group > .tabbrowser-tab,
 }
 }
 &:-moz-window-inactive {
-  background: light-dark(#f7f7f7, #222) !important;
+  background: light-dark(rgba(70, 70, 70, .04), rgba(170, 170, 170, .04)) !important;
 }
 }
 
@@ -3962,6 +4004,13 @@ tab-split-view-wrapper & {
   pointer-events: none;
 [data-l10n-id="tab-context-add-note"] {
   display: none;
+}
+}
+
+tab-split-view-wrapper {
+  grid-template-columns: 49.5% 49.5% !important;
+.tab-content {
+  width: unset !important;
 }
 }
 
