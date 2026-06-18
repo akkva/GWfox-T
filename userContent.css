@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * *
  * ░█▀▀▀░█░░░█░█▀▀▀░█▀▀█░█░░█░░░░▀▀█▀▀ *
- * ░█░▝█░█▄█▄█░█▀▀▀░█░ █░▄▀▀▄░▄▄▄░░█░░ *
+ * ░█░▀█░█▄█▄█░█▀▀▀░█░ █░▄▀▀▄░▄▄▄░░█░░ *
  * ░▀▀▀▀░▀░░░▀░▀░░░░▀▀▀▀░▀░░▀░░░░░░▀░░ *
  *      github.com/akkva/GWfox-T       *
  * * * * * * * * * * * * * * * * * * * */
@@ -8,9 +8,9 @@
 @media (-moz-mac-tahoe-theme) {
 :root {
   --bg0: #8867fc;
-  --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
-  --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
-  --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
+  --bg1: light-dark(rgba(70, 70, 70, .08), rgba(170, 170, 170, .08));
+  --bg2: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .15));
+  --bg3: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .2));
   --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
   --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
   --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
@@ -373,6 +373,9 @@ button:not(.toggle-button) {
   box-shadow: none !important;
   background-color: var(--bg1) !important;
 }
+moz-message-bar {
+  border: none !important;
+}
 }
 
 @-moz-document url-prefix("about:config") {
@@ -395,6 +398,34 @@ button:not(.toggle-button) {
   --box-border: none !important;
   --box-group-border: none !important;
   --promo-background-color: var(--bg1) !important;
+@media not -moz-pref("gwt.atbc") {
+  --background-color-canvas: light-dark(#fff, #202121) !important;
+}
+}
+#backup-toggle-scheduled-button,
+#setting-control-verifiedManage,
+#setting-control-syncChangeOptions,
+#setting-control-dohAdvancedButton,
+#setting-control-showUpdateHistory,
+#setting-control-addPrimaryPassword,
+#setting-control-etpStatusAdvancedButton,
+#setting-control-fxaConnectAnotherDevice {
+  --box-border-radius-start: var(--box-border-radius-inner) !important;
+}
+#categories {
+  --page-nav-margin-block-start: 30px !important;
+}
+#search-container {
+  padding-top: 30px !important;
+}
+.main-content {
+  margin-top: 0 !important;
+}
+moz-message-bar {
+  border: none !important;
+}
+moz-box-item {
+  padding-inline-start: 0 !important;
 }
 .navigation::after {
   content: none !important;
@@ -807,7 +838,7 @@ body {
   width: 100% !important;
   height: 100% !important;
   inset-inline-start: 0 !important;
-  padding: 10px !important;
+  padding: 20px !important;
   transition: none !important;
   animation: .25s ease-in panel-grow;
 }
