@@ -1313,20 +1313,9 @@ tab-group > .tabbrowser-tab {
   left: 0;
   right: 0;
   z-index: 9;
-@media not -moz-pref("gwt.oneliner") {
   min-width: 225px !important;
-}
 tab-split-view-wrapper & {
   min-width: unset !important;
-}
-}
-}
-&[overflow] {
-@media -moz-pref("gwt.oneliner") {
-.tabbrowser-tab {
-&[selected]:not([pinned], tab-split-view-wrapper &) {
-  min-width: 225px !important;
-}
 }
 }
 }
