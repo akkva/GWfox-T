@@ -807,6 +807,10 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 #PanelUI-menu-button {
+  border-radius: 50% !important;
+:has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover) & {
+  border-radius: 0 50% 50% 0 !important;
+}
 &::before {
   width: 36px;
 }
@@ -831,17 +835,18 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 }
-&:-moz-window-inactive {
-  border-radius: 50% !important;
-:has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover) & {
-  border-radius: 0 50% 50% 0 !important;
-}
-}
 }
 #unified-extensions-button, #alltabs-button, #nav-bar-overflow-button {
-  visibility: collapse;
+  visibility: collapse !important;
 :has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
-  visibility: visible;
+  visibility: visible !important;
+}
+}
+@media (min-width: 610px) and (max-width: 866px) {
+#alltabs-button {
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
+  display: none !important;
+}
 }
 }
 }
@@ -2732,7 +2737,7 @@ toolbarbutton {
   background: rgba(165, 165, 165, .1) !important;
   outline-style: solid !important;
   outline-color: transparent !important;
-  outline-width: 5px !important;
+  outline-width: 18px !important;
   padding-inline-start: 22px !important;
   padding-inline-end: 75px !important;
   background-image: url(chrome://global/skin/icons/search-glass.svg) !important;
