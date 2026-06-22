@@ -306,7 +306,7 @@ split-view-footer {
 }
 }
 
-#navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, .tabbrowser-tab:hover)) > #PersonalToolbar {
+#navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, .tabbrowser-tab:hover, .tab-group-label:hover)) > #PersonalToolbar {
   transition-delay: 100ms;
   transform: rotateX(0deg);
 }
@@ -473,7 +473,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 #scrollbutton-up, #scrollbutton-down {
-  scale: .8;
+  visibility: collapse;
 }
 
 #scrollbutton-up ~ spacer {
@@ -1314,7 +1314,7 @@ tab-group > .tabbrowser-tab {
   right: 0;
   z-index: 9;
 @media not -moz-pref("gwt.oneliner") {
-  min-width: 192px !important;
+  min-width: 225px !important;
 }
 tab-split-view-wrapper & {
   min-width: unset !important;
@@ -1325,7 +1325,7 @@ tab-split-view-wrapper & {
 @media -moz-pref("gwt.oneliner") {
 .tabbrowser-tab {
 &[selected]:not([pinned], tab-split-view-wrapper &) {
-  min-width: 168px !important;
+  min-width: 225px !important;
 }
 }
 }
@@ -1342,7 +1342,6 @@ tab-split-view-wrapper {
 .tab-label, .tab-close-button {
   visibility: hidden;
 }
-
 .tab-audio-button {
   scale: .6;
   margin: -8px 0 0 -8px !important;
@@ -1359,29 +1358,23 @@ tab-split-view-wrapper {
 &:has(tab:not(:only-of-type), #pinned-tabs-container:not(:empty)) {
   min-height: 38px !important;
 }
-
 #tabbrowser-arrowscrollbox {
   background-color: var(--button-bgcolor);
   border-radius: 50px;
   max-height: 32px !important;
 }
-
 #pinned-tabs-container {
   margin-inline-end: 2px !important;
 }
-
 .tabbrowser-tab .tab-close-button {
   margin-inline-end: 5px !important;
 }
-
 .tab-content {
   padding: 0 5px !important;
 }
-
 .tab-icon-stack {
   margin-inline-start: auto;
 }
-
 .tab-label-container {
   max-width: min-content;
   margin-inline-end: auto;
@@ -1390,17 +1383,15 @@ tab-split-view-wrapper {
   padding-inline-end: 0;
 }
 }
-
 .tab-label {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .tabbrowser-tab {
   margin-top: -4px !important;
-&:not([pinned], tab-group[collapsed] > &:not([visuallyselected])) {
   padding: 2px 2px 2px 1px !important;
+&:not([pinned], tab-group &) {  
   transition-duration: .35s !important;
 &[fadein]:not([style*="max-width"]) {
   max-width: 100% !important;
@@ -1409,36 +1400,30 @@ tab-split-view-wrapper {
 }
 &[pinned] {
   padding: 0 !important;
-
 .tab-content {
   margin-inline-start: -2px;
   margin-inline-end: -5px;
 }
-
 .tab-label-container {
   visibility: hidden;
 :is([soundplaying], [muted], [activemedia-blocked]) & {
   padding-inline-end: 10px;
 }
 }
-
 .tab-icon-stack {
   padding-inline-start: 5px;
   margin-bottom: 2px;
 }
-
 &[tab-note] {
 .tab-icon-stack {
   margin-bottom: -2px;
 }
 }
 }
-
 #tabbrowser-tabs:not(:has([pinned], tab-split-view-wrapper, tab-group)) &:only-of-type {
   display: none;
 }
 }
-
 .tab-group-label {
   margin: 0 !important;
   outline: none !important;
@@ -1453,15 +1438,12 @@ tab-split-view-wrapper {
 &[movingtab] {
   padding-bottom: 0 !important;
 }
-
 .tab-stack {
   margin-inline: 2px !important;
 }
-
 .tab-audio-button {
   margin-inline-end: -2px !important;
 }
-
 .tabbrowser-tab {
 tab-split-view-wrapper & {
   min-height: 36px !important;
@@ -1486,13 +1468,11 @@ tab-split-view-wrapper & {
 }
 }
 }
-
 .tab-group-label {
   margin: 0 !important;
 }
 }
 }
-
 &[orient="vertical"] {
   grid-gap: unset !important;
   margin-top: 3px !important;
@@ -1502,14 +1482,12 @@ tab-split-view-wrapper & {
 &::after {
   content: none !important;
 }
-
 .tabbrowser-tab {
   padding-block: 5px !important;
 &:not([pinned]) .tab-background {
   margin-block: 0 !important;
 }
 }
-
 tab-group > .tabbrowser-tab {
   max-height: 42px;
 [collapsed] & {
@@ -1537,7 +1515,7 @@ tab-group > .tabbrowser-tab {
 #tabbrowser-tabs[orient="horizontal"] &[fadein] {
   min-width: 70px !important;
 @media -moz-pref("gwt.oneliner") {
-  min-width: 118px !important;
+  min-width: 130px !important;
 tab-split-view-wrapper & {
   min-width: unset !important;
 }
@@ -1844,6 +1822,20 @@ tab-group & {
   border-inline-start: none !important;
 }
 }
+@media not -moz-pref("gwt.oneliner") {
+&:not([hasactivetab]) {
+  min-width: unset !important;
+}
+&[hasactivetab] {
+  min-width: 219px !important;
+.tab-label {
+  visibility: visible !important;
+}
+}
+}
+@media -moz-pref("gwt.oneliner") {
+  min-width: 219px !important;
+}
 }
 }
 
@@ -1904,13 +1896,16 @@ tab-group & {
 .tab-group-label {
   color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
   opacity: .9;
-  min-width: 56px !important;
+  min-width: 28px !important;
   max-width: 84px !important;
   outline: 1px solid var(--bg3) !important;
   outline-offset: -1px !important;
   line-height: 36px !important;
   font-weight: normal !important;
   background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 30%, transparent) !important;
+@media -moz-pref("gwt.oneliner") {
+  min-width: 36px !important;
+}
 }
 
 .tab-icon-image:not([src], [pinned], [crashed], [sharing], [pictureinpicture], [busy]) {
@@ -2968,6 +2963,11 @@ sidebar-tab-row {
   scale: .75;
 }
 
+:where(#placesContext > menu:not(.menu-iconic))::before,
+:where(#placesContext > menuitem:not(.menuitem-iconic))::before {
+  margin-inline-start: 2.5px;
+}
+
 #placesContext > menuitem[type="checkbox"][checked]::before,
 #toolbar-context-menu > menuitem[type="checkbox"][checked]::before,
 #contentAreaContextMenu > menuitem[type="checkbox"][checked]::before {
@@ -3434,7 +3434,7 @@ sidebar-tab-row {
   border-radius: 12px !important;
 }
 
-#sidebar-main {
+#sidebar-main, #sidebar-container {
   -moz-window-dragging: drag;
 }
 
@@ -3447,7 +3447,7 @@ sidebar-tab-row {
 }
 
 @media -moz-pref("sidebar.verticalTabs") {
-#sidebar-main {
+#sidebar-main, #sidebar-container {
   max-width: 240px !important;
   margin-top: -5px !important;
 }
@@ -3593,7 +3593,7 @@ tab-group > .tabbrowser-tab,
 }
 
 :has(#tabbrowser-tabs[expanded]) {
-#sidebar-main {
+#sidebar-main, #sidebar-container {
   min-width: 240px !important;
 }
 
@@ -3609,7 +3609,7 @@ tab-group > .tabbrowser-tab,
 }
 }
 
-#sidebar-main {
+#sidebar-main, #sidebar-container {
   background: light-dark(rgba(205, 205, 198, .1), rgba(255, 255, 255, .04)) !important;
   border-radius: 12px !important;
   box-shadow: var(--bs4) !important;
@@ -3677,7 +3677,7 @@ tab-group > .tabbrowser-tab,
 
 :has(#tabbrowser-tabs:not([expanded])) {
 @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
-#sidebar-main {
+#sidebar-main, #sidebar-container {
   visibility: collapse;
 }
 #sidebar-box {
@@ -4014,7 +4014,7 @@ tab-split-view-wrapper {
 }
 }
 
-#sidebar-main {
+#sidebar-main, #sidebar-container {
   height: calc(100% - 16px) !important;
   min-width: 240px !important;
   display: flex !important;
@@ -4051,7 +4051,7 @@ tab-split-view-wrapper {
   width: 35px;
   height: 100%;
 }
-:has(#sidebar-main:hover, #tabContextMenu:hover, .tab-group-editor-panel[panelopen], .tab-note-editor-panel[panelopen], #tabbrowser-tabs[movingtab], #toolbar-context-menu > menuitem:is(#toolbar-context-openANewTab, #toolbar-context-reloadSelectedTab, #toolbar-context-reloadSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs, #toolbar-context-selectAllTabs, #toolbar-context-undoCloseTab):hover) & {
+:has(#sidebar-main:hover, #sidebar-container:hover, #tabContextMenu:hover, .tab-group-editor-panel[panelopen], .tab-note-editor-panel[panelopen], #tabbrowser-tabs[movingtab], #toolbar-context-menu > menuitem:is(#toolbar-context-openANewTab, #toolbar-context-reloadSelectedTab, #toolbar-context-reloadSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs, #toolbar-context-selectAllTabs, #toolbar-context-undoCloseTab):hover) & {
   left: 8px;
   transition: cubic-bezier(.27, 1.217, .17, 1.0117) .5s;
 }
