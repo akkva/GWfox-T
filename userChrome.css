@@ -1661,20 +1661,18 @@ image[src="chrome://global/skin/icons/tab-notes.svg"] {
 }
 
 .tab-group-editor-panel {
-input {
-  border-radius: 50px !important;
-}
-
 toolbarseparator:not(.tab-group-edit-mode-only) {
   display: none;
 }
-
 .tab-group-editor-name {
 > label {
   margin-inline-start: 8px !important;
 }
+> input {
+  background-color: var(--button-bgcolor) !important;
+  border-radius: 50px !important;
 }
-
+}
 .tab-group-editor-swatch {
   border-radius: 50px !important;
 input:checked + & {
