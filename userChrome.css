@@ -9,6 +9,7 @@
 @media (-moz-mac-tahoe-theme) {
 :root {
   --bg0: #8867fc;
+  --br0: 12px;
   --bg1: color-mix(in srgb, -moz-menuhover 80%, transparent);
   --bg2: light-dark(#fff, #454545);
   --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
@@ -425,7 +426,11 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 #urlbar-container {
+  transition: max-width .25s !important;
   max-width: 219px !important;
+&:has(#urlbar:is(:hover, [focused], [open]), .urlbar-page-action[open], .identity-box-button[open], #notification-popup-box[open], #trust-icon-container[open]) {
+  max-width: 315px !important;
+}
 }
 
 #TabsToolbar {
@@ -611,11 +616,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
 &:not([customizing]) {
-#forward-button[disabled] {
+#back-button[disabled], #forward-button[disabled] {
   display: none;
 }
 #back-button[disabled]:has(+ #forward-button:not([disabled])) {
-  display: none;
+  display: flex;
 }
 #back-button:has(+ #forward-button[disabled]) {
   max-width: 36px !important;
@@ -627,18 +632,6 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 > .toolbarbutton-icon {
   margin-inline-start: -6px;
 }
-}
-}
-&:has(#back-button[disabled]) #forward-button {
-  max-width: 36px !important;
-  min-width: 36px !important;
-  margin-inline-start: 8px !important;
-  background: var(--bg5) !important;
-  box-shadow: var(--bs3);
-  border-radius: 50px !important;
-  border-image: none !important;
-> .toolbarbutton-icon {
-  margin-inline-start: -1px;
 }
 }
 }
@@ -684,20 +677,28 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   height: 36px !important;
   position: fixed;
   top: 0;
-  right: 134px;
   z-index: 9;
 @media -moz-pref("gwt.oneliner") {
-  right: 62px;
-:has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
+  margin-inline: 8px !important;
+}
+@media not -moz-pref("gwt.oneliner") {
   right: 134px;
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
+  right: 170px;
 }
 }
 > image {
   padding: 10.5px !important;
 }
-:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
-  right: 170px;
+}
 @media -moz-pref("gwt.oneliner") {
+#new-tab-button {
+  margin-inline: 0 !important;
+  right: 62px;
+:has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
+  right: 134px;
+}
+:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
   right: 62px;
 :has(#PanelUI-menu-button:hover, #unified-extensions-button:hover, #alltabs-button:hover, #nav-bar-overflow-button:hover, #PanelUI-menu-button[open], #unified-extensions-button[open], #alltabs-button[open], #nav-bar-overflow-button[open]) & {
   right: 170px;
@@ -722,13 +723,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   width: 26px !important;
   height: 26px !important;
   padding: 5px 4px 4px 5px !important;
-}
-  
+}  
 :has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) & {
   inset-inline-end: 77px;
 }
 }
-
 .webextension-browser-action .toolbarbutton-icon {
   margin-left: 1px !important;
   margin-top: 1px !important;
@@ -962,12 +961,15 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
 &[breakout][breakout-extend] .urlbarView {
-  margin-inline-start: -50% !important;
-  min-width: 200% !important;
+  margin-inline-start: -25% !important;
+  min-width: 150% !important;
 }
 
 .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
   mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
+#urlbar:is(:hover, [focused], [open]) & {
+  mask-image: none !important;
+}
 }
 
 &:not(:has(#identity-box[pageproxystate="valid"].extensionPage)) {
@@ -1047,8 +1049,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   height: 36px !important;
   align-items: center !important;
   border-radius: 50px !important;
-  padding-inline-start: 5px !important;
-  padding-inline-end: 5px !important;
+  padding-inline: 5px !important;
 .urlbar-input {
 #urlbar:not([focused], [usertyping]) & {
   text-align: center !important;
@@ -1136,7 +1137,6 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 
-.urlbar-revert-button,
 .searchmode-switcher {
   scale: .85;
   height: 28px !important;
@@ -1149,7 +1149,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 
-.urlbar-go-button {
+#urlbar-revert-button {
+  background-color: transparent !important;
+}
+
+.urlbar-go-button, #urlbar-revert-button-container {
   scale: .85;
   border-radius: 50% !important;
   background-color: transparent !important;
@@ -1169,14 +1173,17 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 .searchmode-switcher {
   --button-background-color: transparent !important;
+  margin-inline-end: 2px !important;
 .urlbar:not(#searchbar-new)[searchmode] & {
   background-color: var(--button-hover-bgcolor) !important;
   border-radius: 16px !important;
   width: unset !important;
+  margin-inline-start: -10px !important;
+  margin-inline-end: -5px !important;
   opacity: 1;
 }
 > .searchmode-switcher-content {
-  margin-inline-start: 52px;
+  margin-inline-start: 55px;
 &::before {
   content: url("chrome://global/skin/icons/search-glass.svg");
   -moz-context-properties: fill;
@@ -2535,32 +2542,38 @@ panel#feature-callout,
   box-shadow: var(--bs1) !important;
 }
 
+.swipe-nav-icon-circle-outline,
+.swipe-nav-icon-arrow {
+  fill: AccentColor !important;
+@media -moz-pref("gwt.ac") {
+  fill: var(--bg0) !important;
+}
+}
+
+.swipe-nav-icon-circle {
+  fill: rgba(0, 0, 0, .1) !important;
+}
+
+.swipe-nav-icon.will-navigate {
+> .swipe-nav-icon-circle-outline,
+> .swipe-nav-icon-arrow {
+  fill: rgba(0, 0, 0, .5) !important;
+}
+
+> .swipe-nav-icon-circle {
+  fill: color-mix(in srgb, AccentColor 50%, transparent) !important;
+@media -moz-pref("gwt.ac") {
+  fill: color-mix(in srgb, var(--bg0) 50%, transparent) !important;
+}
+}
+}
+
 @media (prefers-color-scheme: dark) {
 .urlbarView,
 .dialogBox, .findbar-container {
   outline: 1px solid rgba(235, 235, 235, .2) !important;
   outline-offset: -1.5px !important;
   box-shadow: var(--bs2) !important;
-}
-
-.swipe-nav-icon-circle-outline,
-.swipe-nav-icon-arrow {
-  fill: #1280fd !important;
-}
-
-.swipe-nav-icon-circle {
-  fill: #2d2d2d !important;
-}
-
-.swipe-nav-icon.will-navigate {
-> .swipe-nav-icon-circle-outline,
-> .swipe-nav-icon-arrow {
-  fill: #2d2d2d !important;
-}
-
-> .swipe-nav-icon-circle {
-  fill: #1280fd !important;
-}
 }
 }
 
@@ -2915,7 +2928,7 @@ sidebar-tab-row {
 }
 
 #alltabs-button {
-  list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' stroke='context-fill' stroke-width='0.264' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 4.06,12.01 v -0.91 H 3.08 c -0.54,0 -0.98,-0.4 -0.98,-0.91 V 2.94 c 0,-0.5 0.44,-0.91 0.98,-0.91 h 6.86 c 0.54,0 0.98,0.4 0.98,0.91 v 0.91 h 0.98 V 2.94 c 0,-1 -0.87,-1.81 -1.96,-1.81 H 3.08 c -1.09,0 -1.96,0.81 -1.96,1.81 v 7.26 c 0,1 0.87,1.81 1.96,1.81 z M 6.06,3.99 c -1.09,0 -1.96,0.81 -1.96,1.81 v 7.26 c 0,1 0.87,1.81 1.96,1.81 h 6.86 c 1.09,0 1.96,-0.81 1.96,-1.81 V 5.81 c 0,-1 -0.87,-1.81 -1.96,-1.81 z m 0,0.91 h 6.86 c 0.54,0 0.98,0.4 0.98,0.91 v 7.26 c 0,0.5 -0.44,0.91 -0.98,0.91 H 6.06 c -0.54,0 -0.98,-0.4 -0.98,-0.91 V 5.81 c 0,-0.5 0.44,-0.91 0.98,-0.91 z'/%3E%3C/svg%3E") !important;
+  list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 3.11 1 C 1.95 1 1 1.87 1 2.96 V 10.22 c 0 1.09 0.95 1.96 2.11 1.96 h 0.87 v 0.9 c 0 1.09 0.95 1.96 2.11 1.96 h 6.86 c 1.16 0 2.11 -0.87 2.11 -1.96 V 5.83 c 0 -1.09 -0.95 -1.96 -2.11 -1.96 l -0.87 -0 V 2.96 C 12.08 1.87 11.13 1 9.97 1 Z m 0 1.2 H 9.97 c 0.47 0 0.83 0.34 0.83 0.76 v 0.91 l -4.71 -0.01 c -1.16 0 -2.11 0.87 -2.11 1.96 V 10.97 H 3.11 c -0.47 0 -0.83 -0.34 -0.83 -0.76 V 2.96 c 0 -0.41 0.37 -0.76 0.83 -0.76 z m 2.98 2.87 h 6.86 c 0.47 0 0.83 0.34 0.83 0.76 v 7.26 c 0 0.41 -0.37 0.76 -0.83 0.76 H 6.09 c -0.47 0 -0.83 -0.34 -0.83 -0.76 V 5.83 c 0 -0.41 0.37 -0.76 0.83 -0.76 z'/%3E%3C/svg%3E") !important;
 }
 
 #PanelUI-menu-button {
@@ -2935,6 +2948,10 @@ sidebar-tab-row {
 
 #tracking-protection-icon {
   list-style-image: url("chrome://browser/skin/tracking-protection.svg");
+}
+
+#identity-icon-label[value="Firefox"] {
+  display: none !important;
 }
 
 .tabbrowser-tab:is([label="新标签页"], [label="New tab"]) .tab-icon-image,
@@ -3114,10 +3131,13 @@ sidebar-tab-row {
   scale: .58;
 }
 
-#context-previewlink::before,
 #context-openlinkincurrent::before,
 #placesContext_open::before {
   content: url("chrome://global/skin/icons/defaultFavicon.svg") !important;
+}
+
+#context-previewlink::before {
+  content: url("chrome://global/skin/icons/eye.svg") !important;
 }
 
 #context-setDesktopBackground::before {
@@ -3516,7 +3536,7 @@ sidebar-tab-row {
   content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' stroke='context-fill' stroke-width='0.264' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 4.06,12.01 v -0.91 H 3.08 c -0.54,0 -0.98,-0.4 -0.98,-0.91 V 2.94 c 0,-0.5 0.44,-0.91 0.98,-0.91 h 6.86 c 0.54,0 0.98,0.4 0.98,0.91 v 0.91 h 0.98 V 2.94 c 0,-1 -0.87,-1.81 -1.96,-1.81 H 3.08 c -1.09,0 -1.96,0.81 -1.96,1.81 v 7.26 c 0,1 0.87,1.81 1.96,1.81 z M 6.06,3.99 c -1.09,0 -1.96,0.81 -1.96,1.81 v 7.26 c 0,1 0.87,1.81 1.96,1.81 h 6.86 c 1.09,0 1.96,-0.81 1.96,-1.81 V 5.81 c 0,-1 -0.87,-1.81 -1.96,-1.81 z m 0,0.91 h 6.86 c 0.54,0 0.98,0.4 0.98,0.91 v 7.26 c 0,0.5 -0.44,0.91 -0.98,0.91 H 6.06 c -0.54,0 -0.98,-0.4 -0.98,-0.91 V 5.81 c 0,-0.5 0.44,-0.91 0.98,-0.91 z'/%3E%3C/svg%3E") !important;
 }
 
-/* verticalTabs */
+/* Sidebar */
 
 @media -moz-pref("sidebar.revamp") {
 #sidebar {
@@ -3702,7 +3722,7 @@ tab-group > .tabbrowser-tab,
 
 #sidebar-main, #sidebar-container {
   background: light-dark(rgba(205, 205, 198, .1), rgba(255, 255, 255, .04)) !important;
-  border-radius: 12px !important;
+  border-radius: var(--br0) !important;
   box-shadow: var(--bs4) !important;
   margin: -44px 8px 8px 8px !important;
   padding-top: 39px !important;
@@ -3755,6 +3775,12 @@ tab-group > .tabbrowser-tab,
 }
 &:is(:hover:active, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
   background-color: transparent !important;
+}
+}
+
+#urlbar-container {
+@media (min-width: 610px) and (max-width: 866px) {
+  max-width: 60% !important;
 }
 }
 
@@ -3855,7 +3881,7 @@ tab-group[collapsed] > .tab-group-label-container & {
   --dp: none;
   --op: 0;
 .titlebar-buttonbox-container {
-  margin-right: 5px !important;
+  margin-inline: 7px !important;
 @media (min-width: 610px) and (max-width: 866px) {
   margin-top: 19px !important;
 }
@@ -4114,7 +4140,7 @@ tab-split-view-wrapper {
   top: 13px;
   left: -255px;
   z-index: 3;
-  border-radius: 12px !important;
+  border-radius: var(--br0) !important;
   background-color: var(--bg4);
   backdrop-filter: blur(15px);
   overflow: unset !important;
