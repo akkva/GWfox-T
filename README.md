@@ -1,7 +1,7 @@
 <div align="center">
 <picture>
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/a6440399-e29a-4013-95fc-d4e38e59a466">
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/329633dd-75a2-4a57-b95e-5da160edbb09">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/43f302fd-b7be-4417-9d6f-41ffd69ae71d">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b2174c12-8d90-43e6-a8e1-1c46ae91e398">
 <img alt="Preview">
 </picture><br><br>
 <a href="https://github.com/akkva/GWfox-T/archive/refs/heads/main.zip"><img alt="GWfox-T" src="https://img.shields.io/badge/macOS-Tahoe-8e51da?style=for-the-badge"/></a>
@@ -24,3 +24,10 @@ Create these Boolean preferences in `about:config` to customize:
 * `gwt.oneliner`: Enable Compact layout.
 * `gwt.atbc`: Enable compatibility with the Adaptive Tab Bar Colour extension.
 * `gwt.ac`: Manually Specify Accent Color (*Edit `--bg0` in `.css` files to customize*).
+
+## Window Corners
+For a Safari-like look, follow these steps:
+1. Terminal: Run these commands to set the corner radius:
+   * Apply: `defaults write org.mozilla.firefox NSConvolutionOverride1 -float 26`
+   * Restore: `defaults delete org.mozilla.firefox NSConvolutionOverride1`
+2. CSS: Set `--br0` to `19px` in `userChrome.css` file.
