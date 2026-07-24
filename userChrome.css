@@ -312,7 +312,7 @@ split-view-footer {
   transform: rotateX(0deg);
 }
 
-:has(#PersonalToolbar .bookmark-item[open]) {
+:has(#PersonalToolbar .bookmark-item[open], #PersonalToolbar #PlacesChevron:is(:hover, [open])) {
 #PersonalToolbar {
   transition-delay: 100ms;
   transform: rotateX(0deg);
