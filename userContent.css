@@ -6,8 +6,9 @@
  * * * * * * * * * * * * * * * * * * * */
 
 @media (-moz-mac-tahoe-theme) {
+* { --bg0: #8867fc; }
+
 :root {
-  --bg0: #8867fc;
   --bg1: light-dark(rgba(70, 70, 70, .08), rgba(170, 170, 170, .08));
   --bg2: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .15));
   --bg3: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .2));
@@ -63,6 +64,30 @@
   --toggle-background-color-pressed-hover: var(--color-accent-primary-hover) !important;
   --toggle-background-color-pressed-active: var(--color-accent-primary-active) !important;
   --toggle-dot-background-color-on-pressed: #fff !important;
+}
+
+#download {
+  color: #fff !important;
+  background-color: AccentColor !important;
+&:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
+@media -moz-pref("gwt.ac") {
+  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+&:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
+}
+}
+
+#screenshots-cancel-button, #download, #cancel, #copy {
+  border-radius: 50px !important;
+  outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
+@media -moz-pref("gwt.ac") {
+  outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
+}
+}
+
+#buttons-container {
+  border-radius: 20px !important;
+  background-color: light-dark(rgba(255, 255, 255, .55), rgba(35, 35, 35, .55)) !important;
+  backdrop-filter: blur(15px);
 }
 
 @media -moz-pref("gwt.ac") {
