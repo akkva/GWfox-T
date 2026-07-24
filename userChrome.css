@@ -2611,6 +2611,30 @@ panel#feature-callout,
 }
 }
 
+screenshots-buttons {
+  --screenshots-icon-background-color: AccentColor !important;
+  top: 10px !important;
+  border-radius: 20px !important;
+  background-color: light-dark(rgba(255, 255, 255, .55), rgba(35, 35, 35, .55)) !important;
+  backdrop-filter: blur(15px);
+@media -moz-pref("gwt.ac") {
+  --screenshots-icon-background-color: var(--bg0) !important;
+}
+}
+
+screenshots-preview {
+  background: light-dark(#fff, #202121) !important;
+}
+
+[data-l10n-id="screenshots-save-page-button"],
+[data-l10n-id="screenshots-save-visible-button"] {
+  border-radius: 12px !important;
+}
+
+#preview-image-container {
+  padding: 0 !important;
+}
+
 .browserContainer > findbar {
   position: absolute !important;
   top: 4px;
@@ -2761,6 +2785,15 @@ toolbarbutton {
   outline-width: 3px !important;
   transition: all .3s cubic-bezier(1, 0, 0, 1) !important;
   box-shadow: none !important;
+}
+&[status=notfound] {
+  background-color: rgba(255, 0, 0, .1) !important;
+&:focus {
+  outline-color: rgba(255, 0, 0, .5) !important;
+}
+&::selection {
+  background: rgba(255, 0, 0, .25) !important;
+}
 }
 }
 }
