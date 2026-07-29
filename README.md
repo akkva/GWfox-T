@@ -4,8 +4,6 @@
 <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/b2174c12-8d90-43e6-a8e1-1c46ae91e398">
 <img alt="Preview">
 </picture><br><br>
-<a href="https://github.com/akkva/GWfox-T/archive/refs/heads/main.zip"><img alt="GWfox-T" src="https://img.shields.io/badge/macOS-Tahoe-8e51da?style=for-the-badge"/></a>
-<a href="https://www.firefox.com"><img alt="Firefox" src="https://img.shields.io/badge/Firefox-151-8e51da?style=for-the-badge"/></a>
 </div>
 
 ## Installation
