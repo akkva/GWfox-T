@@ -516,7 +516,7 @@ body {
 .search-handoff-button {
   background-color: rgba(25, 25, 25, .55) !important;
   border-radius: 12px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
   backdrop-filter: blur(15px) !important;
   outline: none !important;
   border: none !important;
@@ -524,7 +524,7 @@ body {
 }
 .search-handoff-button.disabled {
   opacity: 1 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
   fill: rgba(255, 255, 255, .6) !important;
 }
 .fake-textbox {
@@ -566,12 +566,12 @@ body {
 }
 
 @keyframes panel-grow {
-  0% {
-    transform: scale(.92);
-  }
-  100% {
-    transform: scale(1);
-  }
+0% {
+  transform: scale(.92);
+}
+100% {
+  transform: scale(1);
+}
 }
 
 .context-menu {
@@ -616,7 +616,7 @@ body {
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
 }
 
-.divider, .edit-topsites-wrapper .actions {
+.divider {
   border-top: 1px solid light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1)) !important;
 }
 
@@ -628,7 +628,7 @@ body {
 .search-inner-wrapper {
   background-color: light-dark(rgba(255, 255, 255, .8), rgba(15, 15, 15, .7)) !important;
   border-radius: 50px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
   transition: background .5s !important;
   z-index: 1;
 }
@@ -752,7 +752,7 @@ body {
   border-radius: 20px !important;
   width: 72px !important;
   height: 72px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
   border: none !important;
   transition: background .5s !important;
 }
@@ -781,7 +781,7 @@ body {
 
 .context-menu-button.icon {
   border-radius: 50px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
 }
 
 [data-l10n-id="newtab-custom-recent-toggle"],
@@ -830,7 +830,7 @@ body {
   border-radius: 20px !important;
 }
 
-.modalOverlayOuter, .tile, .context-menu-button.icon, .search-inner-wrapper {
+.modalOverlayOuter, .confirmation-dialog, .tile, .context-menu-button.icon, .search-inner-wrapper {
   backdrop-filter: blur(15px) !important;
 }
 
@@ -975,7 +975,7 @@ body {
 &:active { background-color: var(--bg3) !important; }
 @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper") {
   background-color: var(--bg4) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
 &:hover {
   background-color: var(--bg5) !important;
 }
