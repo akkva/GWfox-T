@@ -961,7 +961,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-.modalOverlayOuter, .contentSearchSuggestionTable, .customize-menu, .context-menu {
+.modalOverlayOuter, .confirmation-dialog, .contentSearchSuggestionTable, .customize-menu, .context-menu {
   box-shadow: var(--bs2) !important;
   outline: 1px solid rgba(235, 235, 235, .2) !important;
   outline-offset: -1.5px !important;
