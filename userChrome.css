@@ -16,7 +16,6 @@
   --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
   --bg5: light-dark(rgba(255, 255, 255, .5), rgba(255, 255, 255, .04));
   --bg6: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff));
-  --bg7: color-mix(in srgb, var(--bg0), transparent 75%);
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --bs3: 0 4px 20px rgba(75, 75, 75, .1), inset 1px 1.5px 1px -1px rgba(255, 255, 255, .18), inset -.5px -.5px 1px 0 rgba(255, 255, 255, .2);
@@ -106,7 +105,6 @@
   --toolbox-background-color-inactive: light-dark(#fff, #202121) !important;
 }
   --bg5: light-dark(rgba(70, 70, 70, .06), rgba(170, 170, 170, .06));
-  --bg7: color-mix(in srgb, #777, transparent 75%);
   --bs3: none;
   --bs4: none;
 }
@@ -308,13 +306,11 @@ split-view-footer {
 }
 
 #navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, .tabbrowser-tab:hover, .tab-group-label:hover)) > #PersonalToolbar {
-  transition-delay: 100ms;
   transform: rotateX(0deg);
 }
 
 :has(#PersonalToolbar .bookmark-item[open], #PersonalToolbar #PlacesChevron:is(:hover, [open])) {
 #PersonalToolbar {
-  transition-delay: 100ms;
   transform: rotateX(0deg);
 }
 }
@@ -1969,18 +1965,18 @@ tab-group & {
 
 @media not -moz-pref("sidebar.verticalTabs") {
 @media not -moz-pref("gwt.oneliner") {
-#TabsToolbar .tabbrowser-tab:not([pinned]) {
+.tabbrowser-tab:not([pinned]) {
   border-left: 1px solid transparent !important;
 }
 
-#TabsToolbar .tabbrowser-tab + .tabbrowser-tab:not([selected], :hover, tab-split-view-wrapper *) {
+.tabbrowser-tab + .tabbrowser-tab:not([selected], :hover, tab-split-view-wrapper *) {
   border-image: linear-gradient( to bottom, transparent 34%, rgba(155, 155, 155, .3) 34%, rgba(155, 155, 155, .3) 76%, transparent 76%) 1 !important;
 }
 
-#TabsToolbar tab-group .tabbrowser-tab + .tabbrowser-tab:not([selected], :hover),
-#TabsToolbar .tabbrowser-tab[pinned] + .tabbrowser-tab:not([pinned]),
-#TabsToolbar .tabbrowser-tab[selected] + .tabbrowser-tab,
-#TabsToolbar .tabbrowser-tab:hover + .tabbrowser-tab {
+tab-group .tabbrowser-tab + .tabbrowser-tab:not([selected], :hover),
+.tabbrowser-tab[pinned] + .tabbrowser-tab:not([pinned]),
+.tabbrowser-tab[selected] + .tabbrowser-tab,
+.tabbrowser-tab:hover + .tabbrowser-tab {
   border-image: none !important;
 }
 }
@@ -2453,13 +2449,6 @@ input {
 }
 }
 
-@media -moz-pref("gwt.ac") {
-::selection {
-  background: var(--bg7) !important;
-  color: inherit !important;
-}
-}
-
 treechildren::-moz-tree-row {
   outline: none !important;
   border-radius: 7px !important;
@@ -2712,12 +2701,14 @@ checkbox {
 }
 .findbar-closebutton {
   position: absolute;
-  top: 19px;
+  top: 21px;
   right: 41px;
   margin: 0 !important;
   background: none !important;
   pointer-events: auto;
   z-index: 1;
+  max-height: 24px !important;
+  max-width: 24px !important;
 & > image {
   padding: 5px;
   max-height: 24px !important;
@@ -2766,7 +2757,7 @@ toolbarbutton {
 .findbar-textbox {
   width: 100% !important;
   min-height: 24px;
-  margin-inline-end: 5px !important;
+  margin-inline: 5px !important;
   background: rgba(165, 165, 165, .1) !important;
   outline-style: solid !important;
   outline-color: transparent !important;
@@ -2790,9 +2781,6 @@ toolbarbutton {
   background-color: rgba(255, 0, 0, .1) !important;
 &:focus {
   outline-color: rgba(255, 0, 0, .5) !important;
-}
-&::selection {
-  background: rgba(255, 0, 0, .25) !important;
 }
 }
 }
@@ -3061,6 +3049,18 @@ sidebar-tab-row {
   -moz-context-properties: fill;
   fill: currentColor;
   scale: .75;
+}
+
+#appMenu-create-profile-button .toolbarbutton-icon {
+  margin-inline-end: 2px !important;
+}
+
+#appMenu-profiles-button {
+  height: 34.5px !important;
+> .toolbarbutton-icon {
+  margin-inline-start: -4px !important;
+  margin-inline-end: -2px !important;
+}
 }
 
 #appMenu-downloads-button {list-style-image: url("chrome://browser/skin/downloads/downloads.svg")}
@@ -3578,7 +3578,7 @@ sidebar-tab-row {
   border-radius: 12px !important;
 }
 
-#sidebar-main, #sidebar-container {
+#sidebar-container {
   -moz-window-dragging: drag;
 }
 
@@ -3591,7 +3591,7 @@ sidebar-tab-row {
 }
 
 @media -moz-pref("sidebar.verticalTabs") {
-#sidebar-main, #sidebar-container {
+#sidebar-container {
   max-width: 240px !important;
   margin-top: -5px !important;
 }
@@ -3737,7 +3737,7 @@ tab-group > .tabbrowser-tab,
 }
 
 :has(#tabbrowser-tabs[expanded]) {
-#sidebar-main, #sidebar-container {
+#sidebar-container {
   min-width: 240px !important;
 }
 
@@ -3753,7 +3753,7 @@ tab-group > .tabbrowser-tab,
 }
 }
 
-#sidebar-main, #sidebar-container {
+#sidebar-container {
   background: light-dark(rgba(205, 205, 198, .1), rgba(255, 255, 255, .04)) !important;
   border-radius: var(--br0) !important;
   box-shadow: var(--bs4) !important;
@@ -3827,7 +3827,7 @@ tab-group > .tabbrowser-tab,
 
 :has(#tabbrowser-tabs:not([expanded])) {
 @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
-#sidebar-main, #sidebar-container {
+#sidebar-container {
   visibility: collapse;
 }
 #sidebar-box {
@@ -4164,7 +4164,7 @@ tab-split-view-wrapper {
 }
 }
 
-#sidebar-main, #sidebar-container {
+#sidebar-container {
   height: calc(100% - 16px) !important;
   min-width: 240px !important;
   display: flex !important;
@@ -4201,7 +4201,7 @@ tab-split-view-wrapper {
   width: 35px;
   height: 100%;
 }
-:has(#sidebar-main:hover, #sidebar-container:hover, #tabContextMenu:hover, .tab-group-editor-panel[panelopen], .tab-note-editor-panel[panelopen], #tabbrowser-tabs[movingtab], #toolbar-context-menu > menuitem:is(#toolbar-context-openANewTab, #toolbar-context-reloadSelectedTab, #toolbar-context-reloadSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs, #toolbar-context-selectAllTabs, #toolbar-context-undoCloseTab):hover) & {
+:has(#sidebar-container:hover, #tabContextMenu:hover, .tab-group-editor-panel[panelopen], .tab-note-editor-panel[panelopen], #tabbrowser-tabs[movingtab], #toolbar-context-menu > menuitem:is(#toolbar-context-openANewTab, #toolbar-context-reloadSelectedTab, #toolbar-context-reloadSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs, #toolbar-context-selectAllTabs, #toolbar-context-undoCloseTab):hover) & {
   left: 8px;
   transition: cubic-bezier(.27, 1.217, .17, 1.0117) .5s;
 }
