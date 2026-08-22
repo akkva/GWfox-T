@@ -12,9 +12,9 @@
   --bg1: light-dark(rgba(70, 70, 70, .08), rgba(170, 170, 170, .08));
   --bg2: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .15));
   --bg3: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .2));
-  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(25, 25, 25, .55));
-  --bg5: light-dark(rgba(255, 255, 255, .75), rgba(15, 15, 15, .75));
-  --bg6: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .6));
+  --bg4: light-dark(rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
+  --bg5: light-dark(rgba(255, 255, 255, .45), rgba(255, 255, 255, .15));
+  --bg6: light-dark(rgba(255, 255, 255, .15), rgba(255, 255, 255, .06));
   --bg7: color-mix(in srgb, var(--bg0), transparent 75%);
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
@@ -51,8 +51,8 @@
   --focus-outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
 }
 @media not -moz-pref("gwt.atbc") {
-  --in-content-page-background: light-dark(#fff, #202121) !important;
-  --newtab-background-color: light-dark(#fff, #202121) !important;
+  --in-content-page-background: light-dark(#fff, #1e1f1f) !important;
+  --newtab-background-color: light-dark(#fff, #1e1f1f) !important;
 }
 :-moz-window-inactive {
   --bg7: color-mix(in srgb, #777, transparent 75%);
@@ -105,13 +105,13 @@
   --in-content-box-background: #282828 !important;
   --in-content-table-background: #252525 !important;
   --color-gray-80: #282828 !important;
-  --color-gray-90: #202121 !important;
+  --color-gray-90: #1e1f1f !important;
 }
 }
 
 :root[dialogroot] {
 @media not -moz-pref("gwt.atbc") {
-  --background-color-canvas: #202121 !important;
+  --background-color-canvas: #1e1f1f !important;
 }
 }
 
@@ -121,7 +121,7 @@
 
 @-moz-document url-prefix("about:") {
 @media not -moz-pref("gwt.atbc") {
-body { background-color: #202121 !important; } }
+body { background-color: #1e1f1f !important; } }
 
 * {
   --toolbar-button-foreground-active: AccentColor !important;
@@ -137,16 +137,16 @@ body { background-color: #202121 !important; } }
   --primary-color: color-mix(in srgb, var(--bg0) 90%, #000) !important;
 }
 @media not -moz-pref("gwt.atbc") {
-  --fxview-background-color: #202121 !important;
-  --in-content-page-background: #202121 !important;
-  --background-color-canvas: #202121 !important;
+  --fxview-background-color: #1e1f1f !important;
+  --in-content-page-background: #1e1f1f !important;
+  --background-color-canvas: #1e1f1f !important;
   --input-text-background-color: #282828 !important;
 }
 }
 
 #migrationWizardDialog {
 @media not -moz-pref("gwt.atbc") {
-  background: #202121 !important;
+  background: #1e1f1f !important;
 }
 }
 }
@@ -334,7 +334,7 @@ table {
 @-moz-document url-prefix("about:newtab"), url-prefix("about:home"), url-prefix("about:addons") {
 panel-list {
   --panel-item-border-radius: 8px;
-  --panel-item-background-color: color-mix(in srgb, -moz-menuhover 80%, transparent);
+  --panel-item-background-color: -moz-menuhover;
   --panel-item-color: #fff;
   border: none !important;
   border-radius: 12px !important;
@@ -358,7 +358,7 @@ panel-list {
 .sticky-header { background: transparent !important; }
 sidebar-tab-row {
 &:is(:hover, :active) {
-  background-color: color-mix(in srgb, -moz-menuhover 80%, transparent) !important;
+  background-color: -moz-menuhover !important;
   color: #fff !important;
 @media -moz-pref("gwt.ac") {
   background-color: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
@@ -386,7 +386,7 @@ sidebar-tab-row {
 button:not(.toggle-button) {
  border-radius: 6px !important;
 &:is(:hover, :active) {
-  background-color: color-mix(in srgb, -moz-menuhover 80%, transparent) !important;
+  background-color: -moz-menuhover !important;
   color: #fff !important;
 @media -moz-pref("gwt.ac") {
   background-color: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
@@ -424,7 +424,7 @@ moz-message-bar {
   --box-group-border: none !important;
   --promo-background-color: var(--bg1) !important;
 @media not -moz-pref("gwt.atbc") {
-  --background-color-canvas: light-dark(#fff, #202121) !important;
+  --background-color-canvas: light-dark(#fff, #1e1f1f) !important;
 }
 }
 #backup-toggle-scheduled-button,
@@ -464,7 +464,7 @@ treecol, .tree-columnpicker-button {
 input:not([type="checkbox"], [type="radio"], [type="button"]) {
   background-color: var(--bg1) !important;
 &:focus {
-  outline: 3px solid var(--focus-outline-color) !important;
+  outline: 3.5px solid var(--focus-outline-color) !important;
 }
 }
 .privacy-detailedoption {
@@ -554,7 +554,7 @@ body {
   --newtab-search-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
   background-image: var(--newtab-wallpaper, ""), repeating-linear-gradient(-45deg, var(--newtab-wallpaper-color, "") 0 250px, #fff 0 500px) !important;
 @media (prefers-color-scheme: dark) {
-  background-image: var(--newtab-wallpaper, ""), repeating-linear-gradient(-45deg, var(--newtab-wallpaper-color, "") 0 250px, #202121 0 500px) !important;
+  background-image: var(--newtab-wallpaper, ""), repeating-linear-gradient(-45deg, var(--newtab-wallpaper-color, "") 0 250px, #1e1f1f 0 500px) !important;
 }
 }
 
@@ -578,6 +578,7 @@ body {
   border-radius: 12px !important;
   padding: 6px !important;
   box-shadow: var(--bs1) !important;
+  margin-top: -15px !important;
 }
 
 .context-menu > ul {
@@ -589,7 +590,7 @@ body {
   border-radius: 8px !important;
   padding: 6px 12px !important;
 &:is(:focus, :hover) {
-  background: color-mix(in srgb, -moz-menuhover 80%, transparent) !important;
+  background: -moz-menuhover !important;
   color: #fff !important;
 @media -moz-pref("gwt.ac") {
   background: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
@@ -748,6 +749,10 @@ body {
 }
 }
 
+.top-site-outer {
+  width: 95px !important;
+}
+
 .tile {
   border-radius: 20px !important;
   width: 72px !important;
@@ -755,6 +760,7 @@ body {
   box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
   border: none !important;
   transition: background .5s !important;
+  outline-width: 0 !important;
 }
 
 .tile:active {
@@ -768,7 +774,12 @@ body {
 }
 
 .context-menu-button {
-  inset-inline-end: -9px !important;
+  inset-inline-end: -12px !important;
+  inset-block-start: -5px !important;
+}
+
+.add-button {
+  clip-path: circle(50%);
 }
 
 .top-site-outer .top-site-inner > a {
@@ -795,6 +806,8 @@ body {
 
 .top-site-outer:hover .icon.icon-pin-small {
   display: inline-block !important;
+  inset-inline-start: 16px !important;
+  inset-block-start: 5px !important;
 }
 
 .wallpaper-input:checked {
@@ -945,6 +958,9 @@ body {
 &::after {
   content: none !important;
 }
+> panel-list {
+  inset-block-start: 80px !important;
+}
 }
 
 *+button {
@@ -986,62 +1002,36 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-.lightWallpaper .context-menu {
-  color-scheme: dark !important;
-}
-
-.lightWallpaper .tile {
+.lightWallpaper {
+.search-inner-wrapper, .tile, .context-menu, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button, .customize-menu, .modalOverlayOuter, .confirmation-dialog, panel-list {
   background-color: rgba(15, 15, 15, .7) !important;
-}
-
-.lightWallpaper .tile:hover {
+&:hover {
   background-color: rgba(15, 15, 15, .75) !important;
 }
-
-.lightWallpaper .tile:active {
+&:active {
   background-color: rgba(15, 15, 15, .6) !important;
 }
-
-.lightWallpaper .context-menu-button.icon {
-  background-color: rgba(15, 15, 15, .7) !important;
+}  
 }
-
-.lightWallpaper .context-menu-button.icon:hover {
-  background-color: rgba(15, 15, 15, .75) !important;
-}
-
-.lightWallpaper .context-menu-button.icon:active {
-  background-color: rgba(15, 15, 15, .6) !important;
-}
-
-.context-menu-button {
+.context-menu-button, .icon.icon-pin-small {
   fill: #fff !important;
 }
 }
 
 @media (prefers-color-scheme: light) {
-.darkWallpaper .tile {
+.darkWallpaper {
+.search-inner-wrapper, .tile, .context-menu, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button, .customize-menu, .modalOverlayOuter, .confirmation-dialog, panel-list {
   background-color: rgba(255, 255, 255, .7) !important;
-}
-
-.darkWallpaper .tile:hover {
+&:hover {
   background-color: rgba(255, 255, 255, .75) !important;
 }
-
-.darkWallpaper .tile:active {
+&:active {
   background-color: rgba(255, 255, 255, .6) !important;
 }
-
-.darkWallpaper .context-menu-button.icon {
-  background-color: rgba(255, 255, 255, .7) !important;
 }
-
-.darkWallpaper .context-menu-button.icon:hover {
-  background-color: rgba(255, 255, 255, .75) !important;
 }
-
-.darkWallpaper .context-menu-button.icon:active {
-  background-color: rgba(255, 255, 255, .6) !important;
+.context-menu-button, .icon.icon-pin-small {
+  fill: #000 !important;
 }
 }
 }
