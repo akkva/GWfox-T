@@ -1,9 +1,10 @@
 <div align="center">
 <picture>
-<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/2ad46a6e-58c2-4683-91ca-37e3896b4f90">
-<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/522c1641-921f-45ce-91b6-e423e70fcb9b">
+<source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/7297d2c9-ccff-4255-ade8-680ed0cb2194">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/bea97744-19b9-4c78-b746-dbe8d3817ed8">
 <img alt="Preview">
-</picture><br><br>
+</picture>
+<p>This theme is compatible with macOS 26+</p>
 </div>
 
 ## Installation
@@ -20,5 +21,6 @@
 ## Customization
 Create these Boolean preferences in `about:config` to customize:
 * `gwt.oneliner`: Enable Compact layout.
+* `gwt.toolbar`: Auto-hide bookmarks toolbar.
 * `gwt.atbc`: Enable compatibility with the Adaptive Tab Bar Colour extension.
 * `gwt.ac`: Manually Specify Accent Color (*Edit `--bg0` in `.css` files to customize*).
