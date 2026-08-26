@@ -308,14 +308,19 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 @media (min-width: 610px) and (max-width: 866px) {
-#nav-bar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #new-tab-button, #tabs-newtab-button),
-#TabsToolbar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #alltabs-button, #new-tab-button, #tabs-newtab-button) {
-  visibility: collapse;
+#nav-bar, #TabsToolbar {
+.toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button), #stop-reload-button {
+  display: none !important;
 }
 
-:root:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button)) {
-#alltabs-button {
-  visibility: collapse;
+#PanelUI-menu-button {
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  clip-path: inset(-20px);
+> .toolbarbutton-badge-stack {
+  padding: 9px !important;
+}
 }
 }
 }
@@ -508,7 +513,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 9px !important;
 }
 
-#nav-bar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #new-tab-button, #tabs-newtab-button, #alltabs-button) {
+#nav-bar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #new-tab-button, #tabs-newtab-button, #alltabs-button) {
   background: var(--bg5) !important;
   box-shadow: var(--bs3) !important;
   border-radius: 50%;
@@ -527,7 +532,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 
-#TabsToolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #new-tab-button, #tabs-newtab-button, #alltabs-button) {
+#TabsToolbar .toolbarbutton-1:not(#back-button, #forward-button, #stop-button, #reload-button, #PanelUI-menu-button, #nav-bar-overflow-button, #unified-extensions-button, #new-tab-button, #tabs-newtab-button, #alltabs-button) {
   background: var(--bg5) !important;
   box-shadow: var(--bs3) !important;
   border-radius: 50%;
@@ -629,6 +634,22 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 }
+
+#stop-reload-button {
+  background: var(--bg5) !important;
+  box-shadow: var(--bs3) !important;
+  border-radius: 50%;
+  margin: 8px !important;
+  padding: 0 !important;
+  width: 36px !important;
+  height: 36px !important;
+> #reload-button .toolbarbutton-icon, #stop-button .toolbarbutton-icon {
+  margin-inline-start: -2px !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 10px !important;
+}
+}
 }
 
 :root:has(#back-button:not([disabled]):hover, #forward-button:not([disabled]):hover) {
@@ -698,11 +719,32 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 6.5px 5.5px 5.5px 6.5px !important;
 }
 }
+~ #stop-reload-button {
+  border-radius: 0 !important;
+  width: 39px !important;
+  margin-inline: -1.5px !important;
+  clip-path: inset(-20px 1.5px -20px 1.5px);
+> #reload-button .toolbarbutton-icon, #stop-button .toolbarbutton-icon {
+  margin-inline-start: 0 !important;
+  width: 29px !important;
+  height: 29px !important;
+  padding: 5.5px !important;
+}
+}
 &[hidden] + .toolbarbutton-1 {
-    border-radius: 50% 0 0 50% !important;
-    margin-inline-start: 0 !important;
-    width: 37.5px !important;
-    clip-path: inset(-20px 1.5px -20px -20px);
+  border-radius: 50% 0 0 50% !important;
+  margin-inline-start: 0 !important;
+  width: 37.5px !important;
+  clip-path: inset(-20px 1.5px -20px -20px);
+}
+&[hidden] + #stop-reload-button {
+  border-radius: 50% 0 0 50% !important;
+  margin-inline-start: 0 !important;
+  width: 37.5px !important;
+  clip-path: inset(-20px 1.5px -20px -20px);
+> #reload-button .toolbarbutton-icon, #stop-button .toolbarbutton-icon {
+  margin-inline-start: 2px !important;
+}
 }
 }
 }
@@ -786,7 +828,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   right: 44.5px;
   z-index: 9;
   clip-path: inset(-20px 1.5px -20px 1.5px);
-:root:not(:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button), #unified-extensions-button ~ .toolbarbutton-1)):has(#unified-extensions-button[hidden]) & {
+:root:not(:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button), #unified-extensions-button ~ .toolbarbutton-1, #unified-extensions-button ~ #stop-reload-button)):has(#unified-extensions-button[hidden]) & {
   border-radius: 50% 0 0 50% !important;
   clip-path: inset(-20px 1.5px -20px -20px);
   width: 37.5px !important;
