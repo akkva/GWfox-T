@@ -8,19 +8,34 @@
 </div>
 
 ## Installation
-1. Create a `chrome` folder in your Firefox profile directory and move the theme files into it.
-2. In `about:config` configure the following preferences:
-    * Set to true:
-        * `toolkit.legacyUserProfileCustomizations.stylesheets`
-        * `svg.context-properties.content.enabled`
-    * Set to false:
-        * `browser.nova.enabled`
-        * `browser.newtabpage.activity-stream.nova.enabled`
+
+1. Move the theme files into your profile's `chrome` folder.
+2. Configure `about:config` with these preferences:
+
+| Preference Name | Value |
+| :--- | :--- |
+| `toolkit.legacyUserProfileCustomizations.stylesheets` | `true` |
+| `svg.context-properties.content.enabled` | `true` |
+| `browser.nova.enabled` |`false` |
+| `browser.newtabpage.activity-stream.nova.enabled` |`false` |
+
 3. Restart Firefox.
 
+
 ## Customization
-Create these Boolean preferences in `about:config` to customize:
-* `gwt.oneliner`: Enable Compact layout.
-* `gwt.toolbar`: Auto-hide bookmarks toolbar.
-* `gwt.atbc`: Enable compatibility with the Adaptive Tab Bar Colour extension.
-* `gwt.ac`: Manually Specify Accent Color (*Edit `--bg0` in `.css` files to customize*).
+
+Create these **Boolean** preferences in `about:config` to customize:
+
+| Preference Name | Description |
+| :--- | :--- |
+| `gwt.oneliner` | Enable Compact layout. |
+| `gwt.toolbar` | Auto-hide bookmarks toolbar. |
+| `gwt.toolbox` | Auto-hide navigator toolbox when hiding tabs and sidebar. |
+| `gwt.atbc` | Enable compatibility with the Adaptive Tab Bar Colour extension. |
+| `gwt.ac` | Manually specify accent color *(Edit `--bg0` in CSS to customize)*. |
+
+---
+
+> [!IMPORTANT]
+> **"Hide Tabs and Sidebar":** 
+> In this mode, the sidebar can still be summoned from the left. However, in Firefox 154+, closing the window or restarting the browser causes the tabs to disappear. To restore the display, simply toggle the sidebar on and off once.
