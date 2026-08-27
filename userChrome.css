@@ -3263,9 +3263,10 @@ tab-group > .tabbrowser-tab,
 :root:has(#tabbrowser-tabs:not([expanded])) {
 #sidebar-container {
   visibility: collapse;
+  max-width: 25px !important;
 @media -moz-pref("sidebar.visibility", "expand-on-hover") {
   visibility: visible;
-  margin-inline-end: -48px !important;
+  margin-inline-end: -24px !important;
 }
 #sidebar-box {
   margin-inline-start: 8px !important;
