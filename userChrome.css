@@ -228,22 +228,10 @@ split-view-footer {
 }
 }
 
-@media not -moz-pref("sidebar.verticalTabs") {
 .titlebar-buttonbox-container {
   position: fixed !important;
   left: 7px;
   top: 19px;
-}
-}
-
-@media -moz-pref("sidebar.verticalTabs") {
-:root:has([sidebar-shown]) {
-.titlebar-buttonbox-container {
-  position: fixed !important;
-  left: 7px;
-  top: 19px;
-}
-}
 }
 
 #nav-bar {
@@ -378,7 +366,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 #urlbar-container {
-  transition: max-width .25s !important;
+  transition: max-width .25s .5s !important;
   max-width: 36px !important;
 #urlbar {
   background-image: url("chrome://global/skin/icons/search-glass.svg");
@@ -386,21 +374,26 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   background-position: left 10px bottom 10px;
   -moz-context-properties: fill, fill-opacity;
   fill: currentColor;
+  transition: fill .25s .5s !important;
 &:-moz-window-inactive {
   fill-opacity: .48;
 }
 .urlbar-page-action, .identity-box-button, #notification-popup-box,
 #identity-permission-box, #trust-icon-container, #identity-box, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
-  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: opacity .25s .5s !important;
 }
 }
 &:has(#urlbar:is(:hover, [focused], [open]), .urlbar-page-action[open], .identity-box-button[open], #notification-popup-box[open], #trust-icon-container[open]) {
   max-width: 315px !important;
+  transition: max-width .25s 0s !important;
 #urlbar {
-  background-image: none;
+  fill: transparent;
+  transition: fill .25s 0s !important;
 .urlbar-page-action, .identity-box-button, #notification-popup-box,
 #identity-permission-box, #trust-icon-container, #identity-box, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
-  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity .25s 0s !important;
 }
 }
 }
@@ -974,58 +967,14 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   margin-inline-start: -25% !important;
   min-width: 150% !important;
 }
-
 .urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
   mask-image: linear-gradient(to left, transparent, #fff 15ch) !important;
 #urlbar:is(:hover, [focused], [open]) & {
   mask-image: none !important;
 }
 }
-
-&:not(:has(#identity-box[pageproxystate="valid"].extensionPage)) {
-&:not(:hover, [open], :has(*[open])) {
-.urlbar-input {
-  padding-inline-start: 10px !important;
-  padding-inline-end: 15px !important;
-}
-.urlbar-input-container[pageproxystate="invalid"] .urlbar-input {
-  padding-inline-start: 0 !important;
-  padding-inline-end: 0 !important;
-}
-}
-&:not([breakout][breakout-extend]) {
-.urlbar-page-action,
-#identity-box[pageproxystate="valid"].chromeUI,
-#identity-permission-box, 
-#notification-popup-box, 
-#trust-icon-container {
-  opacity: 0;
-  transition: opacity 0.2s ease, margin 0.2s ease;
-}
-}
-.urlbar-page-action {
-  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding));
-}
-#identity-box[pageproxystate="valid"].chromeUI,
-#identity-permission-box, 
-#notification-popup-box, 
-#trust-icon-container {
-  margin-inline-start: calc(-16px - 2 * var(--urlbar-icon-padding));
-}
-&:is(:hover, [open], :has(*[open])) {
-.urlbar-page-action,
-#identity-box[pageproxystate="valid"].chromeUI,
-#identity-permission-box,
-#notification-popup-box,
-#trust-icon-container {
-  opacity: 1 !important;
-  margin-inline-start: 0 !important;
-  margin-inline-end: 0 !important;
-}
-}
 .urlbar-input::placeholder {
   text-align: left !important;
-}
 }
 }
 #identity-box {
@@ -3376,15 +3325,6 @@ tab-group[collapsed] > .tab-group-label-container & {
 :root:not([chromehidden~="toolbar"], [customizing], [inDOMFullscreen]):has(#tabbrowser-tabs:not([expanded])) {
   --dp: none;
   --op: 0;
-.titlebar-buttonbox-container {
-  margin-inline: 7px !important;
-@media (min-width: 610px) and (max-width: 866px) {
-  margin-top: 19px !important;
-}
-:root:has([sidebar-shown]) & {
-  margin-left: -7px !important;
-}
-}
 
 #sidebar-box, .sidebar-splitter {
   visibility: collapse;
@@ -3394,16 +3334,16 @@ tab-group[collapsed] > .tab-group-label-container & {
   margin: 8px !important;
 }
 
+@media -moz-pref("gwt.toolbox") {
 #navigator-toolbox {
   position: absolute !important;
   top: 0;
   left: 0;
   right: 0;
-  transition: top .25s !important;
+  transition: top .25s 0s !important;
 &:not(:hover) {
   top: -53px;
-  transition: top .25s !important;
-  transition-delay: .5s !important;
+  transition: top .25s .5s !important;
 }
 :root:has(#urlbar[open]) & {
   top: -95px;
@@ -3425,12 +3365,6 @@ tab-group[collapsed] > .tab-group-label-container & {
   left: 0;
   height: 18px;
   width: 100%;
-}
-:root:not(:has([sidebar-shown])) & {
-  padding-left: 0 !important;
-}
-:root:not([inFullscreen]):has([sidebar-shown]) & {
-  padding-left: 86px !important;
 }
 }
 
@@ -3459,6 +3393,7 @@ tab-group[collapsed] > .tab-group-label-container & {
   margin-top: -38px !important;
 toolbarbutton.bookmark-item:not(.subviewbutton) {
   margin-block: 10px !important;
+}
 }
 }
 }
@@ -3494,10 +3429,19 @@ tab-group[collapsed] > .tab-group-label-container & {
 }
 
 #tabbrowser-tabs {
-  padding-top: 30px !important;
+  margin-top: -3px !important;
   width: 240px !important;
+&:has([pinned]) {
+  margin-top: -5px !important;
+}
 &[overflow]::after {
   content: none !important;
+}
+@media -moz-pref("gwt.toolbox") {
+  margin-top: 30px !important;
+&:has([pinned]) {
+  margin-top: 28px !important;
+}
 }
 }
 
@@ -3507,6 +3451,12 @@ tab-group[collapsed] > .tab-group-label-container & {
   width: 220px !important;
   padding-inline-start: 106px !important;
   padding-inline-end: 100px !important;
+}
+
+#vertical-tabs-newtab-button {
+@media not -moz-pref("gwt.toolbox") {
+  margin-block-end: 20px !important;
+}
 }
 
 #pinned-tabs-container[orient="vertical"] {
@@ -3636,20 +3586,21 @@ tab-split-view-wrapper {
 }
 
 #sidebar-container {
-  height: calc(100% - 24px) !important;
+  height: 100% !important;
   min-width: 240px !important;
   display: flex !important;
   visibility: visible;
   position: fixed;
-  top: 13px;
+  top: 52px;
   left: -255px;
   z-index: 3;
-  border-radius: 12px !important;
   background-color: var(--bg4);
   backdrop-filter: blur(15px);
   overflow: unset !important;
-  transition: left, box-shadow .25s;
-  box-shadow: var(--bs1);
+  transition: left .25s .5s;
+@media -moz-pref("gwt.toolbox") {
+  top: 0;
+}
 @media (prefers-color-scheme: dark) {
   box-shadow: var(--bs2);
   outline: 1px solid rgba(235, 235, 235, .2) !important;
@@ -3667,13 +3618,13 @@ tab-split-view-wrapper {
   content: "";
   position: absolute;
   top: 0;
-  right: -25px;
+  right: -30px;
   width: 35px;
   height: 100%;
 }
 :root:has(#sidebar-container:hover, #tabContextMenu:hover, .tab-group-editor-panel[panelopen], .tab-note-editor-panel[panelopen], #tabbrowser-tabs[movingtab], #toolbar-context-menu > menuitem:is(#toolbar-context-openANewTab, #toolbar-context-reloadSelectedTab, #toolbar-context-reloadSelectedTabs, #toolbar-context-bookmarkSelectedTab, #toolbar-context-bookmarkSelectedTabs, #toolbar-context-selectAllTabs, #toolbar-context-undoCloseTab):hover) & {
-  left: 8px;
-  transition: cubic-bezier(.27, 1.217, .17, 1.0117) .5s;
+  left: 0;
+  transition: left .25s 0s;
 }
 }
 }
