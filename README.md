@@ -30,12 +30,12 @@ Create these **Boolean** preferences in `about:config` to customize:
 | :--- | :--- |
 | `gwt.oneliner` | Enable Compact layout. |
 | `gwt.toolbar` | Auto-hide bookmarks toolbar. |
-| `gwt.toolbox` | Auto-hide navigator toolbox when hiding tabs and sidebar. |
+| `gwt.toolbox` | Auto-hide navigator toolbox in "Expand sidebar on hover" mode. |
 | `gwt.atbc` | Enable compatibility with the Adaptive Tab Bar Colour extension. |
-| `gwt.ac` | Manually specify accent color *(Edit `--bg0` in CSS to customize)*. |
+| `gwt.ac` | Enable manual accent color *(Edit `--bg0` in CSS to customize)*. |
 
 ---
 
-> [!IMPORTANT]
-> **"Hide Tabs and Sidebar":** 
-> In this mode, the sidebar can still be summoned from the left. However, in Firefox 154+, closing the window or restarting the browser causes the tabs to disappear. To restore the display, simply toggle the sidebar on and off once.
+> [!NOTE]
+> **"Expand sidebar on hover":** 
+> In this mode, the sidebar is hidden by default when collapsed, but can still expand on hover from the left.
