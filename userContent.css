@@ -156,7 +156,7 @@ body { background-color: #1e1f1f !important; } }
 #viewsManager, .doorHangerRight, #editorCommentsSidebar, dialog {
   border-radius: 12px !important;
 }
-#viewsManagerStatusActionButton, .toolbarButton, .toolbarField, #editorCommentsSidebarCloseButton, #documentPropertiesClose, #commentManagerCancelButton, #commentManagerSaveButton {
+#viewsManagerStatusActionButton, .toolbarButton, .toolbarField, #editorCommentsSidebarCloseButton, #documentPropertiesClose, #commentManagerCancelButton, #commentManagerSaveButton, #addSignatureCancelButton, #addSignatureAddButton, #clearSignatureButton {
   border-radius: 50px !important;
 }
 .toolbarButton {
@@ -209,10 +209,23 @@ body { background-color: #1e1f1f !important; } }
 }
 .dialog {
 & .mainContainer {
-& textarea {
-  background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .2)) !important;
+& textarea, & #addSignatureDescInput, & #addSignatureTypeContainer, & #addSignatureDrawContainer, & #addSignatureImageContainer {
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .5)) !important;
   border-radius: 8px !important;
   border-color: transparent !important;      
+}
+}
+}
+#addSignatureDialog {
+& .mainContainer {
+& [role="tablist"] {
+& > [role="tab"] {
+  border: none !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .5)) !important;
+&:hover {
+  background-color: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .3)) !important;
+}
+}
 }
 }
 }
@@ -415,7 +428,7 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
 }
 }
 
-input:not(.wallpaper-input) {
+input:not(.wallpaper-input, [type="text"]) {
   padding-inline-end: 10px !important;
 &::-moz-search-clear-button {
   padding: 2px !important;
