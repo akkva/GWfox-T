@@ -14,7 +14,7 @@
   --bg2-hover: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
   --bg2-active: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
   --bg3: light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1));
-  --bg4: light-dark(rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
+  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(75, 75, 75, .55));
   --bg5: linear-gradient(to bottom, color-mix(in srgb, rgba(255, 255, 255, .2), rgba(255, 255, 255, .3) 20%), rgba(220, 220, 220, .2) 20%, rgba(230, 230, 230, .2) 40%, color-mix(in srgb, rgba(255, 255, 255, .2), rgba(255, 255, 255, .3) 45%));
   --bg6: light-dark(color-mix(in srgb, AccentColor 20%, #fff), color-mix(in srgb, AccentColor 40%, #fff));
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
@@ -44,7 +44,6 @@
   --toolbar-field-focus-background-color: light-dark(rgba(155, 155, 155, .25), rgba(195, 195, 195, .25)) !important;
   --urlbarView-result-button-hover-color: rgba(255, 255, 255, .8) !important;
   --urlbarView-result-button-hover-background-color: rgba(195, 195, 195, .2) !important;
-  --toolbarbutton-icon-fill-attention: AccentColor !important;
   --in-content-box-background: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
   --background-color-box: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
   --in-content-box-border-color: transparent !important;
@@ -63,7 +62,8 @@
   --tab-icon-overlay-fill: light-dark(rgba(0, 0, 0, .8), rgba(225, 225, 225, .8)) !important;
   --toolbarbutton-background-color-hover: color-mix(in srgb, currentColor 6%, transparent) !important;
   --toolbarbutton-background-color-active: color-mix(in srgb, currentColor 10%, transparent) !important;
-  --toolbarbutton-icon-fill: light-dark(rgb(39, 39, 39), rgb(237, 237, 237)) !important;
+  --toolbarbutton-icon-fill: light-dark(#000, #fff) !important;
+  --toolbarbutton-icon-fill-attention: AccentColor !important;
   --toolbarbutton-disabled-opacity: .4;
   --toolbar-background-color: var(--toolbox-background-color) !important;
   --border-radius-xsmall: 12px !important;
@@ -71,6 +71,7 @@
   --button-border-radius: 50px !important;
   --in-content-background-color: light-dark(#fff, #1e1f1f) !important;
   --panel-separator-color: var(--bg3) !important;
+  --border-color: rgba(105, 105, 105, .2) !important;
 @media -moz-pref("gwt.ac") {
   --bg1: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
   --bg6: light-dark(color-mix(in srgb, var(--bg0) 20%, #fff), color-mix(in srgb, var(--bg0) 40%, #fff)) !important;
@@ -103,11 +104,12 @@
 }
 
 :root[macOSNativeFullscreen] {
-.fullscreen-floating-toolbox, #urlbar, body {
-  translate: unset !important;
-}
 #navigator-toolbox {
   box-shadow: none !important;
+  translate: none !important;
+}
+#vertical-tabs {
+  padding-block-start: 0 !important;
 }
 }
 
@@ -165,8 +167,8 @@
 split-view-footer {
   border-block-start: .5px solid rgba(105, 105, 105, .1) !important;
   border-inline-start: .5px solid rgba(105, 105, 105, .1) !important;
-  background-color: light-dark(rgba(238, 238, 238, .75), rgba(52, 52, 54, .75)) !important;
-  backdrop-filter: blur(15px) !important;
+  background-color: light-dark(rgba(238, 238, 238, .55), rgba(52, 52, 54, .55)) !important;
+  backdrop-filter: blur(10px) !important;
 }
 }
 }
@@ -279,7 +281,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   box-shadow: none !important;
   outline: none !important;
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   transform: rotateX(90deg);
   transform-origin: top;
   transition: transform 105ms linear 500ms !important;
@@ -709,14 +711,14 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 5.5px !important;
 }
 }
-&[hidden] + .toolbarbutton-1,
-&[hidden] + .toolbaritem-combined-buttons .toolbarbutton-1 {
+&[hidden] ~ .toolbarbutton-1,
+&[hidden] ~ .toolbaritem-combined-buttons .toolbarbutton-1 {
   border-radius: 50% 0 0 50% !important;
   margin-inline-start: 0 !important;
   width: 37.5px !important;
   clip-path: inset(-20px 1.5px -20px -20px);
 }
-&[hidden] + #stop-reload-button {
+&[hidden] ~ #stop-reload-button {
   border-radius: 50% 0 0 50% !important;
   margin-inline-start: 0 !important;
   width: 37.5px !important;
@@ -746,7 +748,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   height: 29px !important;
   padding: 6px !important;
 }
-:root:not(:has(#unified-extensions-button ~ .toolbarbutton-1, #unified-extensions-button ~ .toolbaritem-combined-buttons .toolbarbutton-1)):has(#unified-extensions-button[hidden]) & {
+:root:not(:has(#unified-extensions-button ~ :is(toolbarbutton, toolbaritem):not([hidden]):not([collapsed]))):has(#unified-extensions-button[hidden]) & {
   border-radius: 50% 0 0 50% !important;
   margin-inline-start: 0 !important;
   width: 37.5px !important;
@@ -765,7 +767,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 5px !important;
 }
 @media -moz-pref("sidebar.verticalTabs") or -moz-pref("gwt.oneliner") {
-:root:not(:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button), #unified-extensions-button ~ .toolbarbutton-1, #unified-extensions-button ~ .toolbaritem-combined-buttons .toolbarbutton-1)):has(#unified-extensions-button[hidden]) & {
+:root:not(:has(#nav-bar-overflow-button:not(#nav-bar:not([overflowing], [nonemptyoverflow], [customizing]) > #nav-bar-overflow-button), #unified-extensions-button ~ :is(toolbarbutton, toolbaritem):not([hidden]):not([collapsed]))):has(#unified-extensions-button[hidden]) & {
   border-radius: 50% !important;
   width: 36px !important;
   clip-path: inset(-20px);
@@ -861,20 +863,25 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 #urlbar {
   transform: none !important;
-&[breakout][breakout-extend] {
+&[popover-open] {
   margin-left: unset !important;
   width: var(--urlbar-width) !important;
-  top: 8px !important;
 .urlbarView {
   width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline)) !important;
   margin-inline: calc(-1 * var(--urlbar-margin-inline)) !important;
   margin-top: 6px !important;
   border-radius: 20px !important;
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   box-shadow: var(--bs1) !important;
   animation-name: panel-in !important;
   animation-duration: 180ms !important;
+:root:has(.urlbar[noresults]) & {
+  display: none !important;
+}
+}
+.urlbarView-background {
+  display: none !important;
 }
 .urlbarView-row {
   border-radius: 50px !important;
@@ -963,7 +970,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 @media -moz-pref("gwt.oneliner") and (not -moz-pref("sidebar.verticalTabs")) {
-&[breakout][breakout-extend] .urlbarView {
+&[popover-open] .urlbarView {
   margin-inline-start: -25% !important;
   min-width: 150% !important;
 }
@@ -994,6 +1001,8 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   outline-style: solid !important;
   outline-color: transparent !important;
   outline-width: 18px !important;
+  clip-path: none !important;
+  inset: 0 !important;
 #urlbar[focused] & {
   outline-color: var(--focus-outline-color) !important;
   outline-width: 3.5px !important;
@@ -1005,6 +1014,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 .urlbar-input-container {
   padding: 0 !important;
+  margin: 0 !important;
   height: 36px !important;
   align-items: center !important;
   border-radius: 50px !important;
@@ -1021,7 +1031,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 .urlbarView-result-menu {
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   box-shadow: var(--bs1) !important;
   border-radius: 12px !important;
   border: none !important;
@@ -1236,7 +1246,7 @@ tab:not([selected]):hover & {
 [orient="horizontal"] & {
 .tabbrowser-tab & {
 &[selected] {
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
 }
 }
 @media not -moz-pref("gwt.oneliner") {
@@ -1692,7 +1702,7 @@ tab-split-view-wrapper & {
   scale: .7;
   list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 3 5.083 C 3 3.933 3.933 3 5.083 3 L 10.917 3 C 12.067 3 13 3.933 13 5.083 L 13 8 L 10.083 8 C 8.933 8 8 8.933 8 10.083 L 8 13 L 5.083 13 C 3.933 13 3 12.067 3 10.917 L 3 5.083 Z M 8.833 12.882 C 9.125 12.78 9.393 12.613 9.616 12.39 L 12.39 9.616 C 12.613 9.393 12.78 9.125 12.882 8.833 L 10.083 8.833 C 9.393 8.833 8.833 9.393 8.833 10.083 L 8.833 12.882 Z'/%3E%3C/svg%3E") !important;
   background: light-dark(color-mix(in srgb, var(--bg2) 20%, #fff), color-mix(in srgb, var(--bg2) 80%, #555)) !important;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
   border: none !important;
 &:hover {
   background: light-dark(color-mix(in srgb, var(--bg2-hover) 20%, #fff), color-mix(in srgb, var(--bg2-hover) 80%, #555)) !important;
@@ -2203,7 +2213,7 @@ toolbarseparator[orient="vertical"] {
 }
 
 .dialogBox {
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   box-shadow: var(--bs1) !important;
   animation-name: panel-grow;
   animation-duration: 250ms;
@@ -2220,6 +2230,13 @@ toolbarseparator[orient="vertical"] {
 
 window[role="dialog"] {
   background-color: var(--bg4) !important;
+}
+
+#bookmarkpropertiesdialog .expander-up,
+#bookmarkpropertiesdialog .expander-down {
+  margin-top: 2px !important;
+  max-width: 32px;
+  max-height: 32px;
 }
 
 #editBookmarkPanelContent > input,
@@ -2476,13 +2493,13 @@ panel#feature-callout,
   border: .5px solid rgba(105, 105, 105, .1) !important;
   border-radius: 5px !important;
   margin: 5px !important;
-  background-color: light-dark(rgba(238, 238, 238, .75), rgba(52, 52, 54, .75)) !important;
-  backdrop-filter: blur(15px) !important;
+  background-color: light-dark(rgba(238, 238, 238, .55), rgba(52, 52, 54, .55)) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .findbar-container {
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   box-shadow: var(--bs1) !important;
 }
 
@@ -2560,7 +2577,7 @@ screenshots-buttons {
   top: 10px !important;
   border-radius: 20px !important;
   background-color: light-dark(rgba(255, 255, 255, .55), rgba(35, 35, 35, .55)) !important;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 @media -moz-pref("gwt.ac") {
   --screenshots-icon-background-color: var(--bg0) !important;
 }
@@ -3024,7 +3041,7 @@ sidebar-tab-row {
 &[sidebar-launcher-expanded], &[sidebar-ongoing-animations]:not([sidebar-launcher-expanded]) {
   background-image: none !important;
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 }
 }
 }
@@ -3362,7 +3379,7 @@ tab-group[collapsed] > .tab-group-label-container & {
 #nav-bar {
   margin-left: 0 !important;
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   border-bottom: 1px solid rgba(105, 105, 105, .15) !important;
 &::before {
   content: "";

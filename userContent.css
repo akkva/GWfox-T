@@ -12,10 +12,9 @@
   --bg1: light-dark(rgba(70, 70, 70, .08), rgba(170, 170, 170, .08));
   --bg2: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .15));
   --bg3: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .2));
-  --bg4: light-dark(rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
+  --bg4: light-dark(rgba(255, 255, 255, .55), rgba(75, 75, 75, .55));
   --bg5: light-dark(rgba(255, 255, 255, .45), rgba(255, 255, 255, .15));
   --bg6: light-dark(rgba(255, 255, 255, .15), rgba(255, 255, 255, .06));
-  --bg7: color-mix(in srgb, var(--bg0), transparent 75%);
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --newtab-background-color-secondary: transparent !important;
@@ -54,9 +53,6 @@
   --in-content-page-background: light-dark(#fff, #1e1f1f) !important;
   --newtab-background-color: light-dark(#fff, #1e1f1f) !important;
 }
-:-moz-window-inactive {
-  --bg7: color-mix(in srgb, #777, transparent 75%);
-}
 }
 
 .toggle-button {
@@ -87,14 +83,7 @@
 #buttons-container {
   border-radius: 20px !important;
   background-color: light-dark(rgba(255, 255, 255, .55), rgba(35, 35, 35, .55)) !important;
-  backdrop-filter: blur(15px);
-}
-
-@media -moz-pref("gwt.ac") {
-::selection {
-  background: var(--bg7) !important;
-  color: inherit !important;
-}
+  backdrop-filter: blur(10px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -152,7 +141,144 @@ body { background-color: #1e1f1f !important; } }
 }
 }
 
-@-moz-document url-prefix("about:"), regexp("chrome:\/\/(?!devtools).*") {
+@-moz-document regexp(".*\\.pdf") {
+#viewsManager {
+  --header-bg: transparent !important;
+}
+.horizontalToolbarSeparator {
+  border-top: 1px solid rgba(105, 105, 105, .2) !important;
+}
+.doorHangerRight {
+&::before, &::after {
+  display: none !important;
+}
+}
+#viewsManager, .doorHangerRight, #editorCommentsSidebar, dialog {
+  border-radius: 12px !important;
+}
+#viewsManagerStatusActionButton, .toolbarButton, .toolbarField, #editorCommentsSidebarCloseButton, #documentPropertiesClose, #commentManagerCancelButton, #commentManagerSaveButton {
+  border-radius: 50px !important;
+}
+.toolbarButton {
+  background-color: transparent !important;
+&:not([disabled]) {
+&:hover {
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+}
+&[open], &:hover:active {
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+}
+}
+&.labeled {
+  border-radius: 8px !important;
+}
+}
+.dropdownToolbarButton {
+  clip-path: inset(0 round 50px);
+  background-color: transparent !important;
+&:hover {
+  background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .1)) !important;
+}
+> select {
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+}
+}
+.toolbarField {
+  border: none !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+}
+#editorCommentsSidebar {
+& #editorCommentsSidebarListContainer {
+& #editorCommentsSidebarList {
+& .sidebarComment {
+  background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .2)) !important;
+  border-color: transparent !important;
+}
+}
+}
+& #editorCommentsSidebarHeader {
+& #editorCommentsSidebarCloseButton {
+&:hover {
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+}
+&:active {
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+}
+}
+}
+}
+.dialog {
+& .mainContainer {
+& textarea {
+  background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .2)) !important;
+  border-radius: 8px !important;
+  border-color: transparent !important;      
+}
+}
+}
+.annotationEditorLayer :is(.freeTextEditor, .inkEditor, .stampEditor, .highlightEditor, .signatureEditor), .textLayer {
+& .editToolbar {
+& .buttons {
+& > :not(.divider) {
+&:hover {
+  border-radius: 50px !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  outline: none !important;
+}
+&:active {
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+}
+}
+}
+}
+}
+:is(.annotationLayer, .annotationEditorLayer) {
+& .annotationCommentButton {
+  background-color: var(--bg4) !important;
+  backdrop-filter: blur(10px) !important;
+&::before {
+  background-color: light-dark(#555, #ddd) !important;
+}
+&:hover, &.selected {
+  background-color: var(--comment-button-selected-bg) !important;
+&::before {
+  background-color: #fff !important;
+}
+}
+}
+}
+.annotationEditorLayer :is(.freeTextEditor, .inkEditor, .stampEditor, .highlightEditor, .signatureEditor), .textLayer {
+& .editToolbar {
+  background-color: var(--bg4) !important;
+  backdrop-filter: blur(10px) !important;
+}
+}
+.pdfViewer, #outerContainer {
+  background-color: light-dark(#ccc, #282828) !important;
+}
+#viewsManager, #toolbarContainer {
+  background-color: light-dark(#fff, #1e1f1f) !important;
+  border: none !important;
+}
+#editorCommentsSidebar, #secondaryToolbar, .doorHangerRight, dialog, .commentPopup {
+  background-color: var(--bg4) !important;
+}
+dialog, .doorHangerRight, #viewsManager, #editorCommentsSidebar {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .28), 0 0 0 .5px rgba(0, 0, 0, .05) !important;
+  border: none !important;
+@media (prefers-color-scheme: dark) {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .15), 0 0 0 1px rgba(0, 0, 0, .5) !important;
+}
+}
+dialog::backdrop {
+  background-color: transparent !important;
+}
+#secondaryToolbar, #editorCommentsSidebar, #editorSignatureParamsToolbar, #editorHighlightParamsToolbar, #editorFreeTextParamsToolbar, #editorInkParamsToolbar, #editorStampParamsToolbar, dialog, .commentPopup {
+  backdrop-filter: blur(10px) !important;
+}
+}
+
+@-moz-document url-prefix("about:"), regexp("chrome:\/\/(?!devtools).*"), regexp(".*\\.pdf") {
 input[type="search"] {
   background-color: light-dark(rgba(85, 85, 85, .1), rgba(190, 190, 190, .1)) !important;
   border-color: transparent !important;
@@ -341,7 +467,7 @@ panel-list {
   box-shadow: var(--bs1) !important;
   padding: 6px !important;
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
 @media -moz-pref("gwt.ac") {
   --panel-item-background-color: color-mix(in srgb, var(--bg0) 80%, transparent);
 }
@@ -433,6 +559,7 @@ moz-message-bar {
 #setting-control-dohAdvancedButton,
 #setting-control-showUpdateHistory,
 #setting-control-addPrimaryPassword,
+#setting-control-browser-icon-button,
 #setting-control-etpStatusAdvancedButton,
 #setting-control-fxaConnectAnotherDevice {
   --box-border-radius-start: var(--box-border-radius-inner) !important;
@@ -517,7 +644,7 @@ body {
   background-color: rgba(25, 25, 25, .55) !important;
   border-radius: 12px !important;
   box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   outline: none !important;
   border: none !important;
   fill: rgba(255, 255, 255, .7) !important;
@@ -869,7 +996,7 @@ body {
 }
 
 .modalOverlayOuter, .confirmation-dialog, .tile, .context-menu-button.icon, .search-inner-wrapper {
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .modalOverlayOuter, .contentSearchSuggestionTable, .confirmation-dialog {
@@ -878,7 +1005,7 @@ body {
 
 .customize-menu {
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   box-shadow: var(--bs1) !important;
   margin: 16px 16px 0 0 !important;
   height: calc(100% - 16px) !important;
@@ -903,7 +1030,7 @@ body {
   background: light-dark(rgba(0, 0, 0, .08), rgba(255, 255, 255, .08)) !important;
   border-radius: 12px !important;
   position: relative !important;
-  outline: 1px solid light-dark(rgba(0, 0, 0, .18), rgba(255, 255, 255, .18)) !important;
+  outline: 1px solid light-dark(rgba(0, 0, 0, .6), rgba(255, 255, 255, .18)) !important;
   outline-offset: -1px !important;
   cursor: auto !important;
   order: -1;
@@ -914,7 +1041,7 @@ body {
   left: 2px;
   width: 12px;
   height: 12px;
-  background: light-dark(rgba(0, 0, 0, .18), rgba(255, 255, 255, .18));
+  background: light-dark(rgba(0, 0, 0, .6), rgba(255, 255, 255, .18));
   border-radius: 50%;
 }
 :root:has(body[style*="background"]) & {
@@ -934,8 +1061,12 @@ body {
 }
 }
 
+.select-wrapper {
+  border-radius: 50px !important;
+}
+
 .context-menu, .contentSearchSuggestionTable, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .personalize-button {
-  backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(10px) !important;
   background-color: var(--bg4) !important;
 }
 
@@ -1029,12 +1160,12 @@ body {
 @media (prefers-color-scheme: dark) {
 .lightWallpaper {
 .search-inner-wrapper, .tile, .context-menu, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button, .customize-menu, .modalOverlayOuter, .confirmation-dialog, panel-list {
-  background-color: rgba(15, 15, 15, .7) !important;
+  background-color: rgba(75, 75, 75, .55) !important;
 &:hover {
-  background-color: rgba(15, 15, 15, .75) !important;
+  background-color: rgba(75, 75, 75, .6) !important;
 }
 &:active {
-  background-color: rgba(15, 15, 15, .6) !important;
+  background-color: rgba(75, 75, 75, .5) !important;
 }
 }  
 }
@@ -1046,12 +1177,12 @@ body {
 @media (prefers-color-scheme: light) {
 .darkWallpaper {
 .search-inner-wrapper, .tile, .context-menu, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button, .customize-menu, .modalOverlayOuter, .confirmation-dialog, panel-list {
-  background-color: rgba(255, 255, 255, .7) !important;
+  background-color: rgba(255, 255, 255, .55) !important;
 &:hover {
-  background-color: rgba(255, 255, 255, .75) !important;
+  background-color: rgba(255, 255, 255, .6) !important;
 }
 &:active {
-  background-color: rgba(255, 255, 255, .6) !important;
+  background-color: rgba(255, 255, 255, .5) !important;
 }
 }
 }
