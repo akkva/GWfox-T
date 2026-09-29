@@ -3127,16 +3127,13 @@ sidebar-tab-row {
   min-height: var(--tab-min-height) !important;
   margin-block: 0 !important;
   padding-block: 0 !important;
-  margin-left: 1px !important;
-  margin-right: 10px !important;
-  margin-bottom: 1px !important;
-  padding-left: 33px !important;
-  border-radius: 50px !important;
+  padding-left: 31.5px !important;
   width: 100% !important;
+  max-width: 223px !important;
   background-color: color-mix(in srgb, var(--tab-group-color) 30%, transparent) !important;
   background-image: url("chrome://global/skin/icons/arrow-down-12.svg");
   background-repeat: no-repeat;
-  background-position: left 9px bottom 11px;
+  background-position: left 9.5px bottom 11px;
   -moz-context-properties: fill;
   fill: currentColor;
 #tabbrowser-tabs[expanded] & {
@@ -3145,11 +3142,11 @@ sidebar-tab-row {
 
 tab-group[collapsed] > .tab-group-label-container & {
   background-image: url("chrome://global/skin/icons/folder.svg");
-  background-position: left 9px bottom 7.5px;
+  background-position: left 7px bottom 7.5px;
 [hasactivetab] & {
   background-image: url("chrome://global/skin/icons/folder.svg"), url("chrome://global/skin/icons/more.svg");
   background-size: auto, 10px 16px;
-  background-position: left 9px bottom 7.5px, left 12.5px bottom 7.5px;
+  background-position: left 7px bottom 7.5px, left 10.5px bottom 7.5px;
 }
 }
 
