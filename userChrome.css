@@ -434,13 +434,20 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 .toggle-button { --toggle-dot-background-color-on-pressed: #fff !important; }
 #blocked-permissions-container, #picture-in-picture-button,
-.private-browsing-indicator-with-label,
+.private-browsing-indicator-with-label, .sharing-icon,
 #reset-pbm-toolbar-button, #wrapper-firefox-view-button,
-#firefox-view-button, #fxa-toolbar-menu-button,
+#firefox-view-button, #vertical-spacer,
 #userContext-icons, #userContext-label,
-.sharing-icon, #vertical-spacer,
 .popup-notification-closebutton {
   display: none !important;
+}
+
+#fxa-toolbar-menu-button {
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 #scrollbutton-up, #scrollbutton-down {
@@ -870,6 +877,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline)) !important;
   margin-inline: calc(-1 * var(--urlbar-margin-inline)) !important;
   margin-top: 6px !important;
+  padding: 5px 10px !important;
   border-radius: 20px !important;
   background-color: var(--bg4) !important;
   backdrop-filter: blur(10px) !important;
@@ -1037,8 +1045,8 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   border: none !important;
 }
 
-.urlbarView-body-inner {
-#urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
+.urlbarView-results {
+#urlbar[open] > .urlbarView > & {
   border-top: none !important;
 }
 }

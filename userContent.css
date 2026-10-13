@@ -86,6 +86,47 @@
   backdrop-filter: blur(10px);
 }
 
+panel-list {
+  --panel-item-border-radius: 8px;
+  --panel-item-background-color: -moz-menuhover;
+  --panel-item-color: #fff;
+  --button-background-color-menu-hover: -moz-menuhover !important;
+  --button-background-color-menu-active: color-mix(in srgb, -moz-menuhover 90%, #000) !important;
+  --button-text-color-menu-hover: #fff !important;
+  --button-text-color-menu-active: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: var(--bs1) !important;
+  padding: 6px !important;
+  background-color: var(--bg4) !important;
+  backdrop-filter: blur(10px) !important;
+@media -moz-pref("gwt.ac") {
+  --panel-item-background-color: color-mix(in srgb, var(--bg0) 80%, transparent);
+  --button-background-color-menu-hover: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
+  --button-background-color-menu-active: color-mix(in srgb, var(--bg0) 90%, transparent) !important;
+}
+@media (prefers-color-scheme: dark) {
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
+}
+}
+
+panel-item {
+  --panel-item-button-margin: 0 !important;
+  --panel-item-button-padding: 5px !important;
+}
+
+button {
+  --panel-item-button-border-radius: 8px !important;
+  --page-nav-button-indicator-background-color: transparent !important;
+}
+
+nav {
+  --page-nav-button-border-radius: 12px !important;
+  --page-nav-button-border-radius-focused: 12px !important;
+}
+
 @media (prefers-color-scheme: dark) {
 :root {
   --text-color-accent-primary-selected: #fff !important;
@@ -470,28 +511,6 @@ table {
 }
 }
 
-@-moz-document url-prefix("about:newtab"), url-prefix("about:home"), url-prefix("about:addons") {
-panel-list {
-  --panel-item-border-radius: 8px;
-  --panel-item-background-color: -moz-menuhover;
-  --panel-item-color: #fff;
-  border: none !important;
-  border-radius: 12px !important;
-  box-shadow: var(--bs1) !important;
-  padding: 6px !important;
-  background-color: var(--bg4) !important;
-  backdrop-filter: blur(10px) !important;
-@media -moz-pref("gwt.ac") {
-  --panel-item-background-color: color-mix(in srgb, var(--bg0) 80%, transparent);
-}
-@media (prefers-color-scheme: dark) {
-  box-shadow: var(--bs2) !important;
-  outline: 1px solid rgba(235, 235, 235, .2) !important;
-  outline-offset: -1.5px !important;
-}
-}
-}
-
 @-moz-document url-prefix("about:opentabs") {
 :root { background: transparent !important; }
 .sticky-header { background: transparent !important; }
@@ -522,16 +541,6 @@ sidebar-tab-row {
 
 @-moz-document url-prefix("about:addons") {
 ::after { content: none !important; }
-button:not(.toggle-button) {
- border-radius: 6px !important;
-&:is(:hover, :active) {
-  background-color: -moz-menuhover !important;
-  color: #fff !important;
-@media -moz-pref("gwt.ac") {
-  background-color: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
-}
-}
-}
 .card {
   border: none !important;
   box-shadow: none !important;
@@ -566,8 +575,10 @@ moz-message-bar {
   --background-color-canvas: light-dark(#fff, #1e1f1f) !important;
 }
 }
+#setting-control-noFxaSignIn,
 #backup-toggle-scheduled-button,
 #setting-control-verifiedManage,
+#setting-control-rejectReSignIn,
 #setting-control-syncChangeOptions,
 #setting-control-dohAdvancedButton,
 #setting-control-showUpdateHistory,
@@ -598,7 +609,7 @@ moz-box-item {
 treecol, .tree-columnpicker-button {
   box-shadow: none !important;
 }
-.container, #input, #blockAiGroup, listheader {
+.container, #input:not(.toggle-button), #blockAiGroup, listheader {
   border: none !important;
 }
 input:not([type="checkbox"], [type="radio"], [type="button"]) {
@@ -990,6 +1001,12 @@ body {
   box-shadow: none !important;
 }
 
+.edit-topsites-wrapper .top-site-inner > .top-site-button > .tile {
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
 .confirmation-dialog::backdrop,
 .modalOverlayOuter::backdrop,
 .modal-overlay, .modalOverlayOuter {
@@ -1020,15 +1037,36 @@ body {
   background-color: var(--bg4) !important;
   backdrop-filter: blur(10px) !important;
   box-shadow: var(--bs1) !important;
-  margin: 16px 16px 0 0 !important;
-  height: calc(100% - 16px) !important;
-  padding-inline: 12px !important;
+  width: 418px !important;
+  height: fit-content !important;
   min-height: unset !important;
-:has(.category.wallpaper-list) {
-.category-header, .category-list, ~ * {
-  display: none !important;
+  padding-top: 20px !important;
+  inset-block: auto 22px !important;
+  inset-inline: auto 22px !important;
+  transform: scale(0) !important;
+  transform-origin: bottom right !important;
+&:is(.customize-animate-enter-active, .customize-animate-enter-done) {
+  transform: scale(1) !important;
 }
 }
+
+#wallpapers-toggle, #shortcuts-toggle, #weather-toggle, .category-header, .category-list, .manage-settings-footer, .divider {
+.customize-menu:has(.category.wallpaper-list, #themes-management-panel) & {
+  opacity: 0;
+  transform: translateX(80px);
+}
+.customize-menu:not(:has(.customize-menu-content.subpanel-open)) & {
+  opacity: 1;
+  transition: opacity 350ms ease, transform 150ms ease;
+}
+}
+.wallpaper-list.category.wallpaper-list-enter {
+  transition: none !important;
+  animation: panel-grow 250ms ease;
+}
+.wallpaper-list.category.wallpaper-list-exit {
+  opacity: 0;
+  transition: opacity 250ms ease, inset-inline-start 500ms ease !important;
 }
 
 .category-header {
@@ -1094,7 +1132,7 @@ body {
 }
 
 .weatherNotAvailable, .weatherCard, .weatherInfoLink, .personalize-button {
-  border-radius: 50px !important;
+  border-radius: 25px !important;
 }
 
 .weatherCard {
@@ -1129,14 +1167,6 @@ body {
 }
 > panel-list {
   inset-block-start: 80px !important;
-}
-}
-
-*+button {
-  border-radius: var(--panel-item-border-radius) !important;
-&:hover {
-  background-color: var(--panel-item-background-color) !important;
-  color: var(--panel-item-color) !important;
 }
 }
 
@@ -1180,7 +1210,10 @@ body {
 &:active {
   background-color: rgba(75, 75, 75, .5) !important;
 }
-}  
+}
+.fields-and-preview .top-site-outer .title .title-label {
+  color: #fff !important;
+}
 }
 .context-menu-button, .icon.icon-pin-small {
   fill: #fff !important;
@@ -1197,6 +1230,9 @@ body {
 &:active {
   background-color: rgba(255, 255, 255, .5) !important;
 }
+}
+.fields-and-preview .top-site-outer .title .title-label {
+  color: #000 !important;
 }
 }
 .context-menu-button, .icon.icon-pin-small {
