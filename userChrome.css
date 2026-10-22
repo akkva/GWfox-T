@@ -875,6 +875,36 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 }
 
+#PanelUI-profiles, #current-profile, #appMenu-profiles-button {
+  --appmenu-profiles-theme-bg: transparent !important;
+  --appmenu-profiles-theme-fg: light-dark(#000, #fff) !important;
+:root:has(#appMenu-profiles-button:hover) & {
+  --appmenu-profiles-theme-fg: #fff !important;
+}
+}
+
+#appMenu-profiles-button {
+.toolbarbutton-icon {
+  display: none !important;
+}
+.toolbarbutton-text {
+  margin-inline-start: -6px !important;
+}
+}
+
+#profiles-appmenu-back-button:hover {
+  fill: #fff !important;
+}
+
+#profile-icon-image {
+  border: none !important;
+  fill: var(--chrome-content-separator-color) !important;
+}
+
+#half-height-profile {
+  border-block-end: none !important;
+}
+
 /* urlbar */
 
 #urlbar {
