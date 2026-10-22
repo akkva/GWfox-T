@@ -1434,7 +1434,7 @@ tab-split-view-wrapper & {
 @media not -moz-pref("gwt.oneliner") {
   max-height: 38px !important;
 tab-split-view-wrapper {
-  max-width: unset !important;
+  max-width: fit-content !important;
 }
 &[overflow] {
 .tab-content:not([selected]) {
