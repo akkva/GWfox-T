@@ -1569,6 +1569,9 @@ tab-split-view-wrapper & {
 tab-group[collapsed] tab-split-view-wrapper:not([hasactivetab]) {
   display: none !important;
 }
+tab-group tab-split-view-wrapper {
+  max-width: 225px !important;
+}
 }
 &[orient="vertical"] {
   grid-gap: unset !important;
