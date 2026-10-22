@@ -195,7 +195,7 @@ split-view-footer {
 }
 
 #browser {
-@media not -moz-pref("gwt.vertical-tabs-icons") {
+@media not -moz-pref("gwt.sidebar") {
   --sidebar-launcher-collapsed-width: 1px !important;
 :root[sidebar-expand-on-hover] & {
   margin-inline-start: -1px !important;
@@ -216,6 +216,11 @@ split-view-footer {
   border-start-start-radius: 0 !important;
 :root:has(.split-view-panel) & {
 [column="0"] &, [column="1"] & {
+  border-start-start-radius: 12px !important;
+}
+}
+@media -moz-pref("gwt.sidebar") {
+:root:has(#tabbrowser-tabs:not([expanded])) & {
   border-start-start-radius: 12px !important;
 }
 }
@@ -1247,8 +1252,7 @@ button > & {
 #tabbrowser-tabs[expanded] & {
   border-radius: 8px !important;
 }
-@media -moz-pref("gwt.vertical-tabs-icons") {
-/* Keep the same radius through the collapsed-to-expanded width change. */
+@media -moz-pref("gwt.sidebar") {
 #tabbrowser-tabs[orient="vertical"] & {
   border-radius: 999px !important;
 }
@@ -1914,6 +1918,14 @@ tab-split-view-wrapper {
 .tabbrowser-tab:last-child {
   display: none !important;
 }
+@media -moz-pref("gwt.sidebar") {
+.tabbrowser-tab {
+  margin-inline-start: -9px !important;
+}
+.tab-content {
+  margin-inline-start: 9px !important;
+}
+}
 }
 #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
   margin-inline-start: 0 !important;
@@ -1924,6 +1936,14 @@ tab-split-view-wrapper {
 }
 .tab-close-button {
   inset-inline-start: -8px !important;
+}
+.tabbrowser-tab:last-child {
+  margin-inline-start: -9px !important;
+}
+&:not([hasactivetab]) .tabbrowser-tab {
+&:first-child > .tab-stack {
+  border-block-end: none !important;
+}
 }
 }
 tab-group & {
@@ -3102,7 +3122,7 @@ sidebar-tab-row {
 #sidebar-container {
   -moz-window-dragging: drag;
 @media (min-width: 610px) and (max-width: 866px) {
-@media not -moz-pref("gwt.vertical-tabs-icons") {
+@media not -moz-pref("gwt.sidebar") {
   visibility: collapse;
 }
 }
@@ -3124,6 +3144,9 @@ sidebar-tab-row {
   background-image: none !important;
   background-color: var(--bg4) !important;
   backdrop-filter: blur(10px);
+@media -moz-pref("gwt.sidebar") {
+  background-color: var(--toolbar-background-color) !important;
+}
 }
 }
 }
@@ -3221,8 +3244,10 @@ sidebar-tab-row {
   fill: currentColor;
 #tabbrowser-tabs[expanded] & {
   border-radius: 8px !important;
+@media -moz-pref("gwt.sidebar") {
+  border-radius: 50px !important;
 }
-
+}
 tab-group[collapsed] > .tab-group-label-container & {
   background-image: url("chrome://global/skin/icons/folder.svg");
   background-position: left 7px bottom 7.5px;
@@ -3232,7 +3257,6 @@ tab-group[collapsed] > .tab-group-label-container & {
   background-position: left 7px bottom 7.5px, left 10.5px bottom 7.5px;
 }
 }
-
 &::first-letter {
   font: unset !important;
 }
@@ -3267,8 +3291,7 @@ tab-group > .tabbrowser-tab,
 #vertical-tabs-newtab-button {
   font-size: 13px !important;
   border-radius: 8px !important;
-@media -moz-pref("gwt.vertical-tabs-icons") {
-  /* Keep the pill shape in both expanded and collapsed states. */
+@media -moz-pref("gwt.sidebar") {
   border-radius: 999px !important;
 }
 > .toolbarbutton-text {
@@ -3360,8 +3383,7 @@ tab-group > .tabbrowser-tab,
 
 :root:has(#tabbrowser-tabs:not([expanded])) {
 #sidebar-container {
-/* Keep Firefox's native icon rail when enabled, including hover expansion. */
-@media not -moz-pref("gwt.vertical-tabs-icons") {
+@media not -moz-pref("gwt.sidebar") {
   visibility: collapse;
   max-width: 25px !important;
 @media -moz-pref("sidebar.visibility", "expand-on-hover") {
@@ -3384,6 +3406,9 @@ tab-group > .tabbrowser-tab,
 }
 }
 }
+@media -moz-pref("gwt.sidebar") {
+  background-color: var(--toolbar-background-color) !important;
+}
 }
 #sidebar-button {
 > .toolbarbutton-badge-stack {
@@ -3399,6 +3424,9 @@ tab-group > .tabbrowser-tab,
   min-height: 32px !important;
   max-width: 32px !important;
   background-position: center;
+@media -moz-pref("gwt.sidebar") {
+  margin-left: 8.5px !important;
+}
 }
 
 .tab-close-button {
@@ -3417,7 +3445,7 @@ tab-group > .tabbrowser-tab,
 }
 
 #tabs-newtab-button, #vertical-tabs-newtab-button {
-@media not -moz-pref("gwt.vertical-tabs-icons") {
+@media not -moz-pref("gwt.sidebar") {
   border-radius: 50px !important;
 }
 }
@@ -3519,40 +3547,60 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 
-/* Reserve the icon rail width over a toolbar-colored backing surface.
-   Keep the same glass surface in collapsed, expanded, and animating states. */
-@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
-  :root[sidebar-expand-on-hover] #browser:not(:has(#tabbrowser-tabbox[sidebar-panel-open])) {
-    background: var(--toolbar-background-color) !important;
-
-    #sidebar-container {
-      margin-top: 0 !important;
-      background-image: none !important;
-      background-color: var(--bg4) !important;
-      backdrop-filter: blur(10px);
-    }
-  }
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.sidebar") {
+:root[sidebar-expand-on-hover] #browser {
+  background: var(--toolbar-background-color) !important;
+#sidebar-container {
+:root:has(#tabbrowser-tabs[expanded]) & {
+  background-color: var(--bg4) !important;
+  backdrop-filter: blur(10px);
+}
+}
+}
 }
 
-/* Keep closing separate from the favicon target in the optional icon rail. */
-@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
-  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-close-button {
-    order: 99 !important;
-    position: static !important;
-    inset: auto !important;
-    margin-inline: auto 0 !important;
-    flex-shrink: 0;
-  }
-
-  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]):hover .tab-icon-image {
-    visibility: visible !important;
-  }
-
-  #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab .tab-close-button,
-  :root[sidebar-expand-on-hover] #sidebar-container:not([sidebar-launcher-expanded]) .tab-close-button,
-  :root[sidebar-expand-on-hover] #sidebar-container[sidebar-ongoing-animations] .tab-close-button {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-  }
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.sidebar") {
+#tabbrowser-tabs[orient="vertical"][expanded] .tabbrowser-tab .tab-close-button {
+  order: 99 !important;
+  position: static !important;
+  inset: auto !important;
+  margin-inline: auto 0 !important;
+  flex-shrink: 0;
+}
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]):hover .tab-icon-image {
+  visibility: visible !important;
+}
+#tabbrowser-tabs[orient="vertical"]:not([expanded]) {
+.tab-close-button {
+  inset-inline-start: 16.5px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: visibility 0s 0s, opacity 0.1s ease 0s !important;
+.tabbrowser-tab:not([pinned]):hover & {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: visibility 0s 0.825s, opacity 0.2s ease 0.825s !important;
+}
+#tabbrowser-tabs[movingtab] & {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: none !important;
+}
+}
+.tab-icon-image {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: visibility 0s 0s, opacity 0.1s ease 0s !important;
+.tabbrowser-tab:not([pinned]):hover & {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: visibility 0s 0.825s, opacity 0.2s ease 0.825s !important;
+}
+#tabbrowser-tabs[movingtab] & {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+}
+}
 }
