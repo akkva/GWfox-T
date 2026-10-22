@@ -195,9 +195,11 @@ split-view-footer {
 }
 
 #browser {
+@media not -moz-pref("gwt.vertical-tabs-icons") {
   --sidebar-launcher-collapsed-width: 1px !important;
 :root[sidebar-expand-on-hover] & {
   margin-inline-start: -1px !important;
+}
 }
 }
 
@@ -1207,6 +1209,12 @@ button > & {
 @media -moz-pref("sidebar.verticalTabs") {
 #tabbrowser-tabs[expanded] & {
   border-radius: 8px !important;
+}
+@media -moz-pref("gwt.vertical-tabs-icons") {
+/* Keep the same radius through the collapsed-to-expanded width change. */
+#tabbrowser-tabs[orient="vertical"] & {
+  border-radius: 999px !important;
+}
 }
 }
 #tabbrowser-tabs[movingtab-group] & {
@@ -3030,7 +3038,9 @@ sidebar-tab-row {
 #sidebar-container {
   -moz-window-dragging: drag;
 @media (min-width: 610px) and (max-width: 866px) {
+@media not -moz-pref("gwt.vertical-tabs-icons") {
   visibility: collapse;
+}
 }
 }
 
@@ -3192,6 +3202,10 @@ tab-group > .tabbrowser-tab,
 #vertical-tabs-newtab-button {
   font-size: 13px !important;
   border-radius: 8px !important;
+@media -moz-pref("gwt.vertical-tabs-icons") {
+  /* Keep the pill shape in both expanded and collapsed states. */
+  border-radius: 999px !important;
+}
 > .toolbarbutton-text {
   display: none;
 }
@@ -3281,11 +3295,14 @@ tab-group > .tabbrowser-tab,
 
 :root:has(#tabbrowser-tabs:not([expanded])) {
 #sidebar-container {
+/* Keep Firefox's native icon rail when enabled, including hover expansion. */
+@media not -moz-pref("gwt.vertical-tabs-icons") {
   visibility: collapse;
   max-width: 25px !important;
 @media -moz-pref("sidebar.visibility", "expand-on-hover") {
   visibility: visible;
   margin-inline-end: -24px !important;
+}
 }
 #sidebar-box {
   margin-inline-start: 8px !important;
@@ -3335,7 +3352,9 @@ tab-group > .tabbrowser-tab,
 }
 
 #tabs-newtab-button, #vertical-tabs-newtab-button {
+@media not -moz-pref("gwt.vertical-tabs-icons") {
   border-radius: 50px !important;
+}
 }
 
 tab-split-view-wrapper {
@@ -3433,4 +3452,42 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 }
+}
+
+/* Reserve the icon rail width over a toolbar-colored backing surface.
+   Keep the same glass surface in collapsed, expanded, and animating states. */
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.revamp") and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
+  :root[sidebar-expand-on-hover] #browser:not(:has(#tabbrowser-tabbox[sidebar-panel-open])) {
+    background: var(--toolbar-background-color) !important;
+
+    #sidebar-container {
+      margin-top: 0 !important;
+      background-image: none !important;
+      background-color: var(--bg4) !important;
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+/* Keep closing separate from the favicon target in the optional icon rail. */
+@media (-moz-mac-tahoe-theme) and -moz-pref("sidebar.verticalTabs") and -moz-pref("gwt.vertical-tabs-icons") {
+  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-close-button {
+    order: 99 !important;
+    position: static !important;
+    inset: auto !important;
+    margin-inline: auto 0 !important;
+    flex-shrink: 0;
+  }
+
+  #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]):hover .tab-icon-image {
+    visibility: visible !important;
+  }
+
+  #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab .tab-close-button,
+  :root[sidebar-expand-on-hover] #sidebar-container:not([sidebar-launcher-expanded]) .tab-close-button,
+  :root[sidebar-expand-on-hover] #sidebar-container[sidebar-ongoing-animations] .tab-close-button {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 }
