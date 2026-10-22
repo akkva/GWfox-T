@@ -233,9 +233,13 @@ split-view-footer {
 }
 
 .browser-titlebar {
-:root[customtitlebar] &,
 :root[customtitlebar] & .urlbar:popover-open {
   will-change: unset !important;
+}
+:root[customtitlebar] & {
+&:-moz-window-inactive {
+  opacity: 1 !important;
+}
 }
 }
 
@@ -1572,7 +1576,7 @@ tab-split-view-wrapper & {
   content: none !important;
 }
 .tabbrowser-tab {
-  padding-block: 5px !important;
+  padding-block: 2px !important;
 &:not([pinned]) .tab-background {
   margin-block: 0 !important;
 }
@@ -1626,6 +1630,7 @@ tab-group[collapsed] {
 
 #pinned-tabs-container[orient="vertical"] {
   margin-inline-start: 1px !important;
+  margin-bottom: -5px !important;
 @media -moz-pref("sidebar.visibility", "expand-on-hover") {
 .tabbrowser-tab {
   padding-block: 3px 3px !important;
@@ -1854,8 +1859,24 @@ tab-split-view-wrapper {
   margin-inline-end: 8px !important;
   padding: 0 !important;
   background-color: transparent !important;
+.tabbrowser-tab:last-child > .tab-stack {
+  border-inline-start: none !important;
+}
 :root[sidebar-expand-on-hover] #tabbrowser-tabs[orient="vertical"] & {
-  gap: 0 !important;
+  grid-template-columns: 1fr 1fr !important;
+.tabbrowser-tab {
+  margin-inline: -7px !important;
+}
+&:not([hasactivetab]) .tabbrowser-tab {
+&:first-child > .tab-stack {
+  border-block-end: none !important;
+}
+}
+}
+:root[sidebar-expand-on-hover] #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
+.tabbrowser-tab:last-child {
+  display: none !important;
+}
 }
 #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
   margin-inline-start: 0 !important;
@@ -3143,7 +3164,8 @@ sidebar-tab-row {
   opacity: .9;
   outline: none !important;
   min-height: var(--tab-min-height) !important;
-  margin-block: 0 !important;
+  margin-block: -3px !important;
+  margin-block-end: -2px !important;
   padding-block: 0 !important;
   padding-left: 31.5px !important;
   width: 100% !important;
