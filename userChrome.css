@@ -3473,7 +3473,7 @@ tab-group[collapsed] > .tab-group-label-container & {
 }
 }
 
-@media -moz-pref("gwt.toolbox") {
+@media -moz-pref("gwt.toolbox") and (not -moz-pref("gwt.sidebar")) {
 :root[sidebar-expand-on-hover] {
 #navigator-toolbox {
   position: absolute !important;
