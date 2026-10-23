@@ -3603,4 +3603,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 }
+:root[sidebar-expand-on-hover] #sidebar-container:not([sidebar-launcher-expanded]) .tab-close-button {
+  display: none !important;
+}
 }
