@@ -134,8 +134,15 @@
 @media -moz-pref("sidebar.verticalTabs") {
   background-color: transparent !important;
 @-moz-document url("chrome://browser/content/browser.xhtml") {
-&:not(:-moz-window-inactive) {
   background-color: light-dark(rgba(255, 255, 255, .65), rgba(45, 50, 55, .85)) !important;
+@media -moz-pref("gwt.atbc") {
+  background-color: var(--toolbox-background-color) !important;
+}
+&:-moz-window-inactive {
+  background-color: light-dark(#f2f2f2, #262727) !important;
+@media -moz-pref("gwt.atbc") {
+  background-color: var(--toolbox-background-color) !important;
+}
 }
 }
 }
