@@ -168,6 +168,14 @@
   border-radius: 12px !important;
   border: 2px solid var(--bg3) !important;
   outline: none !important;
+@media not -moz-pref("sidebar.verticalTabs") {
+:root:has(#sidebar-container:not([hidden])) &[column="0"] {
+  margin-left: 0 !important;
+}
+}
+:root:has(#sidebar-box:not([hidden])) &[column="0"] {
+  margin-left: 0 !important;
+}
 }
 .split-view-splitter {
   border: none !important;
