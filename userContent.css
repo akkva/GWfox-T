@@ -976,6 +976,9 @@ body {
 .wallpaper-attribution, .logo-and-wordmark,
 .icon.icon-pin-small, .card-outer,
 .section-title-container,
+.widgets-section .category-header,
+#lists-widget-section, #timer-widget-section,
+#clocks-widget-section, #picture-widget-section,
 .customize-menu .close-button-wrapper {
   display: none !important;
 }
@@ -1050,7 +1053,7 @@ body {
 }
 }
 
-#wallpapers-toggle, #shortcuts-toggle, #weather-toggle, .category-header, .category-list, .manage-settings-footer, .divider {
+#settings-link, #wallpapers-toggle, #shortcuts-toggle, #weather-toggle, .category-header, .category-list, .manage-settings-footer, .divider {
 .customize-menu:has(.category.wallpaper-list, #themes-management-panel) & {
   opacity: 0;
   transform: translateX(80px);
