@@ -231,11 +231,16 @@ split-view-footer {
   border-start-start-radius: 12px !important;
 }
 }
-@media -moz-pref("gwt.sidebar") {
-:root:has(#tabbrowser-tabs:not([expanded])) & {
+:root:has(#sidebar-box:not([hidden])) & {
   border-start-start-radius: 12px !important;
 }
-:root:has(#sidebar-box:not([hidden])) & {
+@media not -moz-pref("sidebar.verticalTabs") {
+:root:has(#sidebar-container:not([hidden])) & {
+  border-start-start-radius: 12px !important;
+}
+}
+@media -moz-pref("gwt.sidebar") {
+:root:has(#tabbrowser-tabs[orient="vertical"]:not([expanded])) & {
   border-start-start-radius: 12px !important;
 }
 }
