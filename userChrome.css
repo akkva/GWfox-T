@@ -133,6 +133,11 @@
 :root:not([customizing]) body {
 @media -moz-pref("sidebar.verticalTabs") {
   background-color: transparent !important;
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+&:not(:-moz-window-inactive) {
+  background-color: light-dark(rgba(255, 255, 255, .65), rgba(45, 50, 55, .85)) !important;
+}
+}
 }
 }
 
@@ -221,6 +226,9 @@ split-view-footer {
 }
 @media -moz-pref("gwt.sidebar") {
 :root:has(#tabbrowser-tabs:not([expanded])) & {
+  border-start-start-radius: 12px !important;
+}
+:root:has(#sidebar-box:not([hidden])) & {
   border-start-start-radius: 12px !important;
 }
 }
@@ -2461,6 +2469,42 @@ input[type="radio"] {
 }
 }
 
+@-moz-document url("chrome://browser/content/sidebar/sidebar-history.html"), url("chrome://browser/content/sidebar/sidebar-syncedtabs.html") {
+input {
+  appearance: none !important;
+  min-height: 32px !important;
+}
+}
+
+@-moz-document url("chrome://browser/content/sidebar/sidebar-customize.html") {
+[data-l10n-id="sidebar-show-on-the-right"], [data-l10n-id="sidebar-hide-tabs-and-sidebar"] {
+  display: none !important;
+}
+* { --panel-separator-color: transparent !important; }
+}
+
+@-moz-document url("chrome://browser/content/genai/chat.html") {
+#multi-stage-message-root {
+  background-color: transparent !important;
+  --background-color-canvas: transparent !important;
+
+.screen {
+  border-radius: 0 !important;
+  outline: none !important;
+}
+}
+
+#header, #summarize-btn-container {
+  border: none !important;
+}
+
+body {
+  background: var(--toolbar-background-color);
+  border: 1px solid var(--bg3);
+  border-radius: 12px;
+}
+}
+
 @-moz-document regexp("chrome:\/\/(?!devtools).*") {
 input[type="checkbox"] {
   appearance: none !important;
@@ -2907,42 +2951,6 @@ input[type="search"]:focus-within,
   outline-offset: -1px !important;
 }
 
-@-moz-document url("chrome://browser/content/sidebar/sidebar-history.html"), url("chrome://browser/content/sidebar/sidebar-syncedtabs.html") {
-input {
-  appearance: none !important;
-  min-height: 32px !important;
-}
-}
-
-@-moz-document url("chrome://browser/content/sidebar/sidebar-customize.html") {
-[data-l10n-id="sidebar-show-on-the-right"], [data-l10n-id="sidebar-hide-tabs-and-sidebar"] {
-  display: none !important;
-}
-* { --panel-separator-color: transparent !important; }
-}
-
-@-moz-document url("chrome://browser/content/genai/chat.html") {
-#multi-stage-message-root {
-  background-color: transparent !important;
-  --background-color-canvas: transparent !important;
-
-.screen {
-  border-radius: 0 !important;
-  outline: none !important;
-}
-}
-
-#header, #summarize-btn-container {
-  border: none !important;
-}
-
-body {
-  background: var(--toolbar-background-color);
-  border: 1px solid var(--bg3);
-  border-radius: 12px;
-}
-}
-
 #downloadsListBox.allDownloadsListBox {
   appearance: none !important;
 }
@@ -3085,6 +3093,12 @@ sidebar-tab-row {
 &.feature-callout {
   display: none !important;
 }
+}
+
+#manage-settings img.icon,
+.extension-item img.icon,
+.text-container img.icon {
+  display: none !important;
 }
 
 #main-button img[src^="chrome://browser/content/genai/assets/brands/"] {
