@@ -135,15 +135,33 @@
   background-color: transparent !important;
 @-moz-document url("chrome://browser/content/browser.xhtml") {
   background-color: light-dark(rgba(255, 255, 255, .65), rgba(45, 50, 55, .85)) !important;
-@media -moz-pref("gwt.atbc") {
-  background-color: var(--toolbox-background-color) !important;
+@media -moz-pref("gwt.atbc") and (prefers-color-scheme: light) {
+  background-color: rgba(255, 255, 255, .65) !important;
 }
 &:-moz-window-inactive {
   background-color: light-dark(#f2f2f2, #262727) !important;
-@media -moz-pref("gwt.atbc") {
-  background-color: var(--toolbox-background-color) !important;
+@media -moz-pref("gwt.atbc") and (prefers-color-scheme: light) {
+  background-color: #f2f2f2 !important;
 }
 }
+}
+}
+}
+
+@media -moz-pref("gwt.atbc") and (prefers-color-scheme: light) {
+:root:not([sidebar-expand-on-hover]):has(#tabbrowser-tabs[orient="vertical"][expanded]) {
+#sidebar-container, #sidebar-button, panel, .urlbarView {
+  color-scheme: light !important;
+}
+.tab-content, .urlbarView-row:not(:hover, [selected]), .urlbarView-result-menu, .urlbarView-row[label]::before {
+  color: #000 !important;
+}
+#tabs-newtab-button, #vertical-tabs-newtab-button {
+&:hover { background: var(--bg2-hover) !important; }
+&:active { background: var(--bg2-active) !important; }  
+}
+#pinned-tabs-container .tabbrowser-tab:not(:hover) > .tab-stack > .tab-background:not([selected], [multiselected]) {
+  background-color: color-mix(in srgb, #000 7%, transparent) !important;
 }
 }
 }
