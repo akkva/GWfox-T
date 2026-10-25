@@ -164,6 +164,14 @@
   background-color: color-mix(in srgb, #000 7%, transparent) !important;
 }
 }
+@media not -moz-pref("sidebar.verticalTabs") {
+panel, .urlbarView {
+  color-scheme: light !important;
+}
+.tab-content[selected], .urlbarView-row:not(:hover, [selected]), .urlbarView-result-menu, .urlbarView-row[label]::before {
+  color: #000 !important;
+}
+}
 }
 
 #tabbrowser-tabbox {
