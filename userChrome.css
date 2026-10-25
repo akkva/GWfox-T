@@ -1704,10 +1704,18 @@ tab-group[collapsed] {
 
 #pinned-tabs-container[orient="vertical"] {
   margin-inline-start: 1px !important;
-  margin-bottom: -5px !important;
+  margin-bottom: -2px !important;
+@media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+#tabbrowser-tabs[expanded] & {
+  --tab-min-height: 41px;
+  --tab-pinned-min-width: 50px !important;
+  --tab-height-with-margin-padding: calc(var(--tab-min-height) + (2 * var(--tab-margin-block)));
+}
+}
 @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+  margin-bottom: -4px !important;
 .tabbrowser-tab {
-  padding-block: 3px 3px !important;
+  padding-block: 0 !important;
 }
 }
 }
@@ -3221,11 +3229,13 @@ sidebar-tab-row {
 
 #sidebar-tools-and-extensions-splitter {
   display: var(--dp) !important;
-  width: 10px !important;
+  width: 5px !important;
+  height: 5px !important;
   margin-inline: auto !important;
   margin-block-start: 15px !important;
   border-top: none !important;
   border-color: transparent !important;
+  border-radius: 5px !important;
   background-color: transparent !important;
 .wrapper:hover &:not(:has(~ .buttons-wrapper:hover)) {
   background-color: var(--panel-separator-color) !important;
@@ -3243,9 +3253,11 @@ sidebar-tab-row {
 
 #vertical-pinned-tabs-splitter {
   margin-block-start: 4px !important;
-  width: 10px !important;
+  width: 5px !important;
+  height: 5px !important;
   margin-inline: auto !important;
   border-top-color: transparent !important;
+  border-radius: 5px !important;
 #vertical-tabs:hover & {
   background-color: var(--panel-separator-color) !important;
   opacity: .5;
