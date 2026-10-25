@@ -168,8 +168,13 @@
 panel, .urlbarView {
   color-scheme: light !important;
 }
-.tab-content[selected], .urlbarView-row:not(:hover, [selected]), .urlbarView-result-menu, .urlbarView-row[label]::before {
+.urlbarView-row:not(:hover, [selected]), .urlbarView-result-menu, .urlbarView-row[label]::before {
   color: #000 !important;
+}
+@media not -moz-pref("gwt.oneliner") {
+.tab-content[selected] {
+  color: #000 !important;
+}  
 }
 }
 }
