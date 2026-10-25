@@ -173,6 +173,11 @@
   margin-left: 0 !important;
 }
 }
+@media -moz-pref("gwt.sidebar") {
+:root:has(#tabbrowser-tabs[orient="vertical"]:not([expanded])) &[column="0"] {
+  margin-left: 0 !important;
+}
+}
 :root:has(#sidebar-box:not([hidden])) &[column="0"] {
   margin-left: 0 !important;
 }
