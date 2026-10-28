@@ -518,6 +518,11 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   display: none !important;
 }
 
+button {
+  --panel-item-button-border-radius: 7px !important;
+  --panel-item-button-margin: 0 4.5px !important;   
+}
+
 #fxa-toolbar-menu-button {
   max-width: 0 !important;
   max-height: 0 !important;
@@ -2198,6 +2203,17 @@ panel:not([nonnative]) {
 }
 }
 
+panel-list {
+  --button-background-color-menu-hover: color-mix(in srgb, -moz-menuhover 80%, transparent) !important;
+  --button-background-color-menu-active: color-mix(in srgb, -moz-menuhover 90%, transparent) !important;
+  --button-text-color-menu-hover: #fff !important;
+  --button-text-color-menu-active: #fff !important;
+@media -moz-pref("gwt.ac") {
+  --button-background-color-menu-hover: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
+  --button-background-color-menu-active: color-mix(in srgb, var(--bg0) 90%, transparent) !important;
+}
+}
+
 .toolbar-menupopup {
   --panel-box-shadow-margin: 0 !important;
   --panel-border-color: transparent !important;
@@ -2738,7 +2754,7 @@ panel#feature-callout,
 }
 
 @media (prefers-color-scheme: dark) {
-.urlbarView,
+.urlbarView, .urlbarView-result-menu,
 .dialogBox, .findbar-container {
   outline: 1px solid rgba(235, 235, 235, .2) !important;
   outline-offset: -1.5px !important;
