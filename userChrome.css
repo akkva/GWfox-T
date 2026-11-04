@@ -948,7 +948,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 
 :root:not([customizing]) #TabsToolbar #alltabs-button {
-  display: none;
+  position: fixed !important;
+  top: 20px;
+  right: -35px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 #PanelUI-menu-button {
@@ -2744,6 +2748,13 @@ panel#feature-callout,
   box-shadow: 0 3px 8px rgba(0, 0, 0, .35) !important;
   background-color: rgba(0, 0, 0, .85) !important;
   margin-top: 28px !important;
+&:focus {
+  outline: 2px solid var(--bg1) !important;
+}
+}
+
+.ctrlTab-preview:focus > .ctrlTab-preview-inner {
+  border-color: var(--bg1) !important;
 }
 
 .ctrlTab-canvas {
