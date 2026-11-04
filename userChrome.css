@@ -1707,9 +1707,6 @@ tab-group > .tabbrowser-tab {
   width: 5px !important;
   margin: 0 !important;
   border-radius: 5px !important;
-#tabbrowser-tabs[orient="vertical"] & {
-  order: 1;
-}
 }
 
 .tabbrowser-tab:not([selected], [pinned]) {
@@ -1789,28 +1786,21 @@ tab-group > tab-split-view-wrapper & {
 
 .tab-icon-overlay {
   scale: .7;
-  &:hover { scale: .9; }
-  &:is([soundplaying], [muted], [activemedia-blocked]) {
+&:hover { scale: .9; }
+&:is([soundplaying], [muted], [activemedia-blocked]) {
   background: light-dark(color-mix(in srgb, var(--bg2) 20%, #fff), color-mix(in srgb, var(--bg2) 80%, #555)) !important;
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(10px);
   border: none !important;
-  &:not([pinned]) {
+  outline: none !important;
+&:not([pinned]) {
   background-size: 16px !important;
 }
-  &:hover {
+&:hover {
   background: light-dark(color-mix(in srgb, var(--bg2-hover) 20%, #fff), color-mix(in srgb, var(--bg2-hover) 80%, #555)) !important;
 }
-  &:active {
+&:active {
   background: light-dark(color-mix(in srgb, var(--bg2-active) 20%, #fff), color-mix(in srgb, var(--bg2-active) 80%, #555)) !important;
 }
-}
-  :is(
-  :root[uidensity=compact],
-  #tabbrowser-tabs[secondarytext-unsupported],
-  :root:not([uidensity=compact]) #tabbrowser-tabs:not([secondarytext-unsupported]) .tabbrowser-tab:hover
-  ) .tab-icon-stack[indicator-replaces-favicon] > :not(&),
-  :root:not([uidensity=compact]) #tabbrowser-tabs:not([secondarytext-unsupported]) .tabbrowser-tab:not(:hover) &[indicator-replaces-favicon] {
-  opacity: 1 !important;
 }
 }
 
@@ -1957,6 +1947,7 @@ tab-group[previewpanelactive] & {
 #vertical-tabs-newtab-button:active,
 .tools-and-extensions > moz-button:active {
   transform: scale(.98);
+  transition: transform .1s ease;
 }
 
 :root:has(.tab-icon-overlay:active, .tab-audio-button:active, .tab-close-button:active) {
