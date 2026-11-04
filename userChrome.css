@@ -73,6 +73,7 @@
   --in-content-background-color: light-dark(#fff, #1e1f1f) !important;
   --panel-separator-color: var(--bg3) !important;
   --border-color: rgba(105, 105, 105, .2) !important;
+  --button-icon-fill: light-dark(#000, #fff) !important;
   --text-color: light-dark(#000, #fff) !important;
   --tab-min-height: 32px !important;
   --tab-inline-padding: 8px !important;
@@ -1059,7 +1060,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 .urlbarView-row[has-url] .urlbarView-title-separator {
   display: flex !important;
 }
-.urlbarView-row[label]::before {
+.urlbarView-dynamic-actions-label, .urlbarView-row[label]::before {
   color: light-dark(#000, #fff) !important;
 }
 .urlbarView-title-separator {
