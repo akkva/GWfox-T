@@ -4,22 +4,27 @@
  * ░▀▀▀▀░▀░░░▀░▀░░░░▀▀▀▀░▀░░▀░░░░░░▀░░ *
  *      github.com/akkva/GWfox-T       *
  * * * * * * * * * * * * * * * * * * * */
-
+ 
 @media (-moz-mac-tahoe-theme) {
-* { --bg0: #8867fc; }
-
 :root {
   --bg1: light-dark(rgba(70, 70, 70, .08), rgba(170, 170, 170, .08));
   --bg2: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .15));
   --bg3: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .2));
   --bg4: light-dark(rgba(255, 255, 255, .55), rgba(75, 75, 75, .55));
-  --bg5: light-dark(rgba(255, 255, 255, .45), rgba(255, 255, 255, .15));
-  --bg6: light-dark(rgba(255, 255, 255, .15), rgba(255, 255, 255, .06));
+  --bg5: light-dark(rgba(255, 255, 255, .65), rgba(75, 75, 75, .65));
+  --bg6: light-dark(rgba(255, 255, 255, .45), rgba(75, 75, 75, .45));
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
-  --newtab-background-color-secondary: transparent !important;
+  --bf2: blur(10px);
+  --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --border-color-interactive: var(--in-content-box-border-color) !important;
+  --newtab-background-color-secondary: transparent !important;
+  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   --in-content-focus-outline-color: var(--focus-outline-color) !important;
+  --color-accent-primary: AccentColor !important;
+  --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
+  --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
+  --color-accent-primary-selected: AccentColor !important;
   --button-background-color-primary: var(--color-accent-primary) !important;
   --button-background-color-primary-hover: var(--color-accent-primary-hover) !important;
   --button-background-color-primary-active: var(--color-accent-primary-active) !important;
@@ -34,25 +39,36 @@
   --brand-color-accent-hover: var(--color-accent-primary-hover) !important;
   --brand-color-accent-active: var(--color-accent-primary-active) !important;
   --newtab-primary-action-background: var(--color-accent-primary) !important;
-  --color-accent-primary: AccentColor !important;
-  --color-accent-primary-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
-  --color-accent-primary-active: color-mix(in srgb, AccentColor 90%, #000) !important;
-  --color-accent-primary-selected: AccentColor !important;
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
-  --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
-  --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
-@media -moz-pref("gwt.ac") {
-  --color-accent-primary: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --color-accent-primary-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
-  --color-accent-primary-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
-  --color-accent-primary-selected: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --focus-outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
-}
+  --button-background-color-hover: var(--bg1) !important;
+  --button-background-color-active: var(--bg2) !important;
+  --button-border-color: transparent !important;
+  --input-search-border-radius: 50px !important;
+  --border-radius-medium: 12px !important;
+  --text-color: light-dark(#000, #fff) !important;
+  --color-gray-05: #fff !important;
 @media not -moz-pref("gwt.atbc") {
   --in-content-page-background: light-dark(#fff, #1e1f1f) !important;
   --newtab-background-color: light-dark(#fff, #1e1f1f) !important;
 }
+}
+
+nav {
+  --page-nav-button-border-radius: 12px !important;
+  --page-nav-button-border-radius-focused: 12px !important;
+}
+
+moz-segmented-control {
+  border-radius: 12px !important;
+}
+
+button {
+  --panel-item-button-border-radius: 8px !important;
+}
+
+.select-wrapper, .button-background, sidebar-tab-row {
+  border-radius: 50px !important;
 }
 
 .toggle-button {
@@ -62,69 +78,41 @@
   --toggle-dot-background-color-on-pressed: #fff !important;
 }
 
-#download {
-  color: #fff !important;
-  background-color: AccentColor !important;
-&:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
-@media -moz-pref("gwt.ac") {
-  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-&:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
-}
+#screenshots-cancel-button, #download, #cancel, #copy {
+  outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
 }
 
-#screenshots-cancel-button, #download, #cancel, #copy {
-  border-radius: 50px !important;
-  outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
-@media -moz-pref("gwt.ac") {
-  outline-color: light-dark(color-mix(in srgb, var(--bg0) 55%, transparent), color-mix(in srgb, var(--bg0) 45%, #555)) !important;
-}
+#cancel, #copy, #download {
+  border: none !important;
+  color: #fff !important;
+  background-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
+&:hover { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 90%, #fff)) !important; }
+&:active { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 90%, #000)) !important; }
 }
 
 #buttons-container {
-  border-radius: 20px !important;
-  background-color: light-dark(rgba(255, 255, 255, .55), rgba(35, 35, 35, .55)) !important;
+  border-radius: 12px !important;
+  background-color: light-dark(rgba(255, 255, 255, .55), rgba(75, 75, 75, .55)) !important;
   backdrop-filter: blur(10px);
 }
 
 panel-list {
-  --panel-item-border-radius: 8px;
-  --panel-item-background-color: -moz-menuhover;
-  --panel-item-color: #fff;
-  --button-background-color-menu-hover: -moz-menuhover !important;
-  --button-background-color-menu-active: color-mix(in srgb, -moz-menuhover 90%, #000) !important;
-  --button-text-color-menu-hover: #fff !important;
-  --button-text-color-menu-active: #fff !important;
+  --panel-separator-color: rgba(105, 105, 105, .2) !important;
   border: none !important;
   border-radius: 12px !important;
   box-shadow: var(--bs1) !important;
   padding: 6px !important;
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(10px) !important;
-@media -moz-pref("gwt.ac") {
-  --panel-item-background-color: color-mix(in srgb, var(--bg0) 80%, transparent);
-  --button-background-color-menu-hover: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
-  --button-background-color-menu-active: color-mix(in srgb, var(--bg0) 90%, transparent) !important;
-}
-@media (prefers-color-scheme: dark) {
-  box-shadow: var(--bs2) !important;
-  outline: 1px solid rgba(235, 235, 235, .2) !important;
-  outline-offset: -1.5px !important;
-}
+  backdrop-filter: var(--bf2) !important;
+  --button-background-color-menu-hover: color-mix(in srgb, AccentColor 80%, transparent) !important;
+  --button-background-color-menu-active: color-mix(in srgb, AccentColor 90%, transparent) !important;
+  --button-text-color-menu-hover: #fff !important;
+  --button-text-color-menu-active: #fff !important;
 }
 
 panel-item {
   --panel-item-button-margin: 0 !important;
   --panel-item-button-padding: 5px !important;
-}
-
-button {
-  --panel-item-button-border-radius: 8px !important;
-  --page-nav-button-indicator-background-color: transparent !important;
-}
-
-nav {
-  --page-nav-button-border-radius: 12px !important;
-  --page-nav-button-border-radius-focused: 12px !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -138,34 +126,26 @@ nav {
   --color-gray-90: #1e1f1f !important;
 }
 }
-
 :root[dialogroot] {
 @media not -moz-pref("gwt.atbc") {
   --background-color-canvas: #1e1f1f !important;
 }
 }
-
 .home-section .section .sponsored-checkbox:checked:hover {
   background-color: #436ee3 !important;
 }
-
 @-moz-document url-prefix("about:") {
 @media not -moz-pref("gwt.atbc") {
 body { background-color: #1e1f1f !important; } }
-
 * {
-  --toolbar-button-foreground-active: AccentColor !important;
-  --primary-color: AccentColor !important;
+  --toolbar-button-foreground-active: color-mix(in srgb, AccentColor 90%, #000) !important;
+  --primary-color: color-mix(in srgb, AccentColor 90%, #000) !important;
   --selected-background: rgba(18, 128, 253, .2) !important;
   --popup-background: #313131 !important;
   --popup-button-background-hover: #383838 !important;
   --popup-button-background-active: #2b2b2b !important;
   --toolbar-button-background-hover: #383838 !important;
   --toolbar-button-background-active: #2b2b2b !important;
-@media -moz-pref("gwt.ac") {
-  --toolbar-button-foreground-active: color-mix(in srgb, var(--bg0) 90%, #000) !important;
-  --primary-color: color-mix(in srgb, var(--bg0) 90%, #000) !important;
-}
 @media not -moz-pref("gwt.atbc") {
   --fxview-background-color: #1e1f1f !important;
   --in-content-page-background: #1e1f1f !important;
@@ -173,18 +153,39 @@ body { background-color: #1e1f1f !important; } }
   --input-text-background-color: #282828 !important;
 }
 }
-
 #migrationWizardDialog {
 @media not -moz-pref("gwt.atbc") {
   background: #1e1f1f !important;
 }
 }
 }
+panel-list {
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
+}
 }
 
 @-moz-document regexp(".*\\.pdf") {
+.editToolbar {
+  --editor-toolbar-fg-color: light-dark(#000, #fff) !important;
+}
+#editorCommentsSidebarCount {
+  --comment-count-bg-color: var(--bg1) !important;
+}
+#editorCommentsSidebarCloseButton {
+  --button-comment-color: light-dark(#000, #fff) !important;
+  --button-comment-hover-color: light-dark(#000, #fff) !important;
+  --button-comment-active-color: light-dark(#000, #fff) !important;
+}
 #viewsManager {
   --header-bg: transparent !important;
+}
+#viewsManager, .doorHangerRight, #editorCommentsSidebar, dialog {
+  border-radius: 12px !important;
+}
+#viewsManagerStatusActionButton, .toolbarButton, .toolbarField, #editorCommentsSidebarCloseButton, #documentPropertiesClose, #commentManagerCancelButton, #commentManagerSaveButton, #addSignatureCancelButton, #addSignatureAddButton, #clearSignatureButton {
+  border-radius: 50px !important;
 }
 .horizontalToolbarSeparator {
   border-top: 1px solid rgba(105, 105, 105, .2) !important;
@@ -194,13 +195,10 @@ body { background-color: #1e1f1f !important; } }
   display: none !important;
 }
 }
-#viewsManager, .doorHangerRight, #editorCommentsSidebar, dialog {
-  border-radius: 12px !important;
-}
-#viewsManagerStatusActionButton, .toolbarButton, .toolbarField, #editorCommentsSidebarCloseButton, #documentPropertiesClose, #commentManagerCancelButton, #commentManagerSaveButton, #addSignatureCancelButton, #addSignatureAddButton, #clearSignatureButton {
-  border-radius: 50px !important;
-}
 .toolbarButton {
+  --toolbar-icon-bg-color: light-dark(#000, #fff) !important;
+  --toolbar-icon-hover-bg-color: light-dark(#000, #fff) !important;
+  --toggled-btn-color: light-dark(#000, #fff) !important;
   background-color: transparent !important;
 &:not([disabled]) {
 &:hover {
@@ -215,7 +213,7 @@ body { background-color: #1e1f1f !important; } }
 }
 }
 .dropdownToolbarButton {
-  clip-path: inset(0 round 50px);
+  border: none !important;
   background-color: transparent !important;
 &:hover {
   background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .1)) !important;
@@ -251,8 +249,7 @@ body { background-color: #1e1f1f !important; } }
 .dialog {
 & .mainContainer {
 & textarea, & #addSignatureDescInput, & #addSignatureTypeContainer, & #addSignatureDrawContainer, & #addSignatureImageContainer {
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .5)) !important;
-  border-radius: 8px !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
   border-color: transparent !important;      
 }
 }
@@ -262,7 +259,7 @@ body { background-color: #1e1f1f !important; } }
 & [role="tablist"] {
 & > [role="tab"] {
   border: none !important;
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .5)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
 &:hover {
   background-color: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .3)) !important;
 }
@@ -289,7 +286,7 @@ body { background-color: #1e1f1f !important; } }
 :is(.annotationLayer, .annotationEditorLayer) {
 & .annotationCommentButton {
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: var(--bf2) !important;
 &::before {
   background-color: light-dark(#555, #ddd) !important;
 }
@@ -304,14 +301,14 @@ body { background-color: #1e1f1f !important; } }
 .annotationEditorLayer :is(.freeTextEditor, .inkEditor, .stampEditor, .highlightEditor, .signatureEditor), .textLayer {
 & .editToolbar {
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: var(--bf2) !important;
 }
 }
 .pdfViewer, #outerContainer {
-  background-color: light-dark(#ccc, #282828) !important;
+  background-color: light-dark(#ccc, #1e1f1f) !important;
 }
 #viewsManager, #toolbarContainer {
-  background-color: light-dark(#fff, #1e1f1f) !important;
+  background-color: light-dark(#fff, #282828) !important;
   border: none !important;
 }
 #editorCommentsSidebar, #secondaryToolbar, .doorHangerRight, dialog, .commentPopup {
@@ -321,14 +318,14 @@ dialog, .doorHangerRight, #viewsManager, #editorCommentsSidebar {
   box-shadow: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .28), 0 0 0 .5px rgba(0, 0, 0, .05) !important;
   border: none !important;
 @media (prefers-color-scheme: dark) {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .15), 0 0 0 1px rgba(0, 0, 0, .5) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .15), 0 0 0 1px rgba(0, 0, 0, .8) !important;
 }
 }
 dialog::backdrop {
   background-color: transparent !important;
 }
 #secondaryToolbar, #editorCommentsSidebar, #editorSignatureParamsToolbar, #editorHighlightParamsToolbar, #editorFreeTextParamsToolbar, #editorInkParamsToolbar, #editorStampParamsToolbar, dialog, .commentPopup {
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: var(--bf2) !important;
 }
 }
 
@@ -339,30 +336,25 @@ input[type="search"] {
   outline-style: solid !important;
   outline-color: transparent !important;
   outline-width: 18px !important;
-  border-radius: 50px !important;
-
 &:is(:focus-visible, [focused]) {
   outline-color: var(--focus-outline-color) !important;
-  outline-width: 3.5px !important;
+  outline-width: 3px !important;
   outline-offset: -1px !important;
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
 }
 }
-
 #searchInput[focused] { 
   outline-color: var(--focus-outline-color) !important;
-  outline-width: 3.5px !important;
+  outline-width: 3px !important;
   outline-offset: -1px !important;
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
 }
-
 search-addons > search-textbox[focused] {
   outline-color: var(--focus-outline-color) !important;
-  outline-width: 3.5px !important;
+  outline-width: 3px !important;
   outline-offset: -1px !important;
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
 }
-
 search-textbox {
   background: light-dark(rgba(85, 85, 85, .1), rgba(190, 190, 190, .1)) !important;
   border-color: transparent !important;
@@ -370,14 +362,13 @@ search-textbox {
   outline-color: transparent !important;
   outline-width: 18px !important;
 }
-
 input[type="checkbox"]:not(.reveal-password-checkbox) {
   appearance: none !important;
   background-color: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
   border-radius: 4px !important;
   border: none !important;
   &:checked {
-  background-color: AccentColor !important;
+  background-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
   background-image: url("chrome://devtools/skin/images/check.svg") !important;
   background-size: 14px;
   background-repeat: no-repeat;
@@ -386,23 +377,17 @@ input[type="checkbox"]:not(.reveal-password-checkbox) {
   fill: #fff;
   stroke: #fff;
   border: none !important;
-  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
-  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
-@media -moz-pref("gwt.ac") {
-  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
-  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+  &:hover { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 80%, #000)) !important; }
 }
 }
-}
-
 input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   appearance: none !important;
   background-color: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
   border-radius: 50% !important;
   border: none !important;
   &:checked {
-  background-color: AccentColor !important;
+  background-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
   background-image: url("chrome://devtools/skin/images/linear-easing-swatch.svg") !important;
   background-size: 8px;
   background-repeat: no-repeat;
@@ -410,23 +395,17 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   -moz-context-properties: fill;
   fill: #fff;
   border: none !important;
-  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
-  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
-@media -moz-pref("gwt.ac") {
-  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
-  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+  &:hover { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 80%, #000)) !important; }
 }
 }
-}
-
 .checkbox-check {
   appearance: none !important;
   background-color: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
   border-radius: 4px !important;
   border: none !important;
   &[checked] {
-  background-color: AccentColor !important;
+  background-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
   background-image: url("chrome://devtools/skin/images/check.svg") !important;
   background-size: 14px;
   background-repeat: no-repeat;
@@ -435,23 +414,17 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   fill: #fff;
   stroke: #fff;
   border: none !important;
-  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
-  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
-@media -moz-pref("gwt.ac") {
-  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
-  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
+  &:hover { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 80%, #000)) !important; }
 }
 }
-}
-
 .radio-check {
   appearance: none !important;
   background-color: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15)) !important;
   border-radius: 50% !important;
   border: none !important;
   &[selected] {
-  background-color: AccentColor !important;
+  background-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
   background-image: url("chrome://devtools/skin/images/linear-easing-swatch.svg") !important;
   background-size: 8px;
   background-repeat: no-repeat;
@@ -459,38 +432,19 @@ input[type="radio"]:not(.wallpaper-input, [name="theme"], [name="avatar"]) {
   -moz-context-properties: fill;
   fill: #fff;
   border: none !important;
-  &:hover { background-color: color-mix(in srgb, AccentColor 90%, #fff) !important; }
-  &:hover:active { background-color: color-mix(in srgb, AccentColor 90%, #000) !important; }
-@media -moz-pref("gwt.ac") {
-  background-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  &:hover { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important; }
-  &:hover:active { background-color: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important; }
-}
-}
-}
-
-input:not(.wallpaper-input, [type="text"]) {
-  padding-inline-end: 10px !important;
-&::-moz-search-clear-button {
-  padding: 2px !important;
-  border-radius: 50px !important;
+  &:hover { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 80%, #fff)) !important; }
+  &:hover:active { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 80%, #000)) !important; }
 }
 }
 }
 
 @-moz-document url-prefix("about:") {
 :root {
-  --link-color: AccentColor !important;
-  --link-color-hover: color-mix(in srgb, AccentColor 90%, #fff) !important;
-  --link-color-active: color-mix(in srgb, AccentColor 90%, #000) !important;
-  --link-color-visited: AccentColor !important;
+  --link-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
+  --link-color-hover: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 80%, #fff)) !important;
+  --link-color-active: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 80%, #000)) !important;
+  --link-color-visited: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
   --border-color-deemphasized: light-dark(rgba(50, 50, 50, .15), rgba(225, 225, 225, .15)) !important;
-@media -moz-pref("gwt.ac") {
-  --link-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-  --link-color-hover: light-dark(color-mix(in srgb, var(--bg0) 90%, #fff), color-mix(in srgb, var(--bg0) 80%, #fff)) !important;
-  --link-color-active: light-dark(color-mix(in srgb, var(--bg0) 90%, #000), color-mix(in srgb, var(--bg0) 80%, #000)) !important;
-  --link-color-visited: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
-}
 }
 }
 
@@ -516,11 +470,8 @@ table {
 .sticky-header { background: transparent !important; }
 sidebar-tab-row {
 &:is(:hover, :active) {
-  background-color: -moz-menuhover !important;
+  background-color: color-mix(in srgb, AccentColor 80%, transparent) !important;
   color: #fff !important;
-@media -moz-pref("gwt.ac") {
-  background-color: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
-}
 }
 }
 .fxview-tab-row-main:is(.muted, .soundplaying, .activemedia-blocked):not(.attention) .fxview-tab-row-favicon::after {
@@ -532,7 +483,6 @@ sidebar-tab-row {
 
 @-moz-document url-prefix("about:firefoxview") {
 * { --fxview-border: transparent !important; }
-
 .card-container {
   background: light-dark(rgba(85, 85, 85, .1), rgba(190, 190, 190, .1)) !important;
   box-shadow: none !important;
@@ -615,7 +565,7 @@ treecol, .tree-columnpicker-button {
 input:not([type="checkbox"], [type="radio"], [type="button"]) {
   background-color: var(--bg1) !important;
 &:focus {
-  outline: 3.5px solid var(--focus-outline-color) !important;
+  outline: 3px solid var(--focus-outline-color) !important;
 }
 }
 .privacy-detailedoption {
@@ -651,7 +601,7 @@ input:not([type="checkbox"], [type="radio"], [type="button"]) {
 }
 }
 
-@-moz-document url("about:privatebrowsing") {
+@-moz-document url-prefix("about:privatebrowsing") {
 :root { --in-content-page-background: transparent !important; }
 body {
   --newtab-search-icon: url("chrome://global/skin/icons/search-glass.svg") !important;
@@ -665,17 +615,17 @@ body {
   margin-top: -40px !important;
 }
 .search-handoff-button {
-  background-color: rgba(25, 25, 25, .55) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
-  backdrop-filter: blur(10px) !important;
+  background-color: rgba(15, 15, 15, .7) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
+  backdrop-filter: var(--bf2) !important;
   outline: none !important;
   border: none !important;
   fill: rgba(255, 255, 255, .7) !important;
 }
 .search-handoff-button.disabled {
   opacity: 1 !important;
-  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1) !important;
   fill: rgba(255, 255, 255, .6) !important;
 }
 .fake-textbox {
@@ -708,14 +658,15 @@ body {
   background-image: var(--newtab-wallpaper, ""), repeating-linear-gradient(-45deg, var(--newtab-wallpaper-color, "") 0 250px, #1e1f1f 0 500px) !important;
 }
 }
-
+button {
+  font-weight: normal !important;
+}
 *[style*="18c7861f-0c9d-48d4-a98c-fb8999e331bd.avif"] {
   background-image: url("resource://builtin-themes/alpenglow/background-noodles-left.svg") !important;
 @media (prefers-color-scheme: dark) {
   background-image: url("resource://builtin-themes/alpenglow/background-noodles-left-dark.svg") !important;
 }
 }
-
 @keyframes panel-grow {
 0% {
   transform: scale(.92);
@@ -724,337 +675,214 @@ body {
   transform: scale(1);
 }
 }
-
-.context-menu {
-  border-radius: 12px !important;
-  padding: 6px !important;
-  box-shadow: var(--bs1) !important;
-  margin-top: -15px !important;
+.open-customization-button, .add-button {
+  clip-path: inset(0 round 50px);
 }
-
-.context-menu > ul {
-  padding: 0 !important;
-}
-
-.context-menu > ul > li > a,
-.context-menu > ul > li > button {
-  border-radius: 8px !important;
-  padding: 6px 12px !important;
-&:is(:focus, :hover) {
-  background: -moz-menuhover !important;
-  color: #fff !important;
-@media -moz-pref("gwt.ac") {
-  background: color-mix(in srgb, var(--bg0) 80%, transparent) !important;
-}
-}
-}
-
-.context-menu > ul > li.separator {
-  border-bottom: 1px solid light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1)) !important;
-}
-
 .topsite-form .form-wrapper input[type=text] {
   border: none !important;
+  border-radius: 50px !important;
+  padding-inline-start: 10px !important;
   background: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
   outline-style: solid !important;
   outline-color: transparent !important;
   outline-width: 18px !important;
 }
-
 .topsite-form .form-wrapper input[type=text]:focus {
   outline-color: var(--focus-outline-color) !important;
-  outline-width: 3.5px !important;
+  outline-width: 3px !important;
   outline-offset: -1px !important;
   transition: all .3s cubic-bezier(.8, 0, 0, .8) !important;
 }
-
 .divider {
   border-top: 1px solid light-dark(rgba(50, 50, 50, .1), rgba(225, 225, 225, .1)) !important;
 }
-
 .outer-wrapper.only-search {
   display: flex !important;
   padding-block: 0 !important;
 }
-
 .search-inner-wrapper {
-  background-color: light-dark(rgba(255, 255, 255, .8), rgba(15, 15, 15, .7)) !important;
-  border-radius: 50px !important;
-  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
-  transition: background .5s !important;
-  z-index: 1;
+  max-width: 680px !important;
 }
-
-.search-inner-wrapper:active {
-  background-color: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .8)) !important;
-  transition: background .5s !important;
-}
-
 .search-handoff-button {
+  border-radius: 50px !important;
   border: none !important;
-  box-shadow: none !important;
-  border-radius: 12px !important;
-  background-color: transparent !important;
+  transition: background .5s !important;
 }
-
-.search-wrapper input {
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  background-color: transparent !important;
-}
-
 .contentSearchSuggestionTable {
   border-radius: 6px !important;
 }
-
 .contentSearchSuggestionTable .contentSearchHeader,
 .contentSearchSuggestionTable .contentSearchSettingsButton {
   border-color: transparent !important;
 }
-
 .contentSearchSuggestionTable .contentSearchOneOffsTable {
   border-top: none !important;
   background-color: transparent !important;
 }
-
 .contentSearchSuggestionTable .contentSearchSuggestionRow.selected {
   background: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
 }
-
 .contentSearchSuggestionTable .contentSearchSuggestionRow.selected:active {
   background: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
 }
-
 .contentSearchSuggestionTable .contentSearchOneOffItem {
   border: none !important;
   border-radius: 6px !important;
   margin: 5px !important;
   width: 32px !important;
 }
-
-.search-button {
-  border-radius: 0 12px 12px 0 !important;
-  background-color: transparent !important;
-  transition: background .5s !important;
-}
-
-.search-button:hover {
-  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .2)) !important;
-  transition: background .5s !important;
-}
-
-
-.search-button:focus {
-  border: none !important;
-  box-shadow: none !important;
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .1)) !important;
-  transition: background .5s !important;
-}
-
 .icon-wrapper {
   width: 32px !important;
   height: 32px !important;
 }
-
-.customize-menu {
-  border-radius: 20px !important;
-}
-
-.tile, .context-menu-button.icon {
-  background-color: rgba(255, 255, 255, .8) !important;
-}
-
-.context-menu-button.icon:active {
-  background-color: rgba(255, 255, 255, .6) !important;
-}
-
 .context-menu-button {
   fill: #000 !important;
 }
-
 .lightWallpaper .top-site-outer .title {
   color: #000 !important;
 }
-
 .darkWallpaper .top-site-outer .title {
   color: #fff !important;
 }
-
 @media not (prefers-color-scheme: dark) {
 .darkWallpaper .context-menu {
   color-scheme: light !important;
 }
-
 :has(body[style*="18c7861f-0c9d-48d4-a98c-fb8999e331bd.avif"]) {
-.personalize-button:not(:hover, :active),
 .context-menu-button,
 .top-site-outer:not(:hover, :active, .active),
 .logo-and-wordmark .wordmark, .icon.icon-pin-small {
   color-scheme: light !important;
 }
-
 .top-site-outer .title {
   color: #000 !important;
 }
 }
 }
-
-.top-site-outer {
-  width: 95px !important;
-}
-
 .tile {
-  border-radius: 20px !important;
+  border-radius: 16px !important;
   width: 68px !important;
   height: 68px !important;
-  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
   border: none !important;
   transition: background .5s !important;
-  outline-width: 0 !important;
 }
-
-.tile:active {
-  background-color: light-dark(rgba(255, 255, 255, .6), rgba(15, 15, 15, .8)) !important;
-  transition: background .5s !important;
-}
-
 .top-site-outer, .top-site-button,
 .top-site-icon:not(.search-topsite) {
   background-color: transparent !important;
 }
-
 .context-menu-button {
-  inset-inline-end: -12px !important;
+  inset-inline-end: -17.5px !important;
   inset-block-start: -5px !important;
 }
-
-.add-button {
-  clip-path: circle(50%);
-}
-
 .top-site-outer .top-site-inner > a {
   padding: unset !important;
 }
-
-.edit-topsites .modal {
-  width: 100% !important;
-}
-
-.edit-topsites .topsite-form {
-  display: flex !important;
-  flex-direction: column !important;
-  padding: var(--space-xlarge) !important;
-  gap: var(--space-xlarge) !important;
-}
-
-.edit-topsites .topsite-form .form-input-container {
-  max-width: none !important;
-  padding: 0 !important;
-}
-
-.edit-topsites .topsite-form .form-wrapper input[type=text] {
-  width: 368px !important;
-  --border-radius-small: 8px !important;
-}
-
-.edit-topsites .topsite-form .top-site-outer {
-  margin-block-start: var(--space-large) !important;
-}
-
-.edit-topsites .topsite-form .topsite-form-footer {
-  padding: 0 !important;
-}
-
 .context-menu-button.icon {
   border-radius: 50px !important;
-  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
 }
-
-[data-l10n-id="newtab-custom-recent-toggle"],
-.contentSearchSuggestionTable .contentSearchHeader,
-.wallpaper-attribution, .logo-and-wordmark,
-.icon.icon-pin-small, .card-outer,
-.section-title-container,
-.widgets-section .category-header,
-#lists-widget-section, #timer-widget-section,
-#clocks-widget-section, #picture-widget-section,
-.customize-menu .close-button-wrapper {
+.ds-highlights, .icon.icon-pin-small, .customize-menu .close-button-wrapper, .wallpaper-attribution, .appearance-section {
   display: none !important;
 }
-
 .top-site-outer:hover .icon.icon-pin-small {
   display: inline-block !important;
-  inset-inline-start: 16px !important;
-  inset-block-start: 5px !important;
+  inset-inline-start: 6px !important;
+  inset-block-start: 10px !important;
 }
-
 .wallpaper-input:checked {
   outline-color: transparent !important;
 }
-
 .wallpaper-list .wallpaper-input:checked {
-  outline-color: AccentColor !important;
-@media -moz-pref("gwt.ac") {
-  outline-color: light-dark(var(--bg0), color-mix(in srgb, var(--bg0) 90%, #000)) !important;
+  outline-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
 }
-}
-
 .wallpaper-input:checked, .wallpaper-input.selected {
   box-shadow: none !important;
 }
-
 .edit-topsites-wrapper .top-site-inner > .top-site-button > .tile {
   background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
 }
-
+.fields-and-preview .top-site-outer .title .title-label {
+  color: light-dark(#000, #fff) !important;
+}
 .confirmation-dialog::backdrop,
 .modalOverlayOuter::backdrop,
 .modal-overlay, .modalOverlayOuter {
   background: none !important;
 }
-
 .modalOverlayOuter, .confirmation-dialog {
   border-radius: 20px !important;
   border: none !important;
-  animation-name: panel-grow;
-  animation-duration: 250ms;
+  animation: panel-grow 250ms ease-out;
   background-color: var(--bg4) !important;
 }
-
-.modal-overlay {
-  border-radius: 20px !important;
-}
-
-.modalOverlayOuter, .confirmation-dialog, .tile, .context-menu-button.icon, .search-inner-wrapper {
-  backdrop-filter: blur(10px) !important;
-}
-
 .modalOverlayOuter, .contentSearchSuggestionTable, .confirmation-dialog {
   box-shadow: var(--bs1) !important;
 }
-
 .customize-menu {
   background-color: var(--bg4) !important;
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: var(--bf2) !important;
   box-shadow: var(--bs1) !important;
   width: 418px !important;
-  height: fit-content !important;
-  min-height: unset !important;
+  height: 474px !important;
   padding-top: 20px !important;
+  min-height: unset !important;
+  border-radius: 20px !important;
   inset-block: auto 22px !important;
   inset-inline: auto 22px !important;
   transform: scale(0) !important;
   transform-origin: bottom right !important;
-&:is(.customize-animate-enter-active, .customize-animate-enter-done) {
+&:is(.customize-animate-enter, .customize-animate-enter-done) {
   transform: scale(1) !important;
 }
 }
-
-#settings-link, #wallpapers-toggle, #shortcuts-toggle, #weather-toggle, .category-header, .category-list, .manage-settings-footer, .divider {
-.customize-menu:has(.category.wallpaper-list, #themes-management-panel) & {
+.context-menu, .contentSearchSuggestionTable {
+  backdrop-filter: var(--bf2) !important;
+  background-color: var(--bg4) !important;
+}
+moz-visual-picker-item[value="default-theme@mozilla.org"] .theme-preview {
+  background-image: linear-gradient(96deg, #dce6f7 39.84%, #aec7ef 101.72%) !important;
+@media (prefers-color-scheme: dark) {
+  background-image: linear-gradient(96deg, #1f3745 39.84%, #0a2332 101.72%) !important;
+}
+}
+moz-box-button {
+  border: none !important;
+}
+.button {
+  border-radius: 12px !important;
+  background-color: var(--bg1) !important;
+&:hover {
+  background-color: var(--bg2) !important;
+}
+&:active {
+  background-color: var(--bg3) !important;
+}
+}
+.divider {
+  margin-inline: 2px !important;
+}
+.external-link {
+  font-size: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 32px !important;
+  fill: #fff !important;
+  background-position: center !important;
+  background-color: var(--button-background-color-primary) !important;
+&:hover {
+  background-color: var(--button-background-color-primary-hover) !important;
+}
+&:active {
+  background-color: var(--button-background-color-primary-active) !important;
+}
+}
+.manage-settings-footer {
+  padding: 10px !important;
+  inset-inline-start: 366px !important;
+}
+#wallpapers-toggle, #shortcuts-toggle, #weather-toggle, .category-header, .category-list, moz-box-button, .manage-settings-footer, .divider {
+.customize-menu:has(.category.wallpaper-list, #themes-management-panel .themes-mgmt-panel, .widgets-mgmt-panel, .sections-mgmt-panel) & {
   opacity: 0;
   transform: translateX(80px);
 }
@@ -1071,129 +899,26 @@ body {
   opacity: 0;
   transition: opacity 250ms ease, inset-inline-start 500ms ease !important;
 }
-
-.category-header {
-  display: flex !important;
-  flex-direction: row-reverse !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-> .wallpapers-reset {
-  font-size: 0 !important;
-  width: 32px !important; 
-  height: 16px !important;
-  background: light-dark(rgba(0, 0, 0, .08), rgba(255, 255, 255, .08)) !important;
-  border-radius: 12px !important;
-  position: relative !important;
-  outline: 1px solid light-dark(rgba(0, 0, 0, .6), rgba(255, 255, 255, .18)) !important;
-  outline-offset: -1px !important;
-  cursor: auto !important;
-  order: -1;
-&::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  background: light-dark(rgba(0, 0, 0, .6), rgba(255, 255, 255, .18));
-  border-radius: 50%;
+.widgets-mgmt-panel.widgets-mgmt-panel-enter, .sections-mgmt-panel.sections-mgmt-panel-enter {
+  animation: panel-grow 250ms ease;
 }
-:root:has(body[style*="background"]) & {
-  background: var(--color-accent-primary) !important;
+.widgets-mgmt-panel.widgets-mgmt-panel-exit, .sections-mgmt-panel.sections-mgmt-panel-exit {
+  opacity: 0;
+  transition: opacity 250ms ease, transform 500ms ease !important;
+}
+.weather-widget, .focus-timer, .clocks-widget, .crossword, .lists {
+&:is(:hover, :focus-within) {
   outline: none !important;
-&:hover { background: var(--color-accent-primary-hover) !important; }
-&:active { background: var(--color-accent-primary-active) !important; }
-&::before {
-  transform: translateX(16px);
-  background: white;
 }
 }
-}
-> [data-l10n-id="newtab-wallpaper-title"] {
-  order: -1;
-  margin-inline-start: 7.5px;
-}
-}
-
-.select-wrapper {
-  border-radius: 50px !important;
-}
-
-.context-menu, .contentSearchSuggestionTable, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .personalize-button {
-  backdrop-filter: blur(10px) !important;
-  background-color: var(--bg4) !important;
-}
-
-.wallpaper-list.category {
-  margin: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  inset-inline-start: 0 !important;
-  padding: 20px !important;
-  transition: none !important;
-  animation: .25s ease-in panel-grow;
-}
-
-.weatherNotAvailable, .weatherCard, .weatherInfoLink, .personalize-button {
-  border-radius: 25px !important;
-}
-
-.weatherCard {
-  box-shadow: none !important;
-  padding: 15px !important;
-}
-
-.weatherSponsorText {
-  display: none;
-}
-
-.weatherButtonContextMenuWrapper {
-  background: none !important;
-  box-shadow: none !important;
-  margin-left: 10px;
-  margin-top: 10px;
-&:not(:has(.context-menu)) {
-  visibility: collapse;
-.weatherCard:hover & {
-  visibility: visible;
-}
-}
-> .weatherButtonContextMenu {
-  min-height: 24px !important;
-  min-width: 24px !important;
-  max-height: 24px !important;
-  max-width: 24px !important;
-  border-radius: 50px !important;
-}
-&::after {
-  content: none !important;
-}
-> panel-list {
-  inset-block-start: 80px !important;
-}
-}
-
-.location-input-wrapper input {
-  border: none !important;
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
-}
-
-@media (prefers-color-scheme: dark) {
-.modalOverlayOuter, .confirmation-dialog, .contentSearchSuggestionTable, .customize-menu, .context-menu {
-  box-shadow: var(--bs2) !important;
-  outline: 1px solid rgba(235, 235, 235, .2) !important;
-  outline-offset: -1.5px !important;
-}
-}
-
-.search-inner-wrapper, .tile, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button {
+.search-handoff-button, .tile, .context-menu-button.icon, .weather-widget, .focus-timer, .clocks-widget, .crossword, .lists, :is(.ds-card-grid, .widgets-row-ad-cell) .sections-card-ui, .urlbar-background {
   background-color: var(--bg1) !important;
   box-shadow: none !important;
 &:hover { background-color: var(--bg2) !important; }
 &:active { background-color: var(--bg3) !important; }
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper") {
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
   background-color: var(--bg4) !important;
-  box-shadow: 0 2px 25px rgba(0, 0, 0, .05) !important;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, .1) !important;
 &:hover {
   background-color: var(--bg5) !important;
 }
@@ -1202,44 +927,103 @@ body {
 }
 }
 }
-
+.modalOverlayOuter, .confirmation-dialog, .tile, .context-menu-button.icon, .search-handoff-button, .weather-widget, .focus-timer, .clocks-widget, .crossword, .lists, :is(.ds-card-grid, .widgets-row-ad-cell) .sections-card-ui, .urlbar-background {
+  backdrop-filter: var(--bf2) !important;
+}
+.urlbar[in-page] {
+*:not(panel-list) {
+  border-radius: 12px !important;
+}
+.urlbar-background {
+  clip-path: none !important;
+  border: none !important;
+  inset: 0 !important;
+  border-radius: 50px !important;
+}
+.urlbar-input-container {
+  outline: none !important;
+}
+.urlbarView {
+  margin-top: 10px !important;
+  padding: 5px !important;
+  box-shadow: var(--bs1) !important;
+  background-color: var(--bg4) !important;
+  backdrop-filter: var(--bf2) !important;
+  border-radius: 20px !important;
 @media (prefers-color-scheme: dark) {
-.lightWallpaper {
-.search-inner-wrapper, .tile, .context-menu, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button, .customize-menu, .modalOverlayOuter, .confirmation-dialog, panel-list {
-  background-color: rgba(75, 75, 75, .55) !important;
-&:hover {
-  background-color: rgba(75, 75, 75, .6) !important;
-}
-&:active {
-  background-color: rgba(75, 75, 75, .5) !important;
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
 }
 }
-.fields-and-preview .top-site-outer .title .title-label {
+.urlbarView-row:is([selected], [menu-trigger], [row-selectable]:not([selected]):hover) {
+  color: #fff !important;
+  background-color: color-mix(in srgb, AccentColor 80%, transparent) !important;
+}
+.urlbar-go-button, .urlbarView-button-result-menu {
+  background-color: var(--bg1) !important;
+&:hover { background-color: var(--bg2) !important; }
+&:active { background-color: var(--bg3) !important; }
+}
+.urlbarView-button-result-menu {
+  fill: #fff !important;
+}
+.urlbarView-url, .urlbarView-bottom-label {
+.urlbarView-row:is([selected], [menu-trigger], [row-selectable]:not([selected]):hover) & {
   color: #fff !important;
 }
 }
-.context-menu-button, .icon.icon-pin-small {
+.urlbarView-background {
+  display: none !important;
+}
+.searchmode-switcher {
+  --button-background-color-muted: transparent !important;
+  --button-background-color-muted-hover: var(--bg1) !important;
+  --button-background-color-muted-active: var(--bg1) !important;
+  --button-background-color-muted-selected: var(--bg1) !important;
+  margin-inline-start: -25px !important;
+  clip-path: inset(0 0 0 25px round 50px);
+> .searchmode-switcher-content {
+&::before {
+  content: url("chrome://global/skin/icons/search-glass.svg");
+  -moz-context-properties: fill;
+  fill: light-dark(#000, #fff);
+  margin-block-start: 2px;
+}
+}
+}
+}
+@media (prefers-color-scheme: dark) {
+.modalOverlayOuter, .confirmation-dialog, .contentSearchSuggestionTable, .customize-menu, .context-menu, .confirmation-dialog {
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
+}
+.lightWallpaper .context-menu {
+  color-scheme: dark !important;
+}
+.lightWallpaper .search-handoff-button, .lightWallpaper .tile, .lightWallpaper .context-menu-button.icon {
+  background-color: rgba(75, 75, 75, .55) !important;
+}
+.lightWallpaper .search-handoff-button:hover, .lightWallpaper .tile:hover, .lightWallpaper .context-menu-button.icon:hover {
+  background-color: rgba(75, 75, 75, .65) !important;
+}
+.lightWallpaper .search-handoff-button:active, .lightWallpaper .tile:active, .lightWallpaper .context-menu-button.icon:active {
+  background-color: rgba(75, 75, 75, .45) !important;
+}
+.context-menu-button {
   fill: #fff !important;
 }
 }
-
 @media (prefers-color-scheme: light) {
-.darkWallpaper {
-.search-inner-wrapper, .tile, .context-menu, .context-menu-button.icon, .location-input-wrapper, .weatherInfoLink, .weatherNotAvailable, .weatherButtonContextMenu, .personalize-button, .customize-menu, .modalOverlayOuter, .confirmation-dialog, panel-list {
+.darkWallpaper .search-handoff-button, .darkWallpaper .tile, .darkWallpaper .context-menu-button.icon {
   background-color: rgba(255, 255, 255, .55) !important;
-&:hover {
-  background-color: rgba(255, 255, 255, .6) !important;
 }
-&:active {
-  background-color: rgba(255, 255, 255, .5) !important;
+.darkWallpaper .search-handoff-button:hover, .darkWallpaper .tile:hover, .darkWallpaper .context-menu-button.icon:hover {
+  background-color: rgba(255, 255, 255, .65) !important;
 }
-}
-.fields-and-preview .top-site-outer .title .title-label {
-  color: #000 !important;
-}
-}
-.context-menu-button, .icon.icon-pin-small {
-  fill: #000 !important;
+.darkWallpaper .search-handoff-button:active, .darkWallpaper .tile:active, .darkWallpaper .context-menu-button.icon:active {
+  background-color: rgba(255, 255, 255, .45) !important;
 }
 }
 }

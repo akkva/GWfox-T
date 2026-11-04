@@ -16,8 +16,8 @@
 | :--- | :--- |
 | `toolkit.legacyUserProfileCustomizations.stylesheets` | `true` |
 | `svg.context-properties.content.enabled` | `true` |
-| `browser.nova.enabled` |`false` |
-| `browser.newtabpage.activity-stream.nova.enabled` |`false` |
+| `browser.nova.enabled` |`true` |
+| `browser.newtabpage.activity-stream.nova.enabled` |`true` |
 
 3. Restart Firefox.
 
@@ -32,7 +32,6 @@ Create these **Boolean** preferences in `about:config` to customize:
 | `gwt.toolbar` | Auto-hide bookmarks toolbar. |
 | `gwt.toolbox` | Auto-hide navigator toolbox in "Expand sidebar on hover" mode. |
 | `gwt.atbc` | Enable compatibility with the Adaptive Tab Bar Colour extension. |
-| `gwt.ac` | Enable manual accent color *(Edit `--bg0` in CSS to customize)*. |
 
 ---
 
