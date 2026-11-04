@@ -2318,6 +2318,10 @@ toolbarbutton.subviewbutton:not(#appMenu-zoomEnlarge-button2, #appMenu-zoomReduc
 }
 }
 
+.downloadProgress {
+  background-color: var(--bg2) !important;
+}
+
 .downloadProgress::-moz-progress-bar {
   background-color: color-mix(in srgb, var(--bg1) 80%, #fff) !important;
 }
