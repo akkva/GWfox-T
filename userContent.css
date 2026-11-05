@@ -7,18 +7,18 @@
  
 @media (-moz-mac-tahoe-theme) {
 :root {
-  --bg1: light-dark(rgba(70, 70, 70, .08), rgba(170, 170, 170, .08));
-  --bg2: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .15));
-  --bg3: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .2));
+  --bg1: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .15));
+  --bg2: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2));
+  --bg3: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3));
   --bg4: light-dark(rgba(255, 255, 255, .55), rgba(75, 75, 75, .55));
   --bg5: light-dark(rgba(255, 255, 255, .65), rgba(75, 75, 75, .65));
   --bg6: light-dark(rgba(255, 255, 255, .45), rgba(75, 75, 75, .45));
   --bs1: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .34), 0 0 0 .5px rgba(0, 0, 0, .12);
   --bs2: 0 5px 15px rgba(0, 0, 0, .25), inset 0 0 0 .5px rgba(0, 0, 0, .78), 0 0 0 .5px rgba(0, 0, 0, .2);
   --bf2: blur(10px);
-  --in-content-box-border-color: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
-  --border-color-interactive: var(--in-content-box-border-color) !important;
+  --border-color-interactive: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --newtab-background-color-secondary: transparent !important;
+  --background-color-overlay: transparent !important;
   --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   --in-content-focus-outline-color: var(--focus-outline-color) !important;
   --color-accent-primary: AccentColor !important;
@@ -51,6 +51,7 @@
 @media not -moz-pref("gwt.atbc") {
   --in-content-page-background: light-dark(#fff, #1e1f1f) !important;
   --newtab-background-color: light-dark(#fff, #1e1f1f) !important;
+  --background-color-box: light-dark(#fff, #2e2e2e) !important;
 }
 }
 
@@ -69,6 +70,23 @@ button {
 
 .select-wrapper, .button-background, sidebar-tab-row {
   border-radius: 50px !important;
+}
+
+.button-background:not([type="primary"], [type="icon ghost"], [type="destructive"], [type="ghost"]) {
+  background-color: var(--bg1) !important;
+button:hover > & {
+  background-color: var(--bg2) !important;
+}
+button:hover:active:not(:disabled) > &,
+button:is([aria-expanded="true"], [aria-pressed="true"], [aria-selected="true"]):not(:hover, :disabled) > & {
+  background-color: var(--bg3) !important;
+}
+}
+
+menulist {
+  background-color: var(--bg1) !important;
+&:hover { background-color: var(--bg2) !important; }
+&:is(:active, [open]) { background-color: var(--bg3) !important; }
 }
 
 .toggle-button {
@@ -113,6 +131,15 @@ panel-list {
 panel-item {
   --panel-item-button-margin: 0 !important;
   --panel-item-button-padding: 5px !important;
+}
+
+@keyframes panel-grow {
+0% {
+  transform: scale(.92);
+}
+100% {
+  transform: scale(1);
+}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -454,7 +481,7 @@ th {
  border: none !important;
 }
 td {
-  border: .5px solid var(--in-content-box-border-color) !important;
+  border: .5px solid light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
 }
 table {
   border-radius: 0 !important;
@@ -521,8 +548,23 @@ moz-message-bar {
   --box-border: none !important;
   --box-group-border: none !important;
   --promo-background-color: var(--bg1) !important;
+  --border-color-interactive: transparent !important;
 @media not -moz-pref("gwt.atbc") {
   --background-color-canvas: light-dark(#fff, #1e1f1f) !important;
+}
+}
+dialog, .dialogBox {
+  border-radius: 20px !important;
+  border: none !important;
+  animation: panel-grow 250ms ease-out;
+  box-shadow: var(--bs1) !important;
+@media not -moz-pref("gwt.atbc") {
+  background-color: light-dark(#fff, #2e2e2e) !important;
+}
+@media (prefers-color-scheme: dark) {
+  box-shadow: var(--bs2) !important;
+  outline: 1px solid rgba(235, 235, 235, .2) !important;
+  outline-offset: -1.5px !important;
 }
 }
 #setting-control-noFxaSignIn,
@@ -665,14 +707,6 @@ button {
   background-image: url("resource://builtin-themes/alpenglow/background-noodles-left.svg") !important;
 @media (prefers-color-scheme: dark) {
   background-image: url("resource://builtin-themes/alpenglow/background-noodles-left-dark.svg") !important;
-}
-}
-@keyframes panel-grow {
-0% {
-  transform: scale(.92);
-}
-100% {
-  transform: scale(1);
 }
 }
 .open-customization-button, .add-button {
