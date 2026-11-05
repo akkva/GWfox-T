@@ -86,7 +86,6 @@
   --panel-menuitem-padding-block: 8px !important;
   --panel-separator-padding-inline: 8px !important;
   --urlbar-background-overhang-open: 8px !important;
-  --sidebar-launcher-button-padding-inline: 7px !important;
 @media not -moz-pref("gwt.atbc") {
   --toolbar-background-color: light-dark(#fff, #1e1f1f) !important;
   --toolbox-background-color: light-dark(#fff, #1e1f1f) !important;
@@ -3203,6 +3202,10 @@ sidebar-tab-row {
 &:-moz-window-inactive {
   opacity: .5 !important;
 }
+}
+
+@media not -moz-pref("sidebar.verticalTabs") {
+:root { --sidebar-launcher-button-padding-inline: 7px !important; }
 }
 
 @media -moz-pref("sidebar.verticalTabs") {
