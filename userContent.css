@@ -19,6 +19,7 @@
   --border-color-interactive: light-dark(rgba(0, 0, 0, .2), rgba(225, 225, 225, .2)) !important;
   --newtab-background-color-secondary: transparent !important;
   --background-color-overlay: transparent !important;
+  --background-color-box: transparent !important;
   --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   --in-content-focus-outline-color: var(--focus-outline-color) !important;
   --color-accent-primary: AccentColor !important;
@@ -51,8 +52,12 @@
 @media not -moz-pref("gwt.atbc") {
   --in-content-page-background: light-dark(#fff, #1e1f1f) !important;
   --newtab-background-color: light-dark(#fff, #1e1f1f) !important;
-  --background-color-box: light-dark(#fff, #2e2e2e) !important;
+  --background-color-canvas: light-dark(#fff, #1e1f1f) !important;
 }
+}
+
+:root[dialogroot] {
+  --background-color-canvas: transparent !important;
 }
 
 nav {
@@ -72,7 +77,7 @@ button {
   border-radius: 50px !important;
 }
 
-.button-background:not([type="primary"], [type="icon ghost"], [type="destructive"], [type="ghost"]) {
+.button-background.labelled:not([type="primary"], [type="destructive"]), .button-background:not([type="primary"], [type="icon ghost"], [type="destructive"], [type="ghost"]) {
   background-color: var(--bg1) !important;
 button:hover > & {
   background-color: var(--bg2) !important;
@@ -87,6 +92,11 @@ menulist {
   background-color: var(--bg1) !important;
 &:hover { background-color: var(--bg2) !important; }
 &:is(:active, [open]) { background-color: var(--bg3) !important; }
+}
+
+menupopup {
+  appearance: menupopup !important;
+  --panel-border-color: transparent !important;
 }
 
 .toggle-button {
@@ -153,11 +163,6 @@ panel-item {
   --color-gray-90: #1e1f1f !important;
 }
 }
-:root[dialogroot] {
-@media not -moz-pref("gwt.atbc") {
-  --background-color-canvas: #1e1f1f !important;
-}
-}
 .home-section .section .sponsored-checkbox:checked:hover {
   background-color: #436ee3 !important;
 }
@@ -176,7 +181,6 @@ body { background-color: #1e1f1f !important; } }
 @media not -moz-pref("gwt.atbc") {
   --fxview-background-color: #1e1f1f !important;
   --in-content-page-background: #1e1f1f !important;
-  --background-color-canvas: #1e1f1f !important;
   --input-text-background-color: #282828 !important;
 }
 }
@@ -549,18 +553,14 @@ moz-visual-picker-item { --border-color-interactive: transparent !important; }
   --box-border: none !important;
   --box-group-border: none !important;
   --promo-background-color: var(--bg1) !important;
-@media not -moz-pref("gwt.atbc") {
-  --background-color-canvas: light-dark(#fff, #1e1f1f) !important;
 }
-}
-dialog, .dialogBox {
+#migrationWizardDialog, .dialogBox {
   border-radius: 20px !important;
   border: none !important;
   animation: panel-grow 250ms ease-out;
   box-shadow: var(--bs1) !important;
-@media not -moz-pref("gwt.atbc") {
-  background-color: light-dark(#fff, #2e2e2e) !important;
-}
+  background-color: var(--bg4) !important;
+  backdrop-filter: var(--bf2) !important;
 @media (prefers-color-scheme: dark) {
   box-shadow: var(--bs2) !important;
   outline: 1px solid rgba(235, 235, 235, .2) !important;
