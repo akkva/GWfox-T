@@ -1260,6 +1260,10 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 
 #urlbar-zoom-button {
   background: var(--bg2-hover) !important;
+  font-size: 0.9em !important;
+  padding: 5px 7px !important;
+  color: light-dark(#000, #fff) !important;
+  order: -1;
 }
 
 #urlbar-search-mode-indicator {
