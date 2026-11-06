@@ -65,10 +65,6 @@ nav {
   --page-nav-button-border-radius-focused: 12px !important;
 }
 
-moz-segmented-control {
-  border-radius: 12px !important;
-}
-
 button {
   --panel-item-button-border-radius: 8px !important;
 }
@@ -77,7 +73,7 @@ button {
   border-radius: 50px !important;
 }
 
-.button-background.labelled:not([type="primary"], [type="destructive"]), .button-background:not([type="primary"], [type="icon ghost"], [type="destructive"], [type="ghost"]) {
+.button-background:not([type="primary"], [type="icon ghost"], [type="destructive"], [type="ghost"]) {
   background-color: var(--bg1) !important;
 button:hover > & {
   background-color: var(--bg2) !important;
