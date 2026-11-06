@@ -706,6 +706,9 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   min-width: 36px !important;
 > .toolbarbutton-icon {
   margin-inline-start: 0;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 10px !important;
 }
 #nav-bar-customization-target > &:nth-child(1 of :not([hidden])) {
 > .toolbarbutton-icon {
@@ -752,14 +755,15 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 0 !important;
   width: 36px !important;
   height: 36px !important;
-}
-#nav-bar #alltabs-button {
-  margin: 8px 8px 0 8px !important;
+> .toolbarbutton-icon,
 > .toolbarbutton-badge-stack {
   width: 36px !important;
   height: 36px !important;
-  padding: 10px 0 0 10px !important;
+  padding: 10px !important;
 }
+}
+#nav-bar #alltabs-button {
+  margin: 8px 8px 0 8px !important;
 }
 }
 }
