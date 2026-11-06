@@ -48,7 +48,7 @@
   --sidebar-background-color: transparent !important;
   --sidebar-border-color: transparent !important;
   --sidebar-box-border: transparent !important;
-  --sidebar-box-background: light-dark(rgba(102, 105, 108, .1), rgba(165, 165, 165, .1)) !important;
+  --sidebar-box-background: transparent !important;
   --urlbarView-action-button-background-color: var(--bg2) !important;
   --urlbarView-hover-background: var(--bg1) !important;
   --urlbarView-highlight-background: var(--bg1) !important;
@@ -112,7 +112,7 @@
   translate: none !important;
 }
 #vertical-tabs {
-  padding-block-start: 0 !important;
+  translate: none !important;
 }
 }
 
@@ -3181,12 +3181,21 @@ sidebar-tab-row {
 #sidebar {
   box-shadow: none !important;
   background-color: var(--bg2) !important;
+  border-radius: 0 0 12px 12px !important;
+@media -moz-pref("sidebar.visibility", "expand-on-hover") {
+  margin-block-start: 0 !important;
+}
+:root:has([panel-has-custom-header]) & {
   border-radius: 12px !important;
+}
 }
 
 #sidebar-container {
   -moz-window-dragging: drag;
   background-image: none !important;
+@media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+  view-transition-name: none !important;
+}
 @media (min-width: 610px) and (max-width: 866px) {
 @media not -moz-pref("gwt.sidebar") {
   visibility: collapse;
@@ -3199,9 +3208,34 @@ sidebar-tab-row {
 }
 }
 
+#sidebar-panel-header {
+  background-color: var(--toolbar-background-color) !important;
+  padding-inline: 0 !important;
+@media -moz-pref("sidebar.verticalTabs") {
+  padding-inline: 10px !important;
+}
+}
+
+.sidebar-panel-heading {
+  background-color: var(--bg2) !important;
+  border-radius: 12px 12px 0 0 !important;
+  margin-block: -11px !important;
+  padding-block: 10px !important;
+> h4 {
+  padding-inline-start: 15px !important;
+}
+}
+
+[data-l10n-id="sidebar-panel-header-close-button"] {
+  padding-inline-end: 13px !important;
+}
+
 #sidebar-box {
   border: none !important;
   margin-block-end: 5px !important;
+@media (min-width: 610px) and (max-width: 866px) and (not -moz-pref("sidebar.verticalTabs")) {
+  margin-inline-start: 8px !important;
+}
 }
 
 .actions-list,
