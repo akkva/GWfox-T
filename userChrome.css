@@ -3299,7 +3299,6 @@ sidebar-tab-row {
   width: 5px !important;
   height: 5px !important;
   margin-inline: auto !important;
-  margin-block-start: 15px !important;
   border-top: none !important;
   border-color: transparent !important;
   border-radius: 5px !important;
@@ -3412,6 +3411,7 @@ tab-group > .tabbrowser-tab,
 #vertical-tabs-newtab-button {
   font-size: 13px !important;
   border-radius: 8px !important;
+  margin-block: 0 !important;
 @media -moz-pref("gwt.sidebar") {
   border-radius: 999px !important;
 }
