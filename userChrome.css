@@ -282,6 +282,11 @@ split-view-footer {
 }
 :root:has(#sidebar-box:not([hidden])) & {
   border-start-start-radius: 12px !important;
+@media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+:root:has(#tabbrowser-tabs:not([expanded])) & {
+  border-start-start-radius: 0 !important;
+}
+}  
 }
 @media not -moz-pref("sidebar.verticalTabs") {
 :root:has(#sidebar-container:not([hidden])) & {
@@ -3531,6 +3536,23 @@ tab-group > .tabbrowser-tab,
 }
 @media -moz-pref("gwt.sidebar") {
   background-color: var(--toolbar-background-color) !important;
+}
+}
+#sidebar-box {
+@media not -moz-pref("gwt.sidebar") {
+  visibility: collapse;
+  view-transition-name: none !important;
+@media -moz-pref("sidebar.visibility", "expand-on-hover") {
+  visibility: visible;
+}
+}
+}
+.sidebar-splitter {
+@media not -moz-pref("gwt.sidebar") {
+  display: none;
+@media -moz-pref("sidebar.visibility", "expand-on-hover") {
+  display: block;
+}
 }
 }
 #sidebar-button {
