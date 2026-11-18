@@ -451,6 +451,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 }
 
+:root:not([mini-window]) {
 @media -moz-pref("gwt.oneliner") {
 @media not -moz-pref("sidebar.verticalTabs") {
 #trust-label, #identity-icon-label, .titlebar-spacer, #nav-bar:not([customizing]) toolbarspring {
@@ -529,6 +530,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   z-index: 9 !important;
 &:-moz-window-inactive {
   opacity: 1 !important;
+}
 }
 }
 }
