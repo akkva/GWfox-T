@@ -102,13 +102,10 @@ menupopup {
   --toggle-dot-background-color-on-pressed: #fff !important;
 }
 
-#screenshots-cancel-button, #download, #cancel, #copy {
-  outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
-}
-
-#cancel, #copy, #download {
+.screenshots-button:not(#screenshots-cancel-button) {
   border: none !important;
   color: #fff !important;
+  outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   background-color: light-dark(AccentColor, color-mix(in srgb, AccentColor 90%, #000)) !important;
 &:hover { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #fff), color-mix(in srgb, AccentColor 90%, #fff)) !important; }
 &:active { background-color: light-dark(color-mix(in srgb, AccentColor 90%, #000), color-mix(in srgb, AccentColor 90%, #000)) !important; }
