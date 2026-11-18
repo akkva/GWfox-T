@@ -480,10 +480,13 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 &:-moz-window-inactive {
   fill-opacity: .48;
 }
-.urlbar-page-action, .identity-box-button, #notification-popup-box,
-#identity-permission-box, #trust-icon-container, #identity-box, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
+.identity-box-button, #notification-popup-box, #identity-permission-box, #trust-icon-container, #identity-box {
   fill-opacity: 0 !important;
   transition: fill-opacity .25s .5s !important;
+}
+.urlbar-page-action, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
+  opacity: 0 !important;
+  transition: opacity .25s .5s !important;
 }
 }
 &:has(#urlbar:is(:hover, [focused], [open]), .urlbar-page-action[open], .identity-box-button[open], #notification-popup-box[open], #trust-icon-container[open]) {
@@ -494,7 +497,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   transition: fill .25s 0s !important;
 .urlbar-page-action, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
   opacity: 1 !important;
-  transition: fill-opacity .25s 0s !important;
+  transition: opacity .25s 0s !important;
 }
 .identity-box-button, #notification-popup-box, #identity-permission-box, #trust-icon-container, #identity-box {
   fill-opacity: .55 !important;
