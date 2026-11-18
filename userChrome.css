@@ -1178,7 +1178,7 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   background: transparent !important;
   fill-opacity: .55 !important;
 @media (prefers-color-scheme: dark) {
-  opacity: .75 !important;
+  fill-opacity: .75 !important;
 }
 &:is(:hover, [open]) {
   fill-opacity: 1 !important;
