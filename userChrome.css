@@ -1162,12 +1162,12 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 .identity-box-button, #notification-popup-box, #identity-permission-box, #trust-icon-container, #identity-box {
   scale: .85;
   background: transparent !important;
-  opacity: .55 !important;
+  fill-opacity: .55 !important;
 @media (prefers-color-scheme: dark) {
   opacity: .75 !important;
 }
 &:is(:hover, [open]) {
-  opacity: 1 !important;
+  fill-opacity: 1 !important;
 }
 }
 .urlbar-page-action {
