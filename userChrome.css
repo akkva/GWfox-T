@@ -489,7 +489,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   fill-opacity: 0 !important;
   transition: fill-opacity .25s .5s !important;
 }
-.urlbar-page-action, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
+.urlbar-page-action, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher, #identity-icon {
   opacity: 0 !important;
   transition: opacity .25s .5s !important;
 }
@@ -500,7 +500,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 #urlbar {
   fill: transparent;
   transition: fill .25s 0s !important;
-.urlbar-page-action, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher {
+.urlbar-page-action, .urlbar-go-button, #urlbar-revert-button-container, .searchmode-switcher, #identity-icon {
   opacity: 1 !important;
   transition: opacity .25s 0s !important;
 }
