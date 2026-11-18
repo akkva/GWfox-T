@@ -102,6 +102,10 @@ menupopup {
   --toggle-dot-background-color-on-pressed: #fff !important;
 }
 
+#screenshots-cancel-button, #face-container {
+  outline: none !important;
+}
+
 .screenshots-button:not(#screenshots-cancel-button) {
   border: none !important;
   color: #fff !important;
