@@ -45,6 +45,7 @@
   --in-content-box-background: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
   --background-color-box: light-dark(rgba(155, 155, 155, .2), rgba(195, 195, 195, .2)) !important;
   --in-content-box-border-color: transparent !important;
+  --chrome-content-separator-color: transparent !important;
   --sidebar-background-color: transparent !important;
   --sidebar-border-color: transparent !important;
   --sidebar-box-border: transparent !important;
@@ -283,7 +284,7 @@ split-view-footer {
 :root:has(#sidebar-box:not([hidden])) & {
   border-start-start-radius: 12px !important;
 @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
-:root:has(#tabbrowser-tabs:not([expanded])) & {
+:root:has(#tabbrowser-tabs[orient="vertical"]:not([expanded])) & {
   border-start-start-radius: 0 !important;
 }
 }  
@@ -557,6 +558,10 @@ button {
 button, menulist {
   --button-background-color: var(--bg2) !important;
   border: none !important;
+}
+
+.button-background[type="primary"] img {
+  fill: #fff !important;
 }
 
 .button-background:not([type="primary"]) {
@@ -2422,6 +2427,9 @@ toolbarseparator[orient="vertical"] {
   border-radius: 20px !important;
 #window-modal-dialog > .dialogOverlay > &:not(.spotlightBox) {
   margin-top: 80px !important;
+}
+:not(.content-prompt-dialog) > .dialogOverlay > &:not(.spotlightBox) {
+  margin-top: 15px !important;
 }
 }
 
