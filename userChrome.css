@@ -3210,6 +3210,10 @@ sidebar-tab-row {
 /* Sidebar */
 
 @media -moz-pref("sidebar.revamp") {
+sidebar-main {
+  position: relative;
+}
+
 #sidebar {
   box-shadow: none !important;
   background-color: var(--bg2) !important;
