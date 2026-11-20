@@ -36,4 +36,4 @@ Create these **Boolean** preferences in `about:config` to customize:
 ---
 
 > [!NOTE]
-> The sidebar is hidden by default when collapsed. Add `gwt.sidebar` as a boolean in `about:config` to keep it visible.
+> The sidebar is hidden by default when collapsed. In "Expand sidebar on hover" mode, the sidebar can still be expanded by hovering over the left edge. To keep the sidebar visible when collapsed, add `gwt.sidebar` as a boolean in `about:config`.
