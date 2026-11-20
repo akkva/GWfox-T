@@ -543,6 +543,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 #blocked-permissions-container, #picture-in-picture-button,
 .private-browsing-indicator-with-label, .sharing-icon,
 #reset-pbm-toolbar-button, #wrapper-firefox-view-button,
+#mini-window-button, #wrapper-mini-window-button,
 #firefox-view-button, #vertical-spacer,
 #userContext-icons, #userContext-label,
 .popup-notification-closebutton, #wrapper-fxa-toolbar-menu-button {
@@ -2442,6 +2443,20 @@ window[role="dialog"] {
   background-color: var(--bg4) !important;
 }
 
+dialog[inbrowserwindow]:not([inClearOnShutdown]) {
+#sanitizeDialogClose {
+  display: none !important;
+}
+#titleText {
+  grid-column: 1 !important;
+  text-align: left !important;
+}
+}
+
+#sanitizeDurationChoice {
+  outline: none !important;
+}
+
 #bookmarkpropertiesdialog .expander-up,
 #bookmarkpropertiesdialog .expander-down {
   margin-top: 2px !important;
@@ -2804,6 +2819,7 @@ panel#feature-callout,
 screenshots-buttons {
   --screenshots-icon-background-color: AccentColor !important;
   top: 10px !important;
+  padding: 10px 5px !important;
   border-radius: 20px !important;
   background-color: light-dark(rgba(255, 255, 255, .55), rgba(35, 35, 35, .55)) !important;
   backdrop-filter: blur(10px);
@@ -2820,6 +2836,22 @@ screenshots-preview {
 
 #preview-image-container {
   padding: 0 !important;
+}
+
+.mini-window-chooser {
+  padding-inline: 5px !important;
+}
+
+#full-page, #visible-page {
+  fill: light-dark(#000, #fff) !important;
+  color: light-dark(#000, #fff) !important;
+  background-size: 26px 26px !important;
+  background-position: center top 5px !important;
+  padding: 36px 5px 5px !important;
+  background-color: var(--bg2) !important;
+  margin-inline: 5px !important;
+&:hover { background-color: var(--bg2-hover) !important; }
+&:active { background-color: var(--bg2-active) !important; }
 }
 
 .browserContainer > findbar {
