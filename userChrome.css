@@ -2197,6 +2197,7 @@ menupopup, panel[type="arrow"] {
   --panel-menuitem-border-radius: 10px !important;
   --panel-background-color: transparent !important;
   --panel-text-color: light-dark(#000, #fff) !important;
+  --panel-border-radius: 12px !important;
   appearance: menupopup !important;
 }
 
