@@ -546,7 +546,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 #mini-window-button, #wrapper-mini-window-button,
 #firefox-view-button, #vertical-spacer,
 #userContext-icons, #userContext-label,
-.popup-notification-closebutton, #wrapper-fxa-toolbar-menu-button {
+.private-browsing-indicator-button,
+.popup-notification-closebutton,
+#wrapper-fxa-toolbar-menu-button {
   display: none !important;
 }
 
@@ -2277,8 +2279,20 @@ panel-list {
   border: none !important;
 }
 
-#appMenu-nova-switch-device-promo {
+#appMenu-nova-switch-device-promo, .import-history-promo {
   --promo-background-color: var(--bg2) !important;
+}
+
+.pinned-tabs-promo {
+  --promo-background-color: var(--bg2) !important;
+  --promo-border-color: var(--bg2-active) !important;
+  --promo-heading-text-color: light-dark(#000, #fff) !important;
+img {
+  fill: light-dark(#000, #fff) !important;
+}
+.icon-foxy {
+  display: none !important;
+}
 }
 
 .message, .fxa-menu-sign-in-promo-heading {
@@ -3170,6 +3184,12 @@ sidebar-tab-row {
   list-style-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='context-fill' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 5,5 h 14 c 1.33,0 1.29,1.96 -0.04,1.96 H 5 C 3.67,6.96 3.67,5 5,5 m 14,6 H 5 c -1.33,0 -1.33,2 0,2 h 14 c 1.33,0 1.33,-2 0,-2 m 0,8 H 5 C 3.67,19 3.67,17 5,17 H 19 C 20.33,17 20.33,19 19,19'/%3E%3C/svg%3E") !important;
 :root:has(#unified-extensions-button[hidden]) & {
   list-style-image: url("chrome://global/skin/icons/more.svg") !important;
+}
+:root[privatebrowsingmode] & {
+  list-style-image: url("chrome://browser/skin/privatebrowsing/pbm-logo.svg") !important;
+& .toolbarbutton-icon {
+  fill: #7338e2;
+}
 }
 }
 
