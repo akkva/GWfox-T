@@ -540,15 +540,13 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 /* button */
 
 .toggle-button { --toggle-dot-background-color-on-pressed: #fff !important; }
+.private-browsing-indicator-with-label, .private-browsing-indicator-button,
+.popup-notification-closebutton, #wrapper-fxa-toolbar-menu-button,
 #blocked-permissions-container, #picture-in-picture-button,
-.private-browsing-indicator-with-label, .sharing-icon,
-#reset-pbm-toolbar-button, #wrapper-firefox-view-button,
 #mini-window-button, #wrapper-mini-window-button,
+#wrapper-firefox-view-button, .sharing-icon,
 #firefox-view-button, #vertical-spacer,
-#userContext-icons, #userContext-label,
-.private-browsing-indicator-button,
-.popup-notification-closebutton,
-#wrapper-fxa-toolbar-menu-button {
+#userContext-icons, #userContext-label {
   display: none !important;
 }
 
