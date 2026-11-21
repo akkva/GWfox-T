@@ -2192,7 +2192,7 @@ tab-group:not([collapsed]) > &::after {
 
 /* popup */
 
-menupopup, panel[type="arrow"] {
+menupopup, panel:is([type="arrow"], [type="autocomplete-richlistbox"]) {
   --panel-border-color: transparent !important;
   --panel-menuitem-border-radius: 10px !important;
   --panel-background-color: transparent !important;
