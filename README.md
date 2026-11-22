@@ -28,10 +28,10 @@ Create these Boolean preferences in `about:config` to modify the UI:
 
 | Preference | Description |
 | :--- | :--- |
-| `gwt.oneliner` | Enable compact layout. |
-| `gwt.toolbar` | Auto-hide the bookmarks toolbar. |
-| `gwt.toolbox` | Auto-hide the navigator toolbox in "Expand sidebar on hover" mode. |
-| `gwt.atbc` | Enable compatibility with the Adaptive Tab Bar Colour extension. |
+| `gwt.oneliner` | Enable compact layout |
+| `gwt.toolbar` | Auto-hide the bookmarks toolbar |
+| `gwt.toolbox` | Auto-hide the navigator toolbox in "Expand sidebar on hover" mode |
+| `gwt.atbc` | Enable compatibility with the Adaptive Tab Bar Colour extension |
 
 ---
 
