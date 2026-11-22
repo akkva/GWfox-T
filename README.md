@@ -10,30 +10,30 @@
 ## Installation
 
 1. Move the theme files into your profile's `chrome` folder.
-2. Configure `about:config` with these preferences:
+2. Set the following preferences in `about:config`:
 
-| Preference Name | Value |
+| Preference | Value |
 | :--- | :--- |
 | `toolkit.legacyUserProfileCustomizations.stylesheets` | `true` |
 | `svg.context-properties.content.enabled` | `true` |
-| `browser.nova.enabled` |`true` |
-| `browser.newtabpage.activity-stream.nova.enabled` |`true` |
+| `browser.nova.enabled` | `true` |
+| `browser.newtabpage.activity-stream.nova.enabled` | `true` |
 
 3. Restart Firefox.
 
 
 ## Customization
 
-Create these **Boolean** preferences in `about:config` to customize:
+Create these Boolean preferences in `about:config` to modify the UI:
 
-| Preference Name | Description |
+| Preference | Description |
 | :--- | :--- |
-| `gwt.oneliner` | Enable Compact layout. |
-| `gwt.toolbar` | Auto-hide bookmarks toolbar. |
-| `gwt.toolbox` | Auto-hide navigator toolbox in "Expand sidebar on hover" mode. |
+| `gwt.oneliner` | Enable compact layout. |
+| `gwt.toolbar` | Auto-hide the bookmarks toolbar. |
+| `gwt.toolbox` | Auto-hide the navigator toolbox in "Expand sidebar on hover" mode. |
 | `gwt.atbc` | Enable compatibility with the Adaptive Tab Bar Colour extension. |
 
 ---
 
 > [!NOTE]
-> The sidebar is hidden by default when collapsed. In "Expand sidebar on hover" mode, the sidebar can still be expanded by hovering over the left edge. To keep the sidebar visible when collapsed, add `gwt.sidebar` as a boolean in `about:config`.
+> The sidebar is hidden by default when collapsed. In "Expand sidebar on hover" mode, the sidebar can still be expanded by hovering over its left edge. To keep the sidebar visible when collapsed, add `gwt.sidebar` as a Boolean preference in `about:config`.
