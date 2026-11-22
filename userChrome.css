@@ -355,7 +355,8 @@ split-view-footer {
   justify-content: center;
 }
 toolbarbutton.bookmark-item:not(.subviewbutton) {
-  margin-inline: 4px !important;
+  margin-inline: 2px !important;
+  padding-inline: 6px !important;
 }
 }
 
