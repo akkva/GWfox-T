@@ -1102,6 +1102,11 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   color: light-dark(color-mix(in srgb, var(--bg1) 20%, #fff), color-mix(in srgb, var(--bg1) 40%, #fff)) !important;
 }
 }
+.urlbarView-type-icon {
+.urlbarView-row:is([selected], [menu-trigger], [row-selectable]:not([selected]):hover) & {
+  fill: light-dark(color-mix(in srgb, var(--bg1) 20%, #fff), color-mix(in srgb, var(--bg1) 40%, #fff)) !important;
+}
+}
 .urlbarView-action, .urlbarView-switchToTab-accessory {
 .urlbarView-row:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) & {
   border: none !important;
@@ -3033,6 +3038,14 @@ toolbarbutton {
 &:focus {
   outline-color: rgba(255, 0, 0, .5) !important;
 }
+&::-moz-selection {
+  background-color: rgba(255, 0, 0, .5);
+}
+}
+&:-moz-window-inactive {
+&[status=notfound]::-moz-selection {
+  background-color: rgba(255, 0, 0, .1);
+}    
 }
 }
 }
