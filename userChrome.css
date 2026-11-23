@@ -769,6 +769,9 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   width: 36px !important;
   height: 36px !important;
   padding: 10px !important;
+@media (min-width: 610px) and (max-width: 866px) {
+  margin-inline-start: -1px !important;
+}
 }
 }
 }
