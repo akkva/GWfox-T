@@ -75,6 +75,10 @@ button {
   --panel-item-button-border-radius: 8px !important;
 }
 
+moz-message-bar {
+  display: none !important;
+}
+
 .select-wrapper, .button-background, sidebar-tab-row {
   border-radius: 50px !important;
 }
