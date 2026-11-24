@@ -41,6 +41,7 @@
   --newtab-primary-action-background: var(--color-accent-primary) !important;
   --button-text-color-primary: #fff !important;
   --border-color: rgba(105, 105, 105, .2) !important;
+  --separator-color: rgba(105, 105, 105, .2) !important;
   --button-background-color-hover: var(--bg1) !important;
   --button-background-color-active: var(--bg2) !important;
   --button-border-color: transparent !important;
@@ -48,6 +49,7 @@
   --border-radius-medium: 12px !important;
   --text-color: light-dark(#000, #fff) !important;
   --color-gray-05: #fff !important;
+  --toolbarbutton-icon-fill: light-dark(#000, #fff) !important;
 @media not -moz-pref("gwt.atbc") {
   --in-content-page-background: light-dark(#fff, #1e1f1f) !important;
   --newtab-background-color: light-dark(#fff, #1e1f1f) !important;
@@ -205,6 +207,12 @@ panel-list {
 }
 
 @-moz-document regexp(".*\\.pdf") {
+#viewerContainer {
+  inset: 0 !important;
+.pdfViewer {
+  margin-top: 32px !important;
+}
+}
 .popupMenu {
   background: var(--bg4) !important;
   backdrop-filter: var(--bf2) !important;
@@ -350,10 +358,6 @@ panel-list {
 .pdfViewer, #outerContainer {
   background-color: light-dark(#ccc, #1e1f1f) !important;
 }
-#viewsManager, #toolbarContainer {
-  background-color: light-dark(#fff, #282828) !important;
-  border: none !important;
-}
 #editorCommentsSidebar, #secondaryToolbar, .doorHangerRight, dialog, .commentPopup {
   background-color: var(--bg4) !important;
 }
@@ -369,6 +373,28 @@ dialog::backdrop {
 }
 #secondaryToolbar, #editorCommentsSidebar, #editorSignatureParamsToolbar, #editorHighlightParamsToolbar, #editorFreeTextParamsToolbar, #editorInkParamsToolbar, #editorStampParamsToolbar, dialog, .commentPopup {
   backdrop-filter: var(--bf2) !important;
+}
+#toolbarContainer {
+  background-color: light-dark(#fff, #1e1f1f) !important;
+  border-bottom: 1px solid light-dark(rgba(0, 0, 0, .1), rgba(255, 255, 255, .1)) !important;
+  box-shadow: none !important;
+}
+#outerContainer {
+&.viewsManagerOpen {
+& #viewsManager {
+  height: calc(100vh - 55px) !important;
+  background-color: var(--bg4) !important;
+  backdrop-filter: var(--bf2) !important;
+}
+}
+}
+.secondaryButton {
+  --button-secondary-bg-color: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .25)) !important;
+  --button-secondary-hover-bg-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .3)) !important;
+  --button-secondary-active-bg-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .2)) !important;
+}
+.commentPopup, .divider {
+  --divider-color: var(--border-color) !important;
 }
 }
 
