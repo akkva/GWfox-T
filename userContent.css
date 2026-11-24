@@ -253,10 +253,10 @@ panel-list {
   background-color: transparent !important;
 &:not([disabled]) {
 &:hover {
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .2)) !important;
 }
 &[open], &:hover:active {
-  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(255, 255, 255, .3)) !important;
 }
 }
 &.labeled {
@@ -267,21 +267,21 @@ panel-list {
   border: none !important;
   background-color: transparent !important;
 &:hover {
-  background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .1)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .05), rgba(255, 255, 255, .1)) !important;
 }
 > select {
-  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(255, 255, 255, .3)) !important;
 }
 }
 .toolbarField {
   border: none !important;
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .2)) !important;
 }
 #editorCommentsSidebar {
 & #editorCommentsSidebarListContainer {
 & #editorCommentsSidebarList {
 & .sidebarComment {
-  background-color: light-dark(rgba(70, 70, 70, .05), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .05), rgba(255, 255, 255, .2)) !important;
   border-color: transparent !important;
 }
 }
@@ -289,10 +289,10 @@ panel-list {
 & #editorCommentsSidebarHeader {
 & #editorCommentsSidebarCloseButton {
 &:hover {
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .2)) !important;
 }
 &:active {
-  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(255, 255, 255, .3)) !important;
 }
 }
 }
@@ -300,7 +300,7 @@ panel-list {
 .dialog {
 & .mainContainer {
 & textarea, & #addSignatureDescInput, & #addSignatureTypeContainer, & #addSignatureDrawContainer, & #addSignatureImageContainer {
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .2)) !important;
   border-color: transparent !important;      
 }
 }
@@ -310,9 +310,9 @@ panel-list {
 & [role="tablist"] {
 & > [role="tab"] {
   border: none !important;
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .2)) !important;
 &:hover {
-  background-color: light-dark(rgba(70, 70, 70, .2), rgba(170, 170, 170, .3)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .2), rgba(255, 255, 255, .3)) !important;
 }
 }
 }
@@ -324,11 +324,11 @@ panel-list {
 & > :not(.divider) {
 &:hover {
   border-radius: 50px !important;
-  background-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .2)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .2)) !important;
   outline: none !important;
 }
 &:active {
-  background-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .3)) !important;
+  background-color: light-dark(rgba(70, 70, 70, .15), rgba(255, 255, 255, .3)) !important;
 }
 }
 }
@@ -365,7 +365,7 @@ dialog, .doorHangerRight, #viewsManager, #editorCommentsSidebar {
   box-shadow: 0 5px 15px rgba(0, 0, 0, .2), inset 0 0 0 .5px rgba(0, 0, 0, .28), 0 0 0 .5px rgba(0, 0, 0, .05) !important;
   border: none !important;
 @media (prefers-color-scheme: dark) {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .15), 0 0 0 1px rgba(0, 0, 0, .8) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .15), 0 0 0 1px rgba(0, 0, 0, .5) !important;
 }
 }
 dialog::backdrop {
@@ -395,9 +395,9 @@ dialog::backdrop {
 }
 }
 .secondaryButton {
-  --button-secondary-bg-color: light-dark(rgba(70, 70, 70, .12), rgba(170, 170, 170, .25)) !important;
-  --button-secondary-hover-bg-color: light-dark(rgba(70, 70, 70, .1), rgba(170, 170, 170, .3)) !important;
-  --button-secondary-active-bg-color: light-dark(rgba(70, 70, 70, .15), rgba(170, 170, 170, .2)) !important;
+  --button-secondary-bg-color: light-dark(rgba(70, 70, 70, .12), rgba(255, 255, 255, .25)) !important;
+  --button-secondary-hover-bg-color: light-dark(rgba(70, 70, 70, .1), rgba(255, 255, 255, .3)) !important;
+  --button-secondary-active-bg-color: light-dark(rgba(70, 70, 70, .15), rgba(255, 255, 255, .2)) !important;
 }
 .commentPopup, .divider {
   --divider-color: var(--border-color) !important;
@@ -416,6 +416,10 @@ dialog::backdrop {
 }
 }
 }
+}
+#addSignatureTypeInput::placeholder {
+  color: light-dark(#555, #fff) !important;
+  opacity: 0.4;
 }
 input[type="checkbox"]:not(.reveal-password-checkbox) {
   appearance: none !important;
