@@ -582,6 +582,10 @@ button:is([aria-expanded="true"], [aria-pressed="true"], [aria-selected="true"])
 }
 }
 
+.fxview-tab-row-button.dismiss-button, .fxview-tab-row-button.delete-button {
+  --button-icon-fill: #fff !important;
+}
+
 #fxa-toolbar-menu-button {
   max-width: 0 !important;
   max-height: 0 !important;
