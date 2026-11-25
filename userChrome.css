@@ -1311,6 +1311,27 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
   padding: 0 8px !important;
 }
 
+.urlbarView-action-btn {
+  color: light-dark(#3e3f40, #c4c4c5) !important;
+  font-weight: unset !important;
+&:hover {
+  color: light-dark(color-mix(in srgb, var(--bg1) 20%, #fff), color-mix(in srgb, var(--bg1) 40%, #fff)) !important;
+  background-color: var(--urlbarView-hover-background) !important;
+img {
+  fill: light-dark(color-mix(in srgb, var(--bg1) 20%, #fff), color-mix(in srgb, var(--bg1) 40%, #fff)) !important;
+}
+}
+&[data-action^="tabgroup-"] {
+  color: light-dark(#3e3f40, #c4c4c5) !important;
+  background-color: var(--bg2) !important;
+&:hover {
+  opacity: 1 !important;
+  color: light-dark(color-mix(in srgb, var(--bg1) 20%, #fff), color-mix(in srgb, var(--bg1) 40%, #fff)) !important;
+  background-color: var(--urlbarView-hover-background) !important;
+}
+}
+}
+
 #urlbar-zoom-button {
   background: var(--bg2-hover) !important;
   font-size: 0.9em !important;
