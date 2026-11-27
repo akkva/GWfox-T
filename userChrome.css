@@ -2018,18 +2018,6 @@ input:checked + & {
 }
 }
 
-.tab-group-label-container {
-&[dragtarget] {
-  position: unset !important;
-}
-#tabbrowser-tabs[orient="vertical"] & {
-tab-group:not([collapsed]) > &,
-tab-group[collapsed][hasactivetab] > & {
-  padding-block-end: 0 !important;
-}
-}
-}
-
 .tab-group-label-hover-highlight {
 tab-group[collapsed] & {
 #tabbrowser-tabs[orient="vertical"][expanded] & {
