@@ -1714,7 +1714,7 @@ tab-split-view-wrapper & {
 }
 }
 }
-tab-group[collapsed] tab-split-view-wrapper:not([hasactivetab]) {
+tab-group[collapsed] tab-split-view-wrapper:not([hasactivetab]), tab-group[collapsed]:not([hasactivetab]) .tabbrowser-tab {
   opacity: 0;
 }
 }
