@@ -23,6 +23,7 @@
   --focus-outline-color: light-dark(color-mix(in srgb, AccentColor 55%, transparent), color-mix(in srgb, AccentColor 45%, #555)) !important;
   --button-background-color-hover: var(--bg2-hover) !important;
   --button-background-color-active: var(--bg2-active) !important;
+  --button-background-color-primary-disabled: var(--focus-outline-color) !important;
   --button-border: transparent !important;
   --in-content-primary-button-text-color: #fff !important;
   --button-text-color-primary: #fff !important;
@@ -375,13 +376,11 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   transition: transform 105ms linear 500ms !important;
   z-index: 11;
 }
-#navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, .tabbrowser-tab:hover, tab-group:hover)) > #PersonalToolbar {
+#navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, #tabbrowser-arrowscrollbox:hover)) > #PersonalToolbar {
   transform: rotateX(0deg);
 }
-:root:has(#PersonalToolbar .bookmark-item[open], #PersonalToolbar #PlacesChevron:is(:hover, [open])) {
-#PersonalToolbar {
+:root:has(#PersonalToolbar .bookmark-item[open], #PersonalToolbar #PlacesChevron:is(:hover, [open])) #PersonalToolbar {
   transform: rotateX(0deg);
-}
 }
 toolbarbutton.bookmark-item:not(.subviewbutton) {
   margin-block: 8px !important;
@@ -1553,21 +1552,6 @@ tab-group {
   margin: 2px 2px 0 !important;
   border-radius: 50px !important;
   background: color-mix(in srgb, var(--tab-group-color) 20%, transparent) !important;
-&[collapsed] {
-.tabbrowser-tab[selected]:not(tab-split-view-wrapper *) {
-#tabbrowser-tabs[overflow] & {
-  min-width: 124px !important;
-}
-}
-tab-split-view-wrapper[hasactivetab] {
-#tabbrowser-tabs[overflow] & {
-  min-width: 219px !important;
-}
-}
-.tabbrowser-tab:not([selected]) {
-  visibility: collapse;
-}
-}
 .tabbrowser-tab:not([selected], :hover) + tab-split-view-wrapper:not([hasactivetab], :hover) .tabbrowser-tab:first-child {
   background-image: linear-gradient(to bottom, rgba(155, 155, 155, .3) 0%, rgba(155, 155, 155, .3) 100%);
   background-size: 1px 40%;
@@ -1729,10 +1713,7 @@ tab-split-view-wrapper & {
 }
 }
 tab-group[collapsed] tab-split-view-wrapper:not([hasactivetab]) {
-  display: none !important;
-}
-tab-group tab-split-view-wrapper {
-  max-width: 225px !important;
+  opacity: 0;
 }
 }
 &[orient="vertical"] {
@@ -1807,9 +1788,18 @@ tab-group > .tabbrowser-tab {
 [collapsed] & {
 &:not([selected], [busy]) {
   display: block !important;
-  padding-block: 0 !important;
   max-height: 0;
-  transition: all .25s !important;
+}
+}
+}
+tab-group > tab-split-view-wrapper:not([hasactivetab]) {
+  max-height: 42px;
+  transition: max-height .25s !important;
+[collapsed] & {
+  display: block !important;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 }
 }
@@ -1818,7 +1808,6 @@ tab-split-view-wrapper {
 #tabbrowser-tabs:not([expanded]) & {
   max-width: 32px !important;
   margin-inline-start: 8px !important;
-}
 }
 }
 }
@@ -2181,7 +2170,6 @@ tab-group & {
 }
 }
 @media -moz-pref("gwt.oneliner") {
-  min-width: 219px !important;
   height: 36px !important;
   margin-top: 4px !important;
 .tabbrowser-tab {
@@ -2297,6 +2285,9 @@ tab-group[collapsed] &, tab-group:has(.tabbrowser-tab:first-of-type:is(:hover, [
 tab-group:not([collapsed]) > &::after {
   background-color: transparent !important;
 }
+}
+tab-group[collapsed][label="​"] {
+  width: 36px !important;
 }
 }
 
