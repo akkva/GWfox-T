@@ -3692,6 +3692,9 @@ tab-group > .tabbrowser-tab,
   opacity: 0 !important;
   visibility: hidden !important;
   transition: visibility 0s 0.825s, opacity 0.2s ease 0.825s !important;
+:root[sidebar-expand-on-hover] & {
+  transition: none !important;
+}
 }
 #tabbrowser-tabs[movingtab] & {
   opacity: 1 !important;
