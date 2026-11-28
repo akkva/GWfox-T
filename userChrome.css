@@ -378,7 +378,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   transition: transform 105ms linear 500ms !important;
   z-index: 11;
 }
-#navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, #tabbrowser-arrowscrollbox:hover)) > #PersonalToolbar {
+#navigator-toolbox:hover:not(:has(.toolbarbutton-1:hover, #urlbar:hover, #tabbrowser-arrowscrollbox:hover, #pinned-tabs-container:hover)) > #PersonalToolbar {
   transform: rotateX(0deg);
 }
 :root:has(#PersonalToolbar .bookmark-item[open], #PersonalToolbar #PlacesChevron:is(:hover, [open])) #PersonalToolbar {
