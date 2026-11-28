@@ -1763,6 +1763,9 @@ tab-split-view-wrapper {
 .tab-group-label {
   margin-inline-start: -8.5px !important;
 }
+.tab-group-overflow-count {
+  margin-inline-start: 4px !important;
+}
 @media -moz-pref("gwt.sidebar") {
   max-width: 32px !important;
   margin-inline-start: 9px !important;
