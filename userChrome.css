@@ -210,8 +210,10 @@ panel, .urlbarView {
 }
 }
 @media -moz-pref("gwt.sidebar") {
-:root:has(#tabbrowser-tabs[orient="vertical"]:not([expanded])) &[column="0"] {
+&[column="0"] {
+:root:has(#tabbrowser-tabs[orient="vertical"]) &.split-view-panel.split-view-panel-active {
   margin-left: 0 !important;
+}
 }
 }
 :root:has(#sidebar-box:not([hidden])) &[column="0"] {
@@ -1786,8 +1788,8 @@ tab-split-view-wrapper {
 &:not([movingtab]) tab-group {
 > .tabbrowser-tab {
   max-height: 42px;
-  transition: max-height .25s !important;
-[collapsed] & {
+  transition: max-height .25s;
+tab-group[collapsed] & {
 &:not([selected], [busy]) {
   display: block !important;
   max-height: 0;
@@ -1796,9 +1798,9 @@ tab-split-view-wrapper {
 }
 > tab-split-view-wrapper:not([hasactivetab]) {
   max-height: 42px;
-  transition: max-height .25s !important;
-[collapsed] & {
-  display: block !important;
+  transition: max-height .25s;
+tab-group[collapsed] & {
+  display: flex !important;
   max-height: 0;
   opacity: 0;
   pointer-events: none;
