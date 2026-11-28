@@ -1808,14 +1808,6 @@ tab-group[collapsed] & {
 }
 }
 }
-@media -moz-pref("gwt.sidebar") {
-tab-split-view-wrapper {
-#tabbrowser-tabs:not([expanded]) & {
-  max-width: 32px !important;
-  margin-inline-start: 8px !important;
-}
-}
-}
 }
 
 .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background {
