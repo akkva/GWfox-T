@@ -1767,7 +1767,7 @@ tab-split-view-wrapper {
   max-width: 32px !important;
   margin-inline-start: 9px !important;
 .tabbrowser-tab {
-  margin-inline-start: -8px !important;
+  margin-inline-start: -9px !important;
 }
 .tab-group-label {
   margin-inline-start: -1.5px !important;
@@ -3484,6 +3484,7 @@ sidebar-main {
   height: 5px !important;
   margin-inline: auto !important;
   border-top-color: transparent !important;
+  background: transparent !important;
   border-radius: 5px !important;
 #vertical-tabs:hover & {
   background-color: var(--panel-separator-color) !important;
@@ -3495,6 +3496,10 @@ sidebar-main {
   width: calc(100% - 25px) !important;
   opacity: 1;
   transition: .25s !important;
+#tabbrowser-tabs:not([expanded]) & {
+  margin-inline-start: 13px !important;
+  width: 24px !important;
+}
 }
 }
 }
